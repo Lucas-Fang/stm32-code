@@ -10,13 +10,10 @@ int main(void)
     SystemClock_Config();                    /* 设置时钟, 72Mhz */
     delay_init(72);                          /* 延时初始化 */
     led_init();                              /* LED初始化 */
-    bitm_timx_int_init(5000-1,7200-1);       /* （预分频系数，自动重装载值）*/
+    bitm_timx_int_init(7200-1,5000-1);       /* （预分频系数，自动重装载值）*/
     
     while(1)
     { 
-        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);    /* PC13置1 */  
-        delay_ms(500);
-        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);  /* PC13置0 */
-        delay_ms(500); 
+
     }
 }
