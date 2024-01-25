@@ -5,7 +5,7 @@
 void led_init (void)
 {
 
-    GPIO_InitTypeDef gpio_init_struct;
+    GPIO_InitTypeDef gpio_init_struct={0};
     
     __HAL_RCC_GPIOC_CLK_ENABLE();
     
