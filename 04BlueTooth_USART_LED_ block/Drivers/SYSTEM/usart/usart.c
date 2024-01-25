@@ -23,7 +23,7 @@ void usart_init(uint32_t baudrate)
     g_uart1_handle.Init.Mode = UART_MODE_TX_RX;                               /* 收发模式 */
     HAL_UART_Init(&g_uart1_handle);                                           /* 串口初始化函数   形参为1 所以使能UART1串口 */
 
-    HAL_UART_Receive_IT(&g_uart1_handle, (uint8_t *)g_rx_buffer, 1); 
+    HAL_UART_Receive_IT(&g_uart1_handle, g_rx_buffer, 1); 
     /* 该函数会开启接收中断：标志位UART_IT_RXNE，并且设置接收缓冲以及接收缓冲接收最大数据量 */
 }
 
@@ -66,6 +66,8 @@ void USART1_IRQHandler (void)
 //串口数据接收完成回调函数
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
+    if (huart->Instance == USART1)
+    {
       switch(g_rx_buffer[0])
       {
         case 1:
@@ -79,6 +81,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         default:
         break;
        }
+   }
 }
 
 
