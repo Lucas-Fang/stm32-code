@@ -70,11 +70,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     {
       switch(g_rx_buffer[0])
       {
-        case 1:
+        case '1':
         HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);         //liang
         break;
         
-        case 0:
+        case '0':
         HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);        //bu liang 
         break;
         
