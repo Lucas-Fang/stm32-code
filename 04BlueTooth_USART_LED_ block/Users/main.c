@@ -14,7 +14,7 @@ int main(void)
 
     while(1)
     {
-
+        HAL_UART_Transmit(&g_uart1_handle,g_rx_buffer,1,10);
     }
 }
 
