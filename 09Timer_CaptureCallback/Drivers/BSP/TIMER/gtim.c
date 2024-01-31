@@ -9,10 +9,11 @@ void gtim_timx_pwm_chy_init(uint16_t arr,uint16_t psc)
 {
     TIM_IC_InitTypeDef timx_ic_cap_chy = {0};
     
-    g_timx_cap_chy_handle.Instance =TIM2;                                       /*寄存器基地址*/
+    g_timx_cap_chy_handle.Instance =TIM3;                                       /*寄存器基地址*/
     g_timx_cap_chy_handle.Init.Prescaler =psc;                                  /*预分频系数*/
     g_timx_cap_chy_handle.Init.Period = arr;                                    /*自动重装载值*/
     g_timx_cap_chy_handle.Init.CounterMode=TIM_COUNTERMODE_UP;                  /*递增计数模式*/
+    g_timx_cap_chy_handle.Init.ClockDivision=TIM_CLOCKDIVISION_DIV1;
     HAL_TIM_IC_Init(&g_timx_cap_chy_handle);
     
     timx_ic_cap_chy.ICPolarity =TIM_ICPOLARITY_RISING;                          /*上升沿捕获*/
@@ -29,21 +30,21 @@ void gtim_timx_pwm_chy_init(uint16_t arr,uint16_t psc)
 /*定时器输入捕获 MSP初始化函数*/
 void HAL_TIM_IC_MspInit(TIM_HandleTypeDef *htim)
 {
-  if(htim ->Instance == TIM2)
+  if(htim ->Instance == TIM3)
   {
     GPIO_InitTypeDef gpio_init_struct = {0};
     
-    __HAL_RCC_TIM2_CLK_ENABLE();
-    __HAL_RCC_GPIOB_CLK_ENABLE();
+    __HAL_RCC_TIM3_CLK_ENABLE();
+    __HAL_RCC_GPIOA_CLK_ENABLE();
     
-    gpio_init_struct.Pin=GPIO_PIN_5;
+    gpio_init_struct.Pin=GPIO_PIN_6;
     gpio_init_struct.Mode=GPIO_MODE_AF_PP;                                      /*推挽输出（也可以读取输入信号）*/
     gpio_init_struct.Pull=GPIO_PULLUP;
-    gpio_init_struct.Speed=GPIO_SPEED_FREQ_HIGH;
-    HAL_GPIO_Init(GPIOB, &gpio_init_struct);
+    gpio_init_struct.Speed=GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOA, &gpio_init_struct);
 
-    HAL_NVIC_SetPriority(TIM2_IRQn,0,1);                                       /*配置中断优先级*/
-    HAL_NVIC_EnableIRQ(TIM2_IRQn);                                             /*开启ITMX中断*/
+    HAL_NVIC_SetPriority(TIM3_IRQn,0,0);                                       /*配置中断优先级*/
+    HAL_NVIC_EnableIRQ(TIM3_IRQn);                                             /*开启ITMX中断*/
    }
 }
 
@@ -57,16 +58,16 @@ void HAL_TIM_IC_MspInit(TIM_HandleTypeDef *htim)
 uint8_t g_timxchp_cap_sta = 0;                                                  /* 输入捕获状态 */
 uint16_t g_timxchy_cap_val = 0;                                                 /* 输入捕获值 */
 
-/*定时器2中断服务函数*/
-void TIM5_IRQHandler (void)
+/*定时器3中断服务函数*/
+void TIM3_IRQHandler (void)
 {
     HAL_TIM_IRQHandler(&g_timx_cap_chy_handle);
 }
 
 /*定时输入捕获中断处理回调函数*/
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
-{
-    if (htim->Instance == TIM2)
+{ 
+    if (htim->Instance == TIM3)
     {
         if ((g_timxchp_cap_sta & 0X80) == 0)                                    /*代表寄存器的位【7】 代表还没成功捕获*/
         {
@@ -96,7 +97,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 /*定时器更新中断回调函数*/
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-    if (htim ->Instance ==TIM2)
+    if (htim ->Instance ==TIM3)
     {
         if ((g_timxchp_cap_sta & 0X80) == 0)                                    /*还未成功捕获高电平脉冲*/
         {

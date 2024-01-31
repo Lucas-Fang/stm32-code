@@ -20,15 +20,15 @@ int main(void)
     delay_init(72);                                     /* 延时初始化 */
     led_init();                                         /* LED初始化 */
     gtim_timx_pwm_chy_init(0XFFFF,72-1);                /*以1Mhz的频率计数 进行捕获*/
-    usart_init(9600);
+    //usart_init(9600);
     
     
     while(1)
     { 
-        HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_SET);
+        HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
         delay_us(10);
-        HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_RESET);
-        delay_ms(10);
+        HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_RESET);
+        //delay_ms(10);
 
         if (g_timxchp_cap_sta & 0X80)
         {
@@ -41,7 +41,7 @@ int main(void)
              distance =  temp * (34000/1000000) / 2;
         }
         
-       HAL_UART_Transmit(&g_uart1_handle, (uint8_t *)distance,2,100);
+       //HAL_UART_Transmit(&g_uart1_handle, (uint8_t *)&distance,2,100);
 
         delay_ms(200);
 

@@ -1,2 +1,3 @@
-*Experiment Name: Timed Input Capture
-*Purpose of the experiment: to measure the distance with the timed input capture mode
+*Experiment Name: Timer Control Servo
+
+*Experimental purpose: To use a timer to control the rotation of the servo motor
