@@ -2,7 +2,7 @@
 
 uint8_t rx_buffer[1];
 
-
+extern "C"
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	if (huart ->Instance == USART1)
