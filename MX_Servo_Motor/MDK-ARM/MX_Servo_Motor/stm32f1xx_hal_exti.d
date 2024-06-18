@@ -8,9 +8,9 @@ mx_servo_motor/stm32f1xx_hal_exti.o: \
   ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xb.h \
   ..\Drivers\CMSIS\Include\core_cm3.h \
   G:\Keil_v5\ARM\ARMCLANG\include\stdint.h \
-  E:\AA_study_resource\Cube_MX\MX_Servo_Motor\Drivers\CMSIS\Include\cmsis_version.h \
-  E:\AA_study_resource\Cube_MX\MX_Servo_Motor\Drivers\CMSIS\Include\cmsis_compiler.h \
-  E:\AA_study_resource\Cube_MX\MX_Servo_Motor\Drivers\CMSIS\Include\cmsis_armclang.h \
+  E:\AA_study_resource\STM32_myself\MX_Servo_Motor\Drivers\CMSIS\Include\cmsis_version.h \
+  E:\AA_study_resource\STM32_myself\MX_Servo_Motor\Drivers\CMSIS\Include\cmsis_compiler.h \
+  E:\AA_study_resource\STM32_myself\MX_Servo_Motor\Drivers\CMSIS\Include\cmsis_armclang.h \
   G:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h \
   G:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h \
   ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h \
