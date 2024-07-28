@@ -1,0 +1,27 @@
+--cpu Cortex-M3
+"bt_pack_test\startup_stm32f103xb.o"
+"bt_pack_test\main.o"
+"bt_pack_test\gpio.o"
+"bt_pack_test\usart.o"
+"bt_pack_test\stm32f1xx_it.o"
+"bt_pack_test\stm32f1xx_hal_msp.o"
+"bt_pack_test\stm32f1xx_hal_gpio_ex.o"
+"bt_pack_test\stm32f1xx_hal_tim.o"
+"bt_pack_test\stm32f1xx_hal_tim_ex.o"
+"bt_pack_test\stm32f1xx_hal_uart.o"
+"bt_pack_test\stm32f1xx_hal.o"
+"bt_pack_test\stm32f1xx_hal_rcc.o"
+"bt_pack_test\stm32f1xx_hal_rcc_ex.o"
+"bt_pack_test\stm32f1xx_hal_gpio.o"
+"bt_pack_test\stm32f1xx_hal_dma.o"
+"bt_pack_test\stm32f1xx_hal_cortex.o"
+"bt_pack_test\stm32f1xx_hal_pwr.o"
+"bt_pack_test\stm32f1xx_hal_flash.o"
+"bt_pack_test\stm32f1xx_hal_flash_ex.o"
+"bt_pack_test\stm32f1xx_hal_exti.o"
+"bt_pack_test\system_stm32f1xx.o"
+"bt_pack_test\bsp_usart.o"
+--strict --scatter "BT_pack_test\BT_pack_test.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "BT_pack_test.map" -o BT_pack_test\BT_pack_test.axf

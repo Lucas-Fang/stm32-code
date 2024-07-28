@@ -1809,31 +1809,31 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       130          8          0          0          0       1736   bsp_can.o
-        20          4          0          8          0       1464   bsp_delay.o
-       388         42          0          4         80       2714   can.o
-       372         22          0          2        452       5030   can_receive.o
-        76          6          0          0          0        963   gpio.o
-       192         12          0          0          0     694692   main.o
-        92          4          0          0          0       1072   pid.o
-       412         50          0         88       2520       2265   pid_user.o
-        72         22          0          0          0     627845   startup_main.o
-        64         26        392          0       1536        888   startup_stm32f407xx.o
-       144         24          0         12          0       9089   stm32f4xx_hal.o
-      1658          6          0          0          0      15231   stm32f4xx_hal_can.o
-       222         14          0          0          0      34773   stm32f4xx_hal_cortex.o
-       496         46          0          0          0       1628   stm32f4xx_hal_gpio.o
-        48          6          0          0          0        946   stm32f4xx_hal_msp.o
-      1284         52          0          0          0       4230   stm32f4xx_hal_rcc.o
-       746         74          0          0          0       7385   stm32f4xx_hal_tim.o
-       148         28          0          0          0       2673   stm32f4xx_hal_tim_ex.o
-        56         18          0          0          0       6132   stm32f4xx_it.o
-        16          4         16          4          0       1267   system_stm32f4xx.o
-       128         18          0          0         72       1786   tim.o
-        40         10          0          0          0       1040   timer_user.o
+       130          8          0          0          0       1772   bsp_can.o
+        20          4          0          8          0       1500   bsp_delay.o
+       388         42          0          4         80       2778   can.o
+       372         22          0          2        452       5134   can_receive.o
+        76          6          0          0          0        987   gpio.o
+       192         12          0          0          0     694872   main.o
+        92          4          0          0          0       1096   pid.o
+       412         50          0         88       2520       2305   pid_user.o
+        72         22          0          0          0     627993   startup_main.o
+        64         26        392          0       1536        904   startup_stm32f407xx.o
+       144         24          0         12          0       9185   stm32f4xx_hal.o
+      1658          6          0          0          0      15491   stm32f4xx_hal_can.o
+       222         14          0          0          0      34857   stm32f4xx_hal_cortex.o
+       496         46          0          0          0       1652   stm32f4xx_hal_gpio.o
+        48          6          0          0          0        974   stm32f4xx_hal_msp.o
+      1284         52          0          0          0       4282   stm32f4xx_hal_rcc.o
+       746         74          0          0          0       7501   stm32f4xx_hal_tim.o
+       148         28          0          0          0       2721   stm32f4xx_hal_tim_ex.o
+        56         18          0          0          0       6276   stm32f4xx_it.o
+        16          4         16          4          0       1307   system_stm32f4xx.o
+       128         18          0          0         72       1842   tim.o
+        40         10          0          0          0       1064   timer_user.o
 
     ----------------------------------------------------------------------
-      6822        496        442        120       4660    1424849   Object Totals
+      6822        496        442        120       4660    1426493   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         18          0          2          2          0          0   (incl. Padding)
 
@@ -1886,8 +1886,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7430        512        442        120       4760    1418469   Grand Totals
-      7430        512        442        120       4760    1418469   ELF Image Totals
+      7430        512        442        120       4760    1420113   Grand Totals
+      7430        512        442        120       4760    1420113   ELF Image Totals
       7430        512        442        120          0          0   ROM Totals
 
 ==============================================================================
