@@ -180,12 +180,17 @@
         <Ww>
           <count>0</count>
           <WinNumber>2</WinNumber>
-          <ItemText>a,0x10</ItemText>
+          <ItemText>b,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>2</WinNumber>
-          <ItemText>b,0x0A</ItemText>
+          <ItemText>Buff</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>Buff</ItemText>
         </Ww>
       </WatchWindow2>
       <Tracepoint>

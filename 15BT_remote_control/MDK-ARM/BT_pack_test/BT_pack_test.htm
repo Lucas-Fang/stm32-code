@@ -3,7 +3,7 @@
 <title>Static Call Graph - [BT_pack_test\BT_pack_test.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image BT_pack_test\BT_pack_test.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Jul 24 18:05:20 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Aug 09 10:08:24 2024
 <BR><P>
 <H3>Maximum Stack Usage =        136 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -555,7 +555,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[59]"></a>HAL_UART_IRQHandler</STRONG> (Thumb, 616 bytes, Stack size 24 bytes, stm32f1xx_hal_uart.o(i.HAL_UART_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = HAL_UART_IRQHandler &rArr; UART_Receive_IT &rArr; HAL_UART_RxCpltCallback &rArr; Receive_data &rArr; SUMCRC
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = HAL_UART_IRQHandler &rArr; UART_Receive_IT &rArr; HAL_UART_RxCpltCallback &rArr; Receive_data &rArr; SUMCRC
 </UL>
 <BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_TxCpltCallback
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
@@ -594,8 +594,8 @@ Global Symbols
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[68]"></a>HAL_UART_RxCpltCallback</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, bsp_usart.o(i.HAL_UART_RxCpltCallback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_UART_RxCpltCallback &rArr; Receive_data &rArr; SUMCRC
+<P><STRONG><a name="[68]"></a>HAL_UART_RxCpltCallback</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, bsp_usart.o(i.HAL_UART_RxCpltCallback))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = HAL_UART_RxCpltCallback &rArr; Receive_data &rArr; SUMCRC
 </UL>
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Receive_data
 </UL>
@@ -657,8 +657,7 @@ Global Symbols
 <P><STRONG><a name="[6c]"></a>SUMCRC</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, bsp_usart.o(i.SUMCRC))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SUMCRC
 </UL>
-<BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Receive_data
+<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Receive_data
 </UL>
 
 <P><STRONG><a name="[9]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.SVC_Handler))
@@ -687,7 +686,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[32]"></a>USART1_IRQHandler</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, stm32f1xx_it.o(i.USART1_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = USART1_IRQHandler &rArr; HAL_UART_IRQHandler &rArr; UART_Receive_IT &rArr; HAL_UART_RxCpltCallback &rArr; Receive_data &rArr; SUMCRC
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = USART1_IRQHandler &rArr; HAL_UART_IRQHandler &rArr; UART_Receive_IT &rArr; HAL_UART_RxCpltCallback &rArr; Receive_data &rArr; SUMCRC
 </UL>
 <BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
@@ -701,11 +700,10 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[45]"></a>main</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[45]"></a>main</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SUMCRC
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
+<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
@@ -732,7 +730,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[5a]"></a>UART_Receive_IT</STRONG> (Thumb, 194 bytes, Stack size 8 bytes, stm32f1xx_hal_uart.o(i.UART_Receive_IT))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = UART_Receive_IT &rArr; HAL_UART_RxCpltCallback &rArr; Receive_data &rArr; SUMCRC
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = UART_Receive_IT &rArr; HAL_UART_RxCpltCallback &rArr; Receive_data &rArr; SUMCRC
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
