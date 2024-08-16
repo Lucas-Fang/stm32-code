@@ -11,7 +11,7 @@
 typedef struct 
 {
 
-	uint8_t ch[4];      //通道（0 1左手遥感X Y , 2 3右手遥感X Y）
+	int16_t ch[4];      //通道（0 1左手遥感X Y , 2 3右手遥感X Y）
 	
 	
 	

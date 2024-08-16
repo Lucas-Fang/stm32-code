@@ -67,7 +67,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  static uint8_t data[6]={2,12,24,36,55,99};
+//  static uint8_t data[6]={2,12,24,36,55,99};
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/

@@ -1,0 +1,19 @@
+{
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/tmp/Mecanum_wheel_Front/MecanumwheelFront"
+    ],
+
+    "clangd.fallbackFlags": [
+        "-Ic:/Users/18160/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.21.0/include"
+    ],
+    "cmsis-csolution.actions": [
+        {
+            "path": "Mecanum_wheel_Front.csolution.yml",
+            "target": "MecanumwheelFront",
+            "config": {
+                "run": "Flash Device",
+                "debug": "Arm Debugger"
+            }
+        }
+    ]
+}

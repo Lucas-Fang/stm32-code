@@ -1,0 +1,15 @@
+{
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/tmp/Mecanum_wheel_Behind/MecanumwheelBehind"
+    ],
+    "cmsis-csolution.actions": [
+        {
+            "path": "Mecanum_wheel_Behind.csolution.yml",
+            "target": "MecanumwheelBehind",
+            "config": {
+                "run": "Flash Device",
+                "debug": "Arm Debugger"
+            }
+        }
+    ]
+}

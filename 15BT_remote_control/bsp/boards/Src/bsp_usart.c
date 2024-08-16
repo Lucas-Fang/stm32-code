@@ -63,9 +63,9 @@ void Send_Cmd_Data(const uint8_t *datas,uint8_t len)
 //数据解析
 void DataAnalysis(uint8_t *Data)
 {
-		receive_data.ch[0]=(int16_t)(Data[1]<<8|(int16_t)Data[0]);
-  	receive_data.ch[1]=(int16_t)(Data[3]<<8|(int16_t)Data[2]);
-	  receive_data.ch[2]=(int16_t)(Data[5]<<8|(int16_t)Data[4]);
+		receive_data.ch[0]=(int16_t)(Data[1]<<8|Data[0]);
+  	receive_data.ch[1]=(int16_t)(Data[3]<<8|Data[2]);
+	  receive_data.ch[2]=(int16_t)(Data[5]<<8|Data[4]);
 }
 //和校验
 uint8_t SUMCRC(uint8_t *Message,uint16_t DataLen)
