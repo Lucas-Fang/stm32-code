@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 motoer\bsp_can.o: ..\bsp\boards\Src\bsp_can.c
 motoer\bsp_can.o: ..\bsp\boards\Inc\bsp_can.h
 motoer\bsp_can.o: ../Core/Inc/main.h
@@ -32,3 +33,39 @@ motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 motoer\bsp_can.o: ../Core/Inc/can.h
 motoer\bsp_can.o: ../Core/Inc/gpio.h
+=======
+motoer\bsp_can.o: ..\bsp\boards\Src\bsp_can.c
+motoer\bsp_can.o: ..\bsp\boards\Inc\bsp_can.h
+motoer\bsp_can.o: ../Core/Inc/main.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
+motoer\bsp_can.o: ../Core/Inc/stm32f4xx_hal_conf.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
+motoer\bsp_can.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
+motoer\bsp_can.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h
+motoer\bsp_can.o: ../Drivers/CMSIS/Include/core_cm4.h
+motoer\bsp_can.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+motoer\bsp_can.o: ../Drivers/CMSIS/Include/cmsis_version.h
+motoer\bsp_can.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+motoer\bsp_can.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+motoer\bsp_can.o: ../Drivers/CMSIS/Include/mpu_armv7.h
+motoer\bsp_can.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+motoer\bsp_can.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
+motoer\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
+motoer\bsp_can.o: ../Core/Inc/can.h
+motoer\bsp_can.o: ../Core/Inc/gpio.h
+>>>>>>> 00ac74e (9.6)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "clangd.arguments": [
         "--compile-commands-dir=${workspaceFolder}/tmp/rtos_t1/rtost1"
@@ -12,4 +13,20 @@
         }
     ]
 
+=======
+{
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/tmp/rtos_t1/rtost1"
+    ],
+    "cmsis-csolution.actions": [
+        {
+            "path": "rtos_t1.csolution.yml",
+            "target": "rtost1",
+            "config": {
+                "run": "Flash Device"
+            }
+        }
+    ]
+
+>>>>>>> 00ac74e (9.6)
 }

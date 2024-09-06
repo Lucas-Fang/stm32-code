@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 {
     "recommendations": [
         "ms-vscode.cpptools-extension-pack"
     ]
+=======
+{
+    "recommendations": [
+        "ms-vscode.cpptools-extension-pack"
+    ]
+>>>>>>> 00ac74e (9.6)
 }

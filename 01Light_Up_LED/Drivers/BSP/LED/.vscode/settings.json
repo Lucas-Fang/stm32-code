@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 {
     "cmake.configureOnOpen": false
+=======
+{
+    "cmake.configureOnOpen": false
+>>>>>>> 00ac74e (9.6)
 }

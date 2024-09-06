@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 {
     "files.associations": {
         "main.h": "c",
         "bsp_usart.h": "c"
     }
+=======
+{
+    "files.associations": {
+        "main.h": "c",
+        "bsp_usart.h": "c"
+    }
+>>>>>>> 00ac74e (9.6)
 }

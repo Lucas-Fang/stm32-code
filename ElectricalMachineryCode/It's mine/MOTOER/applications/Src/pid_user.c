@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "pid_user.h"
 
 extern motor_measure_t motor_can1[8];                 /*°Ë¸öµç»ú¸÷×ÔµÄ¸÷Ïî²ÎÊý*/
@@ -91,3 +92,98 @@ float pid_call_1(float position,int i)																				/*PIDË«»· Íâ»·Î»ÖÃ ÄÚ»
 
 
 
+=======
+#include "pid_user.h"
+
+extern motor_measure_t motor_can1[8];                 /*°Ë¸öµç»ú¸÷×ÔµÄ¸÷Ïî²ÎÊý*/
+
+pid_type_def pid_v_1[8],pid_pos_1[8];									/*°Ë¸öµç»ú¸÷×ÔµÄpid¸÷Ïî²ÎÊý,£¨ËÙ¶È»·µÄ£¬Î»ÖÃ»·µÄ£©*/
+pid_type_def pid_v_2[8],pid_pos_2[8];
+
+//3508²ÎÊý
+float motor_speed_3508_pid[3] = {10, 0.1, 0};					//ËÙ¶È»·
+float motor_position_3508_pid[3] = {0.1, 0, 1};		  	//Î»ÖÃ»·
+//2006²ÎÊý
+float motor_speed_2006_pid[3] = {9, 0.1, 0};					//ËÙ¶È»·
+float motor_position_2006_pid[3] = {0.2, 0, 0};				//Î»ÖÃ»·
+	
+
+#define LimitMax(input, max)   \
+    {                          \
+        if (input > max)       \
+        {                      \
+            input = max;       \
+        }                      \
+        else if (input < -max) \
+        {                      \
+            input = -max;      \
+        }                      \
+    }
+
+		
+		
+		//PID³õÊ¼»¯
+void PID_devices_Init(void)
+{
+	for(int i=0;i<4;i++)
+	{
+    PID_init(&pid_v_1[i], PID_POSITION, motor_speed_3508_pid, 10000, 6000);/*Ç°ËÄ¸öµç»úµÄpid¸÷Ïî²ÎÊý£¬pidÄ£Ê½£¬ËÙ¶È»·pidµÄ±ÈÀýÎ¢·Ö»ý·ÖÈý²Î£¬×ÜÏÞ·ù£¬»ý·ÖÏÞ·ù*/
+		PID_init(&pid_pos_1[i], PID_POSITION, motor_position_3508_pid, 400, 300);/*Ç°ËÄ¸öµç»úµÄpid¸÷Ïî²ÎÊý£¬pidÄ£Ê½£¬Î»ÖÃ»·pidµÄ±ÈÀýÎ¢·Ö»ý·ÖÈý²Î£¬×ÜÏÞ·ù£¬»ý·ÖÏÞ·ù*/
+		
+		PID_init(&pid_v_2[i], PID_POSITION, motor_speed_3508_pid, 10000, 6000);
+		PID_init(&pid_pos_2[i], PID_POSITION, motor_position_3508_pid, 1500, 300);
+	}
+	
+	for(int i=4;i<8;i++)
+	{																																							/*ºóÃæËÄ¸öµç»úµÄ*/
+    PID_init(&pid_v_1[i], PID_POSITION, motor_speed_3508_pid, 10000, 6000);
+		PID_init(&pid_pos_1[i], PID_POSITION, motor_position_3508_pid, 400, 300);
+		
+		PID_init(&pid_v_2[i], PID_POSITION, motor_speed_3508_pid, 10000, 6000);
+		PID_init(&pid_pos_2[i], PID_POSITION, motor_position_3508_pid, 400, 300);
+	}
+}
+
+
+float PID_velocity_realize_1(float set_speed,int i)     											/*ËÙ¶È»·£¨ÆÚÍûËÙ¶È£¬µç»úÐòºÅ£©*/
+{
+		PID_calc(&pid_v_1[i-1],motor_can1[i-1].speed_rpm , set_speed);						/*µ÷ÓÃpid¼ÆËãº¯Êý£¨µç»úÓÐ¹Øpid¼ÆËãµÄ¸÷Ïî²ÎÊý£¬µç»úµ±Ç°ËÙ¶È£¬ÆÚÍûËÙ¶È£©*/
+		return pid_v_1[i-1].out;																									/*·µ»ØÖµ*/
+}
+
+float PID_position_realize_1(float set_pos,int i)															/*Î»ÖÃ»· £¨ÆÚÍûÎ»ÖÃ£¬µç»úÐòºÅ£©(Ä¿±ê½Ç¶ÈÖµ0-8191£¬µçµ÷ID)*/
+{
+
+		PID_calc(&pid_pos_1[i-1],motor_can1[i-1].total_angle , set_pos);					/*µ÷ÓÃpid¼ÆËãº¯Êý£¨µç»úÓÐ¹Øpid¼ÆËãµÄ¸÷Ïî²ÎÊý£¬µç»úµ±Ç°Î»ÖÃ£¬ÆÚÍûÎ»ÖÃ£©*/
+		return pid_pos_1[i-1].out;																								/*·µ»ØÖµ*/
+}
+
+float pid_call_1(float position,int i)																				/*PIDË«»· Íâ»·Î»ÖÃ ÄÚ»·ËÙ¶È*/
+{
+		return PID_velocity_realize_1(PID_position_realize_1(position,i),i);			/*Î»ÖÃ»··µ»ØµÄ²ÎÊý×÷ÎªËÙ¶È»·µÄÈë¿Ú²ÎÊý£¨Ò²¾ÍÊÇÆÚÍûËÙ¶È£©*/
+}
+
+/*
+
+
+
+
+
+ËÙ¶È»·£º´«Èëµç»úµ±Ç°µÄ²ÎÊý£¬ÉèÖÃºÃÔ¤ÆÚµÄ²ÎÊý£¬pid¼ÆËãº¯ÊýÀïÃæ±È½ÏÕâÁ½¸ö²ÎÊýµÄ´óÐ¡£¬Ëã³ö²îÖµ£¬
+Í¨¹ý¼ÆËãÖ®ºóÔÚµç»úÇý¶¯º¯ÊýÀïÃæÓÃ£¬·µ»ØµçÁ÷ÖµµÄ´óÐ¡À´¿ØÖÆËÙ¶ÈµÄ¿ìÂý£¬ÒÔ´ïµ½ÆÚÍûµÄËÙ¶È¡£
+
+Î»ÖÃ»·£º´«Èëµ±Ç°µç»úËùÔÚµÄÎ»ÖÃ£¬ÉèÖÃºÃÏ£Íûµç»ú´ïµ½µÄÎ»ÖÃ£¬pid¼ÆËãº¯ÊýÀïÃæ¼ÆËãÕâÁ½¸ö²ÎÊýµÄ²î£¬
+ÔÚµç»úÇý¶¯º¯ÊýÀïÃæÊ¹ÓÃÊ±£¬·µ»ØµçÁ÷ÖµÒÔÈÃµç»ú×ª¶¯´ïµ½ÆÚÍûµÄÎ»ÖÃ
+
+Ë«»·£ºÍâ»·Î»ÖÃ»·£¬´«ÈëÆÚÍûÎ»ÖÃ£¬Í¨¹ýÎ»ÖÃ»·µÄ¿ØÖÆµç»úÐèÒª´ïµ½µÄËÙ¶È£¬´ËÊýÖµ×÷Îªµç»úËÙ¶È»·µÄÆÚÍûÖµ£¬
+ÔÙÍ¨¹ýËÙ¶È»·µÄ¼ÆËã·µ»Ø×îÖÕ¿ØÖÆµç»ú¸ÃÓÐµÄµçÁ÷´«Èëµç»úÇý¶¯º¯ÊýÒÔÇý¶¯µç»ú¡£
+
+
+
+
+
+*/
+
+
+
+>>>>>>> 00ac74e (9.6)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <cprj schemaVersion="2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CPRJ.xsd">
   <created timestamp="2024-08-16T12:01:20" tool="csolution 2.4.0"/>
@@ -77,3 +78,84 @@
   </files>
 </cprj>
 
+=======
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<cprj schemaVersion="2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CPRJ.xsd">
+  <created timestamp="2024-08-16T12:01:20" tool="csolution 2.4.0"/>
+
+  <info isLayer="false">
+    <description>Automatically generated project</description>
+  </info>
+
+  <packages>
+    <package name="CMSIS" vendor="ARM" version="5.9.0:5.9.0"/>
+    <package name="STM32F1xx_DFP" vendor="Keil" version="2.4.1:2.4.1"/>
+  </packages>
+
+  <compilers>
+    <compiler name="AC6" version="6.22.0"/>
+  </compilers>
+
+  <target Dendian="Little-endian" Dfpu="NO_FPU" Dname="STM32F103C8" Dvendor="STMicroelectronics:13">
+    <output elf="Mecanum_wheel_Behind.axf" intdir="tmp/Mecanum_wheel_Behind/MecanumwheelBehind" name="Mecanum_wheel_Behind" outdir="out/Mecanum_wheel_Behind/MecanumwheelBehind" rtedir="RTE" type="exe"/>
+    <options debug="on" optimize="debug"/>
+    <asflags add="-masm=auto" compiler="AC6"/>
+    <cflags add="-std=c99 -fno-rtti -funsigned-char -fshort-enums -fshort-wchar -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality" compiler="AC6"/>
+    <cxxflags add="-xc++ -std=c++11 -fno-rtti -funsigned-char -fshort-enums -fshort-wchar -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality" compiler="AC6"/>
+    <ldflags add="--map --load_addr_map_info --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers --strict --summary_stderr --info summarysizes" compiler="AC6" file="Mecanum_wheel_Behind_MecanumwheelBehind.sct"/>
+    <defines>USE_HAL_DRIVER;STM32F103xB</defines>
+    <includes>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../applications/Inc;../bsp/boards/Inc</includes>
+  </target>
+
+  <components>
+    <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.6.0"/>
+  </components>
+
+  <files>
+    <group name="Application/MDK-ARM">
+      <file category="sourceAsm" name="startup_stm32f103xb.s"/>
+    </group>
+    <group name="Application/User/Core">
+      <file category="sourceC" name="../Core/Src/main.c"/>
+      <file category="sourceC" name="../Core/Src/gpio.c"/>
+      <file category="sourceC" name="../Core/Src/tim.c"/>
+      <file category="sourceC" name="../Core/Src/usart.c"/>
+      <file category="sourceC" name="../Core/Src/stm32f1xx_it.c"/>
+      <file category="sourceC" name="../Core/Src/stm32f1xx_hal_msp.c"/>
+      <file category="sourceCpp" name="../Core/Src/startup_main.cpp"/>
+      <file category="sourceC" name="..\Core\Src\dma.c"/>
+    </group>
+    <group name="Drivers/STM32F1xx_HAL_Driver">
+      <file category="sourceC" name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c"/>
+      <file category="sourceC" name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c"/>
+      <file category="sourceC" name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c"/>
+      <file category="sourceC" name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c"/>
+      <file category="sourceC" name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c"/>
+      <file category="sourceC" name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c"/>
+      <file category="sourceC" name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"/>
+      <file category="sourceC" name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c"/>
+      <file category="sourceC" name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c"/>
+      <file category="sourceC" name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c"/>
+      <file category="sourceC" name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c"/>
+      <file category="sourceC" name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c"/>
+      <file category="sourceC" name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c"/>
+      <file category="sourceC" name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c"/>
+    </group>
+    <group name="Drivers/CMSIS">
+      <file category="sourceC" name="../Core/Src/system_stm32f1xx.c"/>
+    </group>
+    <group name="applications">
+      <file category="sourceC" name="../applications/Src/hwt101ct_rs232.c"/>
+      <file category="sourceCpp" name="../applications/Src/chassic.cpp"/>
+      <file category="sourceCpp" name="../applications/Src/pid.cpp"/>
+      <file category="sourceCpp" name="../applications/Src/pid_user.cpp"/>
+      <file category="sourceCpp" name="../applications/Src/timer_user.cpp"/>
+    </group>
+    <group name="bsp/boards">
+      <file category="sourceCpp" name="../bsp/boards/Src/bsp_delay.cpp"/>
+      <file category="sourceCpp" name="../bsp/boards/Src/bsp_usart.cpp"/>
+    </group>
+  </files>
+</cprj>
+
+>>>>>>> 00ac74e (9.6)

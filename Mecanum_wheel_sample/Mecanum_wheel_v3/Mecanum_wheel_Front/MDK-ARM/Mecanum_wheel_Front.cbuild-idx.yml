@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 build-idx:
   generated-by: csolution version 2.4.0
   csolution: Mecanum_wheel_Front.csolution.yml
@@ -7,3 +8,14 @@ build-idx:
     - cbuild: Mecanum_wheel_Front+MecanumwheelFront.cbuild.yml
       project: Mecanum_wheel_Front
       configuration: +MecanumwheelFront
+=======
+build-idx:
+  generated-by: csolution version 2.4.0
+  csolution: Mecanum_wheel_Front.csolution.yml
+  cprojects:
+    - cproject: Mecanum_wheel_Front.cproject.yml
+  cbuilds:
+    - cbuild: Mecanum_wheel_Front+MecanumwheelFront.cbuild.yml
+      project: Mecanum_wheel_Front
+      configuration: +MecanumwheelFront
+>>>>>>> 00ac74e (9.6)

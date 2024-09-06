@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #ifndef __BSP_CAN_H_
 #define __BSP_CAN_H_
 
@@ -20,3 +21,27 @@ extern "C"
 #endif
 
 #endif
+=======
+#ifndef __BSP_CAN_H_
+#define __BSP_CAN_H_
+
+#ifdef __cplusplus
+extern "C" 
+{
+#endif
+
+#include "startup_main.h"
+
+//将CAN_BUS类引入
+#include "can_receive.h"
+	
+	
+	
+	
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif
+>>>>>>> 00ac74e (9.6)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 cbuild-pack:
   resolved-packs:
     - resolved-pack: ARM::CMSIS@5.9.0
@@ -6,3 +7,13 @@ cbuild-pack:
     - resolved-pack: Keil::STM32F1xx_DFP@2.4.1
       selected-by-pack:
         - Keil::STM32F1xx_DFP
+=======
+cbuild-pack:
+  resolved-packs:
+    - resolved-pack: ARM::CMSIS@5.9.0
+      selected-by-pack:
+        - ARM::CMSIS@5.9.0
+    - resolved-pack: Keil::STM32F1xx_DFP@2.4.1
+      selected-by-pack:
+        - Keil::STM32F1xx_DFP
+>>>>>>> 00ac74e (9.6)

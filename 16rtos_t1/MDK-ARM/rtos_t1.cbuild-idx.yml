@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 build-idx:
   generated-by: csolution version 2.4.0
   csolution: rtos_t1.csolution.yml
@@ -7,3 +8,14 @@ build-idx:
     - cbuild: rtos_t1+rtost1.cbuild.yml
       project: rtos_t1
       configuration: +rtost1
+=======
+build-idx:
+  generated-by: csolution version 2.4.0
+  csolution: rtos_t1.csolution.yml
+  cprojects:
+    - cproject: rtos_t1.cproject.yml
+  cbuilds:
+    - cbuild: rtos_t1+rtost1.cbuild.yml
+      project: rtos_t1
+      configuration: +rtost1
+>>>>>>> 00ac74e (9.6)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CMSIS Build Audit File generated on 2024-08-16T12:01:20
 
 # Project Description File: e:/AA_study_resource/Cube_MX/Mecanum_wheel_sample/Mecanum_wheel_v3/Mecanum_wheel_Behind/MDK-ARM/Mecanum_wheel_Behind+MecanumwheelBehind.cprj
@@ -11,3 +12,18 @@
 
 # Package: Keil::STM32F1xx_DFP@2.4.1
   Location: C:\Users\18160\AppData\Local\arm\packs/Keil/STM32F1xx_DFP/2.4.1/
+=======
+# CMSIS Build Audit File generated on 2024-08-16T12:01:20
+
+# Project Description File: e:/AA_study_resource/Cube_MX/Mecanum_wheel_sample/Mecanum_wheel_v3/Mecanum_wheel_Behind/MDK-ARM/Mecanum_wheel_Behind+MecanumwheelBehind.cprj
+
+# Toolchain Configuration File: C:/Users/18160/.vcpkg/artifacts/2139c4c6/tools.open.cmsis.pack.cmsis.toolbox/2.4.0/etc/AC6.6.16.2.cmake
+
+# Package: ARM::CMSIS@5.9.0
+  Location: C:\Users\18160\AppData\Local\arm\packs/ARM/CMSIS/5.9.0/
+
+  * Component: ARM::CMSIS:CORE@5.6.0
+
+# Package: Keil::STM32F1xx_DFP@2.4.1
+  Location: C:\Users\18160\AppData\Local\arm\packs/Keil/STM32F1xx_DFP/2.4.1/
+>>>>>>> 00ac74e (9.6)
