@@ -1,0 +1,10 @@
+# Target labels
+ H7_CAN_test+H7_CAN_test
+# Source files and their labels
+D:/AA_study_resource/Cube_MX/H7_CAN_test/MDK-ARM/tmp/CMakeFiles/H7_CAN_test+H7_CAN_test-configure
+D:/AA_study_resource/Cube_MX/H7_CAN_test/MDK-ARM/tmp/CMakeFiles/H7_CAN_test+H7_CAN_test-configure.rule
+D:/AA_study_resource/Cube_MX/H7_CAN_test/MDK-ARM/tmp/H7_CAN_test+H7_CAN_test/src/H7_CAN_test+H7_CAN_test-stamp/H7_CAN_test+H7_CAN_test-configure.rule
+D:/AA_study_resource/Cube_MX/H7_CAN_test/MDK-ARM/tmp/H7_CAN_test+H7_CAN_test/src/H7_CAN_test+H7_CAN_test-stamp/H7_CAN_test+H7_CAN_test-patch.rule
+D:/AA_study_resource/Cube_MX/H7_CAN_test/MDK-ARM/tmp/H7_CAN_test+H7_CAN_test/src/H7_CAN_test+H7_CAN_test-stamp/H7_CAN_test+H7_CAN_test-update.rule
+D:/AA_study_resource/Cube_MX/H7_CAN_test/MDK-ARM/tmp/H7_CAN_test+H7_CAN_test/src/H7_CAN_test+H7_CAN_test-stamp/H7_CAN_test+H7_CAN_test-download.rule
+D:/AA_study_resource/Cube_MX/H7_CAN_test/MDK-ARM/tmp/H7_CAN_test+H7_CAN_test/src/H7_CAN_test+H7_CAN_test-stamp/H7_CAN_test+H7_CAN_test-mkdir.rule

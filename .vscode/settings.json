@@ -1,0 +1,5 @@
+{
+    "clangd.arguments": [
+        "--compile-commands-dir=d:\\AA_study_resource\\STM32_myself\\18freertos_semaphore\\MDK-ARM\\out\\freertos_semaphore_test\\freertossemaphoretest"
+    ]
+}

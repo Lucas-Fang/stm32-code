@@ -1,0 +1,11 @@
+# Target labels
+ AS5600_speed+AS5600_speed
+# Source files and their labels
+D:/AA_study_resource/Cube_MX/AS5600/AS5600_speed/MDK-ARM/tmp/CMakeFiles/AS5600_speed+AS5600_speed-database
+D:/AA_study_resource/Cube_MX/AS5600/AS5600_speed/MDK-ARM/tmp/CMakeFiles/AS5600_speed+AS5600_speed-database.rule
+D:/AA_study_resource/Cube_MX/AS5600/AS5600_speed/MDK-ARM/tmp/AS5600_speed+AS5600_speed/src/AS5600_speed+AS5600_speed-stamp/AS5600_speed+AS5600_speed-database.rule
+D:/AA_study_resource/Cube_MX/AS5600/AS5600_speed/MDK-ARM/tmp/AS5600_speed+AS5600_speed/src/AS5600_speed+AS5600_speed-stamp/AS5600_speed+AS5600_speed-configure.rule
+D:/AA_study_resource/Cube_MX/AS5600/AS5600_speed/MDK-ARM/tmp/AS5600_speed+AS5600_speed/src/AS5600_speed+AS5600_speed-stamp/AS5600_speed+AS5600_speed-patch.rule
+D:/AA_study_resource/Cube_MX/AS5600/AS5600_speed/MDK-ARM/tmp/AS5600_speed+AS5600_speed/src/AS5600_speed+AS5600_speed-stamp/AS5600_speed+AS5600_speed-update.rule
+D:/AA_study_resource/Cube_MX/AS5600/AS5600_speed/MDK-ARM/tmp/AS5600_speed+AS5600_speed/src/AS5600_speed+AS5600_speed-stamp/AS5600_speed+AS5600_speed-download.rule
+D:/AA_study_resource/Cube_MX/AS5600/AS5600_speed/MDK-ARM/tmp/AS5600_speed+AS5600_speed/src/AS5600_speed+AS5600_speed-stamp/AS5600_speed+AS5600_speed-mkdir.rule
