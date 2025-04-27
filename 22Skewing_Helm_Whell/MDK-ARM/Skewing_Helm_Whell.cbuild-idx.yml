@@ -1,0 +1,18 @@
+build-idx:
+  generated-by: csolution version 2.8.0
+  csolution: Skewing_Helm_Whell.csolution.yml
+  tmpdir: tmp
+  cprojects:
+    - cproject: Skewing_Helm_Whell.cproject.yml
+  cbuilds:
+    - cbuild: Skewing_Helm_Whell+Skewing_Helm_Whell.cbuild.yml
+      project: Skewing_Helm_Whell
+      configuration: +Skewing_Helm_Whell
+      messages:
+        info:
+          - Skewing_Helm_Whell.cbuild-pack.yml - file is already up-to-date
+          - Skewing_Helm_Whell+Skewing_Helm_Whell.cbuild-run.yml - file generated successfully
+          - Skewing_Helm_Whell+Skewing_Helm_Whell.cbuild.yml - file is already up-to-date
+      packs-unused:
+        - pack: ARM::CMSIS-DSP@1.15.0
+        - pack: ARM::CMSIS-NN@4.1.0

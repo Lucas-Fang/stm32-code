@@ -1,0 +1,40 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/AA_study_resource/Cube_MX/MT6701/MT6701_speed/MDK-ARM/tmp/CMakeFiles/AS5600_speed+AS5600_speed-executes"
+		},
+		{
+			"file" : "D:/AA_study_resource/Cube_MX/MT6701/MT6701_speed/MDK-ARM/tmp/CMakeFiles/AS5600_speed+AS5600_speed-executes.rule"
+		},
+		{
+			"file" : "D:/AA_study_resource/Cube_MX/MT6701/MT6701_speed/MDK-ARM/tmp/AS5600_speed+AS5600_speed/src/AS5600_speed+AS5600_speed-stamp/AS5600_speed+AS5600_speed-executes.rule"
+		},
+		{
+			"file" : "D:/AA_study_resource/Cube_MX/MT6701/MT6701_speed/MDK-ARM/tmp/AS5600_speed+AS5600_speed/src/AS5600_speed+AS5600_speed-stamp/AS5600_speed+AS5600_speed-build.rule"
+		},
+		{
+			"file" : "D:/AA_study_resource/Cube_MX/MT6701/MT6701_speed/MDK-ARM/tmp/AS5600_speed+AS5600_speed/src/AS5600_speed+AS5600_speed-stamp/AS5600_speed+AS5600_speed-configure.rule"
+		},
+		{
+			"file" : "D:/AA_study_resource/Cube_MX/MT6701/MT6701_speed/MDK-ARM/tmp/AS5600_speed+AS5600_speed/src/AS5600_speed+AS5600_speed-stamp/AS5600_speed+AS5600_speed-patch.rule"
+		},
+		{
+			"file" : "D:/AA_study_resource/Cube_MX/MT6701/MT6701_speed/MDK-ARM/tmp/AS5600_speed+AS5600_speed/src/AS5600_speed+AS5600_speed-stamp/AS5600_speed+AS5600_speed-update.rule"
+		},
+		{
+			"file" : "D:/AA_study_resource/Cube_MX/MT6701/MT6701_speed/MDK-ARM/tmp/AS5600_speed+AS5600_speed/src/AS5600_speed+AS5600_speed-stamp/AS5600_speed+AS5600_speed-download.rule"
+		},
+		{
+			"file" : "D:/AA_study_resource/Cube_MX/MT6701/MT6701_speed/MDK-ARM/tmp/AS5600_speed+AS5600_speed/src/AS5600_speed+AS5600_speed-stamp/AS5600_speed+AS5600_speed-mkdir.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"AS5600_speed+AS5600_speed"
+		],
+		"name" : "AS5600_speed+AS5600_speed-executes"
+	}
+}
