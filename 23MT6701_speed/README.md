@@ -3,7 +3,7 @@
 - Development board: STM32F103C8T6 smallest system board
 - Encoder: MT6701 absolute encoder
 - Electronic governor: Hobbywing platinum 120A brushless motor controls ESC
--
+
 ## II. the environment is set up
 - Software environment: keil MDK5/ VScode MDK6
 
