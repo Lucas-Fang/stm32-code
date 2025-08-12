@@ -1,0 +1,37 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/25_Ele_Des_Competition/6020_cloud_platform/MDK-ARM/tmp/CMakeFiles/CAN_PID+CAN_PID-database"
+		},
+		{
+			"file" : "D:/25_Ele_Des_Competition/6020_cloud_platform/MDK-ARM/tmp/CMakeFiles/CAN_PID+CAN_PID-database.rule"
+		},
+		{
+			"file" : "D:/25_Ele_Des_Competition/6020_cloud_platform/MDK-ARM/tmp/CAN_PID+CAN_PID/src/CAN_PID+CAN_PID-stamp/CAN_PID+CAN_PID-database.rule"
+		},
+		{
+			"file" : "D:/25_Ele_Des_Competition/6020_cloud_platform/MDK-ARM/tmp/CAN_PID+CAN_PID/src/CAN_PID+CAN_PID-stamp/CAN_PID+CAN_PID-configure.rule"
+		},
+		{
+			"file" : "D:/25_Ele_Des_Competition/6020_cloud_platform/MDK-ARM/tmp/CAN_PID+CAN_PID/src/CAN_PID+CAN_PID-stamp/CAN_PID+CAN_PID-patch.rule"
+		},
+		{
+			"file" : "D:/25_Ele_Des_Competition/6020_cloud_platform/MDK-ARM/tmp/CAN_PID+CAN_PID/src/CAN_PID+CAN_PID-stamp/CAN_PID+CAN_PID-update.rule"
+		},
+		{
+			"file" : "D:/25_Ele_Des_Competition/6020_cloud_platform/MDK-ARM/tmp/CAN_PID+CAN_PID/src/CAN_PID+CAN_PID-stamp/CAN_PID+CAN_PID-download.rule"
+		},
+		{
+			"file" : "D:/25_Ele_Des_Competition/6020_cloud_platform/MDK-ARM/tmp/CAN_PID+CAN_PID/src/CAN_PID+CAN_PID-stamp/CAN_PID+CAN_PID-mkdir.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"CAN_PID+CAN_PID"
+		],
+		"name" : "CAN_PID+CAN_PID-database"
+	}
+}
