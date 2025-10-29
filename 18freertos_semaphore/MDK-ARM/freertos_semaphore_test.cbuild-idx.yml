@@ -1,9 +1,0 @@
-build-idx:
-  generated-by: csolution version 2.4.0
-  csolution: freertos_semaphore_test.csolution.yml
-  cprojects:
-    - cproject: freertos_semaphore_test.cproject.yml
-  cbuilds:
-    - cbuild: freertos_semaphore_test+freertossemaphoretest.cbuild.yml
-      project: freertos_semaphore_test
-      configuration: +freertossemaphoretest

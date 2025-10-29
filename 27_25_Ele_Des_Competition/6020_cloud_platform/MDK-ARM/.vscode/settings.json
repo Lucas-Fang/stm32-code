@@ -1,5 +1,0 @@
-{
-    "clangd.arguments": [
-        "--compile-commands-dir=d:\\25_Ele_Des_Competition\\6020_cloud_platform\\MDK-ARM\\out\\CAN_PID\\CAN_PID"
-    ]
-}

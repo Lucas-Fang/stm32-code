@@ -1,4 +1,0 @@
-E:/AA_study_resource/Cube_MX/freertos_semaphore_test/MDK-ARM/tmp/freertos_semaphore_test/freertossemaphoretest/CMakeFiles/database.dir
-E:/AA_study_resource/Cube_MX/freertos_semaphore_test/MDK-ARM/tmp/freertos_semaphore_test/freertossemaphoretest/CMakeFiles/freertos_semaphore_test.dir
-E:/AA_study_resource/Cube_MX/freertos_semaphore_test/MDK-ARM/tmp/freertos_semaphore_test/freertossemaphoretest/CMakeFiles/edit_cache.dir
-E:/AA_study_resource/Cube_MX/freertos_semaphore_test/MDK-ARM/tmp/freertos_semaphore_test/freertossemaphoretest/CMakeFiles/rebuild_cache.dir

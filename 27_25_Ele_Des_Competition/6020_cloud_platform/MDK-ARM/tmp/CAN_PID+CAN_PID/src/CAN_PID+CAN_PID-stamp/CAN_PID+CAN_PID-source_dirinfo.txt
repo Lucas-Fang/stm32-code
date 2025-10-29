@@ -1,9 +1,0 @@
-# This is a generated file and its contents are an internal implementation detail.
-# The download step will be re-executed if anything in this file changes.
-# No other meaning or use of this file is supported.
-
-method=source_dir
-command=
-source_dir=D:/25_Ele_Des_Competition/6020_cloud_platform/MDK-ARM/tmp/CAN_PID+CAN_PID
-work_dir=
-
