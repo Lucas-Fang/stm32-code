@@ -1,8 +1,4 @@
-CompileFlags:
+﻿CompileFlags:
   CompilationDatabase: >-
-<<<<<<< HEAD
-    e:\AA_study_resource\Cube_MX\Mecanum_wheel_sample\Mecanum_wheel_v3\Mecanum_wheel_Front\MDK-ARM\out\Mecanum_wheel_Front\MecanumwheelFront
-=======
     e:\AA_study_resource\STM32_myself\Mecanum_wheel_sample\Mecanum_wheel_v3\Mecanum_wheel_Front\MDK-ARM\out\Mecanum_wheel_Front\MecanumwheelFront
->>>>>>> 00ac74e (9.6)
   Add: []

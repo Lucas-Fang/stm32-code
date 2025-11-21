@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#include "bsp_usart.h"
+ï»¿#include "bsp_usart.h"
 
 
 
@@ -11,31 +10,10 @@ void HAL_UART_IDLE_Callback(UART_HandleTypeDef *huart)
 {
 	if(huart == &huart1)
 	{
-		__HAL_DMA_DISABLE(huart->hdmarx);//Ê§ÄÜDMA½ÓÊÕ
+		__HAL_DMA_DISABLE(huart->hdmarx);//å¤±èƒ½DMAæŽ¥æ”¶
 		
 		HAL_UART_Receive_DMA(&huart1,rx_buffer,1);
-		__HAL_DMA_ENABLE(huart->hdmarx);//Ê¹ÄÜDMA½ÓÊÕ
+		__HAL_DMA_ENABLE(huart->hdmarx);//ä½¿èƒ½DMAæŽ¥æ”¶
 		
 	}
 }
-=======
-#include "bsp_usart.h"
-
-
-
-extern uint8_t rx_buffer[1];
-
-
-	
-void HAL_UART_IDLE_Callback(UART_HandleTypeDef *huart)
-{
-	if(huart == &huart1)
-	{
-		__HAL_DMA_DISABLE(huart->hdmarx);//Ê§ÄÜDMA½ÓÊÕ
-		
-		HAL_UART_Receive_DMA(&huart1,rx_buffer,1);
-		__HAL_DMA_ENABLE(huart->hdmarx);//Ê¹ÄÜDMA½ÓÊÕ
-		
-	}
-}
->>>>>>> 00ac74e (9.6)

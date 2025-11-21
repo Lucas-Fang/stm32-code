@@ -1,24 +1,23 @@
-<<<<<<< HEAD
-/**
+ï»¿/**
  ****************************************************************************************************
  * @file        usart.h
- * @author      ÕýµãÔ­×ÓÍÅ¶Ó(ALIENTEK)
+ * @author      æ­£ç‚¹åŽŸå­å›¢é˜Ÿ(ALIENTEK)
  * @version     V1.0
  * @date        2020-04-20
- * @brief       ´®¿Ú³õÊ¼»¯´úÂë(Ò»°ãÊÇ´®¿Ú1)£¬Ö§³Öprintf
- * @license     Copyright (c) 2020-2032, ¹ãÖÝÊÐÐÇÒíµç×Ó¿Æ¼¼ÓÐÏÞ¹«Ë¾
+ * @brief       ä¸²å£åˆå§‹åŒ–ä»£ç (ä¸€èˆ¬æ˜¯ä¸²å£1)ï¼Œæ”¯æŒprintf
+ * @license     Copyright (c) 2020-2032, å¹¿å·žå¸‚æ˜Ÿç¿¼ç”µå­ç§‘æŠ€æœ‰é™å…¬å¸
  ****************************************************************************************************
  * @attention
  *
- * ÊµÑéÆ½Ì¨:ÕýµãÔ­×Ó STM32F103¿ª·¢°å
- * ÔÚÏßÊÓÆµ:www.yuanzige.com
- * ¼¼ÊõÂÛÌ³:www.openedv.com
- * ¹«Ë¾ÍøÖ·:www.alientek.com
- * ¹ºÂòµØÖ·:openedv.taobao.com
+ * å®žéªŒå¹³å°:æ­£ç‚¹åŽŸå­ STM32F103å¼€å‘æ¿
+ * åœ¨çº¿è§†é¢‘:www.yuanzige.com
+ * æŠ€æœ¯è®ºå›:www.openedv.com
+ * å…¬å¸ç½‘å€:www.alientek.com
+ * è´­ä¹°åœ°å€:openedv.taobao.com
  *
- * ÐÞ¸ÄËµÃ÷
+ * ä¿®æ”¹è¯´æ˜Ž
  * V1.0 20211103
- * µÚÒ»´Î·¢²¼
+ * ç¬¬ä¸€æ¬¡å‘å¸ƒ
  *
  ****************************************************************************************************
  */
@@ -31,107 +30,38 @@
 
 
 /******************************************************************************************/
-/* Òý½Å ºÍ ´®¿Ú ¶¨Òå 
- * Ä¬ÈÏÊÇÕë¶ÔUSART1µÄ.
- * ×¢Òâ: Í¨¹ýÐÞ¸ÄÕâ¼¸¸öºê¶¨Òå,¿ÉÒÔÖ§³ÖUSART1~UART5ÈÎÒâÒ»¸ö´®¿Ú.
+/* å¼•è„š å’Œ ä¸²å£ å®šä¹‰ 
+ * é»˜è®¤æ˜¯é’ˆå¯¹USART1çš„.
+ * æ³¨æ„: é€šè¿‡ä¿®æ”¹è¿™å‡ ä¸ªå®å®šä¹‰,å¯ä»¥æ”¯æŒUSART1~UART5ä»»æ„ä¸€ä¸ªä¸²å£.
  */
 #define USART_TX_GPIO_PORT                  GPIOA
 #define USART_TX_GPIO_PIN                   GPIO_PIN_9
-#define USART_TX_GPIO_CLK_ENABLE()          do{ __HAL_RCC_GPIOA_CLK_ENABLE(); }while(0)   /* PA¿ÚÊ±ÖÓÊ¹ÄÜ */
+#define USART_TX_GPIO_CLK_ENABLE()          do{ __HAL_RCC_GPIOA_CLK_ENABLE(); }while(0)   /* PAå£æ—¶é’Ÿä½¿èƒ½ */
 
 #define USART_RX_GPIO_PORT                  GPIOA
 #define USART_RX_GPIO_PIN                   GPIO_PIN_10
-#define USART_RX_GPIO_CLK_ENABLE()          do{ __HAL_RCC_GPIOA_CLK_ENABLE(); }while(0)   /* PA¿ÚÊ±ÖÓÊ¹ÄÜ */
+#define USART_RX_GPIO_CLK_ENABLE()          do{ __HAL_RCC_GPIOA_CLK_ENABLE(); }while(0)   /* PAå£æ—¶é’Ÿä½¿èƒ½ */
 
 #define USART_UX                            USART1
 #define USART_UX_IRQn                       USART1_IRQn
 #define USART_UX_IRQHandler                 USART1_IRQHandler
-#define USART_UX_CLK_ENABLE()               do{ __HAL_RCC_USART1_CLK_ENABLE(); }while(0)  /* USART1 Ê±ÖÓÊ¹ÄÜ */
+#define USART_UX_CLK_ENABLE()               do{ __HAL_RCC_USART1_CLK_ENABLE(); }while(0)  /* USART1 æ—¶é’Ÿä½¿èƒ½ */
 
 /******************************************************************************************/
 
-#define USART_REC_LEN               200         /* ¶¨Òå×î´ó½ÓÊÕ×Ö½ÚÊý 200 */
-#define USART_EN_RX                 1           /* Ê¹ÄÜ£¨1£©/½ûÖ¹£¨0£©´®¿Ú1½ÓÊÕ */
-#define RXBUFFERSIZE   1                        /* »º´æ´óÐ¡ */
+#define USART_REC_LEN               200         /* å®šä¹‰æœ€å¤§æŽ¥æ”¶å­—èŠ‚æ•° 200 */
+#define USART_EN_RX                 1           /* ä½¿èƒ½ï¼ˆ1ï¼‰/ç¦æ­¢ï¼ˆ0ï¼‰ä¸²å£1æŽ¥æ”¶ */
+#define RXBUFFERSIZE   1                        /* ç¼“å­˜å¤§å° */
 
-extern UART_HandleTypeDef g_uart1_handle;       /* HAL UART¾ä±ú */
+extern UART_HandleTypeDef g_uart1_handle;       /* HAL UARTå¥æŸ„ */
 
-extern uint8_t  g_usart_rx_buf[USART_REC_LEN];  /* ½ÓÊÕ»º³å,×î´óUSART_REC_LEN¸ö×Ö½Ú.Ä©×Ö½ÚÎª»»ÐÐ·û */
-extern uint16_t g_usart_rx_sta;                 /* ½ÓÊÕ×´Ì¬±ê¼Ç */
-extern uint8_t g_rx_buffer[RXBUFFERSIZE];       /* HAL¿âUSART½ÓÊÕBuffer */
+extern uint8_t  g_usart_rx_buf[USART_REC_LEN];  /* æŽ¥æ”¶ç¼“å†²,æœ€å¤§USART_REC_LENä¸ªå­—èŠ‚.æœ«å­—èŠ‚ä¸ºæ¢è¡Œç¬¦ */
+extern uint16_t g_usart_rx_sta;                 /* æŽ¥æ”¶çŠ¶æ€æ ‡è®° */
+extern uint8_t g_rx_buffer[RXBUFFERSIZE];       /* HALåº“USARTæŽ¥æ”¶Buffer */
 
 
-void usart_init(uint32_t bound);                /* ´®¿Ú³õÊ¼»¯º¯Êý */
+void usart_init(uint32_t bound);                /* ä¸²å£åˆå§‹åŒ–å‡½æ•° */
 
 #endif
 
 
-=======
-/**
- ****************************************************************************************************
- * @file        usart.h
- * @author      ÕýµãÔ­×ÓÍÅ¶Ó(ALIENTEK)
- * @version     V1.0
- * @date        2020-04-20
- * @brief       ´®¿Ú³õÊ¼»¯´úÂë(Ò»°ãÊÇ´®¿Ú1)£¬Ö§³Öprintf
- * @license     Copyright (c) 2020-2032, ¹ãÖÝÊÐÐÇÒíµç×Ó¿Æ¼¼ÓÐÏÞ¹«Ë¾
- ****************************************************************************************************
- * @attention
- *
- * ÊµÑéÆ½Ì¨:ÕýµãÔ­×Ó STM32F103¿ª·¢°å
- * ÔÚÏßÊÓÆµ:www.yuanzige.com
- * ¼¼ÊõÂÛÌ³:www.openedv.com
- * ¹«Ë¾ÍøÖ·:www.alientek.com
- * ¹ºÂòµØÖ·:openedv.taobao.com
- *
- * ÐÞ¸ÄËµÃ÷
- * V1.0 20211103
- * µÚÒ»´Î·¢²¼
- *
- ****************************************************************************************************
- */
-
-#ifndef __USART_H
-#define __USART_H
-
-#include "stdio.h"
-#include "./SYSTEM/sys/sys.h"
-
-
-/******************************************************************************************/
-/* Òý½Å ºÍ ´®¿Ú ¶¨Òå 
- * Ä¬ÈÏÊÇÕë¶ÔUSART1µÄ.
- * ×¢Òâ: Í¨¹ýÐÞ¸ÄÕâ¼¸¸öºê¶¨Òå,¿ÉÒÔÖ§³ÖUSART1~UART5ÈÎÒâÒ»¸ö´®¿Ú.
- */
-#define USART_TX_GPIO_PORT                  GPIOA
-#define USART_TX_GPIO_PIN                   GPIO_PIN_9
-#define USART_TX_GPIO_CLK_ENABLE()          do{ __HAL_RCC_GPIOA_CLK_ENABLE(); }while(0)   /* PA¿ÚÊ±ÖÓÊ¹ÄÜ */
-
-#define USART_RX_GPIO_PORT                  GPIOA
-#define USART_RX_GPIO_PIN                   GPIO_PIN_10
-#define USART_RX_GPIO_CLK_ENABLE()          do{ __HAL_RCC_GPIOA_CLK_ENABLE(); }while(0)   /* PA¿ÚÊ±ÖÓÊ¹ÄÜ */
-
-#define USART_UX                            USART1
-#define USART_UX_IRQn                       USART1_IRQn
-#define USART_UX_IRQHandler                 USART1_IRQHandler
-#define USART_UX_CLK_ENABLE()               do{ __HAL_RCC_USART1_CLK_ENABLE(); }while(0)  /* USART1 Ê±ÖÓÊ¹ÄÜ */
-
-/******************************************************************************************/
-
-#define USART_REC_LEN               200         /* ¶¨Òå×î´ó½ÓÊÕ×Ö½ÚÊý 200 */
-#define USART_EN_RX                 1           /* Ê¹ÄÜ£¨1£©/½ûÖ¹£¨0£©´®¿Ú1½ÓÊÕ */
-#define RXBUFFERSIZE   1                        /* »º´æ´óÐ¡ */
-
-extern UART_HandleTypeDef g_uart1_handle;       /* HAL UART¾ä±ú */
-
-extern uint8_t  g_usart_rx_buf[USART_REC_LEN];  /* ½ÓÊÕ»º³å,×î´óUSART_REC_LEN¸ö×Ö½Ú.Ä©×Ö½ÚÎª»»ÐÐ·û */
-extern uint16_t g_usart_rx_sta;                 /* ½ÓÊÕ×´Ì¬±ê¼Ç */
-extern uint8_t g_rx_buffer[RXBUFFERSIZE];       /* HAL¿âUSART½ÓÊÕBuffer */
-
-
-void usart_init(uint32_t bound);                /* ´®¿Ú³õÊ¼»¯º¯Êý */
-
-#endif
-
-
->>>>>>> 00ac74e (9.6)

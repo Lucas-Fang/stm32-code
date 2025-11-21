@@ -1,5 +1,4 @@
-<<<<<<< HEAD
---cpu Cortex-M3
+﻿--cpu Cortex-M3
 "mecanum_wheel_v1\startup_stm32f103xb.o"
 "mecanum_wheel_v1\startup_main.o"
 "mecanum_wheel_v1\main.o"
@@ -33,40 +32,4 @@
 --strict --scatter "Mecanum_wheel_v1\Mecanum_wheel_v1.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
-=======
---cpu Cortex-M3
-"mecanum_wheel_v1\startup_stm32f103xb.o"
-"mecanum_wheel_v1\startup_main.o"
-"mecanum_wheel_v1\main.o"
-"mecanum_wheel_v1\gpio.o"
-"mecanum_wheel_v1\tim.o"
-"mecanum_wheel_v1\usart.o"
-"mecanum_wheel_v1\stm32f1xx_it.o"
-"mecanum_wheel_v1\stm32f1xx_hal_msp.o"
-"mecanum_wheel_v1\stm32f1xx_hal_gpio_ex.o"
-"mecanum_wheel_v1\stm32f1xx_hal_tim.o"
-"mecanum_wheel_v1\stm32f1xx_hal_tim_ex.o"
-"mecanum_wheel_v1\stm32f1xx_hal.o"
-"mecanum_wheel_v1\stm32f1xx_hal_rcc.o"
-"mecanum_wheel_v1\stm32f1xx_hal_rcc_ex.o"
-"mecanum_wheel_v1\stm32f1xx_hal_gpio.o"
-"mecanum_wheel_v1\stm32f1xx_hal_dma.o"
-"mecanum_wheel_v1\stm32f1xx_hal_cortex.o"
-"mecanum_wheel_v1\stm32f1xx_hal_pwr.o"
-"mecanum_wheel_v1\stm32f1xx_hal_flash.o"
-"mecanum_wheel_v1\stm32f1xx_hal_flash_ex.o"
-"mecanum_wheel_v1\stm32f1xx_hal_exti.o"
-"mecanum_wheel_v1\stm32f1xx_hal_uart.o"
-"mecanum_wheel_v1\system_stm32f1xx.o"
-"mecanum_wheel_v1\chassic.o"
-"mecanum_wheel_v1\hwt101ct_rs232.o"
-"mecanum_wheel_v1\pid.o"
-"mecanum_wheel_v1\pid_user.o"
-"mecanum_wheel_v1\bsp_delay.o"
-"mecanum_wheel_v1\bsp_usart.o"
-"mecanum_wheel_v1\bsp_timer.o"
---strict --scatter "Mecanum_wheel_v1\Mecanum_wheel_v1.sct"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
---info sizes --info totals --info unused --info veneers
->>>>>>> 00ac74e (9.6)
 --list "Mecanum_wheel_v1.map" -o Mecanum_wheel_v1\Mecanum_wheel_v1.axf

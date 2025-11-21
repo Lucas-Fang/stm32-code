@@ -1,31 +1,30 @@
-<<<<<<< HEAD
-#include "./BSP/TIMER/gtim.h"
+ï»¿#include "./BSP/TIMER/gtim.h"
 
 
 TIM_HandleTypeDef g_timx_pwm_chy_handle;
 //extern uint8_t g_rx_buffer[1];
 
-/*Í¨ÓÃ¶¨Ê±Æ÷PWMÊä³ö³õÊ¼»¯º¯Êý*/
+/*é€šç”¨å®šæ—¶å™¨PWMè¾“å‡ºåˆå§‹åŒ–å‡½æ•°*/
 void gtim_timx_pwm_chy_init(uint16_t arr,uint16_t psc)
 {
     TIM_OC_InitTypeDef timx_oc_pwm_chy = {0};
     
-    g_timx_pwm_chy_handle.Instance =TIM3;                                       /*¼Ä´æÆ÷»ùµØÖ·*/
-    g_timx_pwm_chy_handle.Init.Prescaler =psc;                                  /*Ô¤·ÖÆµÏµÊý*/
-    g_timx_pwm_chy_handle.Init.Period = arr;                                    /*×Ô¶¯ÖØ×°ÔØÖµ*/
-    g_timx_pwm_chy_handle.Init.CounterMode=TIM_COUNTERMODE_UP;                  /*¼ÆÊýÄ£Ê½*/
+    g_timx_pwm_chy_handle.Instance =TIM3;                                       /*å¯„å­˜å™¨åŸºåœ°å€*/
+    g_timx_pwm_chy_handle.Init.Prescaler =psc;                                  /*é¢„åˆ†é¢‘ç³»æ•°*/
+    g_timx_pwm_chy_handle.Init.Period = arr;                                    /*è‡ªåŠ¨é‡è£…è½½å€¼*/
+    g_timx_pwm_chy_handle.Init.CounterMode=TIM_COUNTERMODE_UP;                  /*è®¡æ•°æ¨¡å¼*/
     
     HAL_TIM_PWM_Init(&g_timx_pwm_chy_handle);
     
-    timx_oc_pwm_chy.OCMode=TIM_OCMODE_PWM1;                                     /*Ä£Ê½Ñ¡Ôñ*/
-    timx_oc_pwm_chy.Pulse= (0.5/20)*arr;                                        /*±È½ÏÖµ(Ê¹¶æ»ú³õÊ¼½Ç¶ÈÊÇ0)*/
-    timx_oc_pwm_chy.OCPolarity=TIM_BREAKPOLARITY_HIGH;                           /*Êä³ö¼«ÐÔÎª¸ß*/
+    timx_oc_pwm_chy.OCMode=TIM_OCMODE_PWM1;                                     /*æ¨¡å¼é€‰æ‹©*/
+    timx_oc_pwm_chy.Pulse= (0.5/20)*arr;                                        /*æ¯”è¾ƒå€¼(ä½¿èˆµæœºåˆå§‹è§’åº¦æ˜¯0)*/
+    timx_oc_pwm_chy.OCPolarity=TIM_BREAKPOLARITY_HIGH;                           /*è¾“å‡ºæžæ€§ä¸ºé«˜*/
     HAL_TIM_PWM_ConfigChannel(&g_timx_pwm_chy_handle, &timx_oc_pwm_chy,TIM_CHANNEL_2);
     HAL_TIM_PWM_Start(&g_timx_pwm_chy_handle, TIM_CHANNEL_2);
 }
 
 
-/*¶¨Ê±Æ÷Êä³öPWM MSP³õÊ¼»¯º¯Êý*/
+/*å®šæ—¶å™¨è¾“å‡ºPWM MSPåˆå§‹åŒ–å‡½æ•°*/
 void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef *htim)
 {
     
@@ -36,12 +35,12 @@ void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef *htim)
     __HAL_RCC_TIM3_CLK_ENABLE();
     
     gpio_init_struct.Pin=GPIO_PIN_5;
-    gpio_init_struct.Mode=GPIO_MODE_AF_PP;                                      /*ÍÆÍì¸´ÓÃ*/
+    gpio_init_struct.Mode=GPIO_MODE_AF_PP;                                      /*æŽ¨æŒ½å¤ç”¨*/
     gpio_init_struct.Pull=GPIO_PULLUP;
     gpio_init_struct.Speed=GPIO_SPEED_FREQ_HIGH;
     HAL_GPIO_Init(GPIOB, &gpio_init_struct);
 
-    __HAL_RCC_AFIO_CLK_ENABLE();                                                /*ÖØ¶¨Òå¹¦ÄÜÊ¹ÄÜ*/
+    __HAL_RCC_AFIO_CLK_ENABLE();                                                /*é‡å®šä¹‰åŠŸèƒ½ä½¿èƒ½*/
     __HAL_AFIO_REMAP_TIM3_PARTIAL();
 }
 
@@ -62,68 +61,3 @@ void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef *htim)
 
 
 
-=======
-#include "./BSP/TIMER/gtim.h"
-
-
-TIM_HandleTypeDef g_timx_pwm_chy_handle;
-//extern uint8_t g_rx_buffer[1];
-
-/*Í¨ÓÃ¶¨Ê±Æ÷PWMÊä³ö³õÊ¼»¯º¯Êý*/
-void gtim_timx_pwm_chy_init(uint16_t arr,uint16_t psc)
-{
-    TIM_OC_InitTypeDef timx_oc_pwm_chy = {0};
-    
-    g_timx_pwm_chy_handle.Instance =TIM3;                                       /*¼Ä´æÆ÷»ùµØÖ·*/
-    g_timx_pwm_chy_handle.Init.Prescaler =psc;                                  /*Ô¤·ÖÆµÏµÊý*/
-    g_timx_pwm_chy_handle.Init.Period = arr;                                    /*×Ô¶¯ÖØ×°ÔØÖµ*/
-    g_timx_pwm_chy_handle.Init.CounterMode=TIM_COUNTERMODE_UP;                  /*¼ÆÊýÄ£Ê½*/
-    
-    HAL_TIM_PWM_Init(&g_timx_pwm_chy_handle);
-    
-    timx_oc_pwm_chy.OCMode=TIM_OCMODE_PWM1;                                     /*Ä£Ê½Ñ¡Ôñ*/
-    timx_oc_pwm_chy.Pulse= (0.5/20)*arr;                                        /*±È½ÏÖµ(Ê¹¶æ»ú³õÊ¼½Ç¶ÈÊÇ0)*/
-    timx_oc_pwm_chy.OCPolarity=TIM_BREAKPOLARITY_HIGH;                           /*Êä³ö¼«ÐÔÎª¸ß*/
-    HAL_TIM_PWM_ConfigChannel(&g_timx_pwm_chy_handle, &timx_oc_pwm_chy,TIM_CHANNEL_2);
-    HAL_TIM_PWM_Start(&g_timx_pwm_chy_handle, TIM_CHANNEL_2);
-}
-
-
-/*¶¨Ê±Æ÷Êä³öPWM MSP³õÊ¼»¯º¯Êý*/
-void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef *htim)
-{
-    
-    
-    GPIO_InitTypeDef gpio_init_struct = {0};
-    
-    __HAL_RCC_GPIOB_CLK_ENABLE();
-    __HAL_RCC_TIM3_CLK_ENABLE();
-    
-    gpio_init_struct.Pin=GPIO_PIN_5;
-    gpio_init_struct.Mode=GPIO_MODE_AF_PP;                                      /*ÍÆÍì¸´ÓÃ*/
-    gpio_init_struct.Pull=GPIO_PULLUP;
-    gpio_init_struct.Speed=GPIO_SPEED_FREQ_HIGH;
-    HAL_GPIO_Init(GPIOB, &gpio_init_struct);
-
-    __HAL_RCC_AFIO_CLK_ENABLE();                                                /*ÖØ¶¨Òå¹¦ÄÜÊ¹ÄÜ*/
-    __HAL_AFIO_REMAP_TIM3_PARTIAL();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 00ac74e (9.6)

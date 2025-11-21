@@ -1,11 +1,10 @@
-<<<<<<< HEAD
-#include "bsp_can.h"
+ï»¿#include "bsp_can.h"
 
 /**
- * @brief       CANÍ¨ÐÅ¿ªÆôº¯Êý
- * @param       hcan£ºCANÍ¨ÐÅ¾ä±ú
+ * @brief       CANé€šä¿¡å¼€å¯å‡½æ•°
+ * @param       hcanï¼šCANé€šä¿¡å¥æŸ„
  * @retval      void
- * @note        ½¨ÒéÏÈ³õÊ¼»¯CANÍ¨ÐÅÂË²¨º¯Êý£¬ÔÙ¿ªÆôCANÍ¨ÐÅ
+ * @note        å»ºè®®å…ˆåˆå§‹åŒ–CANé€šä¿¡æ»¤æ³¢å‡½æ•°ï¼Œå†å¼€å¯CANé€šä¿¡
  */
 void CAN_BUS::BSP::CAN_Start(CAN_HandleTypeDef *hcan)
 {
@@ -21,10 +20,10 @@ void CAN_BUS::BSP::CAN_Start(CAN_HandleTypeDef *hcan)
 }
 
 /**
- * @brief       CANÍ¨ÐÅÂË²¨º¯Êý
- * @param       hcan£ºCANÍ¨ÐÅ¾ä±ú
+ * @brief       CANé€šä¿¡æ»¤æ³¢å‡½æ•°
+ * @param       hcanï¼šCANé€šä¿¡å¥æŸ„
  * @retval      void
- * @note        ¿ªÆôCANÍ¨ÐÅ½ÓÊÕÊ±£¬±ØÐë³õÊ¼»¯¸Ãº¯Êý£¬½¨Òé½«¸Ãº¯ÊýÔÚCANÍ¨ÐÅ¿ªÆôÇ°¾Í±»³õÊ¼»¯
+ * @note        å¼€å¯CANé€šä¿¡æŽ¥æ”¶æ—¶ï¼Œå¿…é¡»åˆå§‹åŒ–è¯¥å‡½æ•°ï¼Œå»ºè®®å°†è¯¥å‡½æ•°åœ¨CANé€šä¿¡å¼€å¯å‰å°±è¢«åˆå§‹åŒ–
  */
 void CAN_BUS::BSP::Filter_Init(CAN_HandleTypeDef *hcan)
 {
@@ -40,7 +39,7 @@ void CAN_BUS::BSP::Filter_Init(CAN_HandleTypeDef *hcan)
     CAN_Filter_st.FilterMaskIdLow = 0x0000;
     CAN_Filter_st.FilterBank = 0;
     CAN_Filter_st.FilterFIFOAssignment = CAN_RX_FIFO0;
-	  if(HAL_CAN_ConfigFilter(hcan, &CAN_Filter_st)!=HAL_OK)       //ÂË²¨Æ÷³õÊ¼»¯
+	  if(HAL_CAN_ConfigFilter(hcan, &CAN_Filter_st)!=HAL_OK)       //æ»¤æ³¢å™¨åˆå§‹åŒ–
 		{
 			Error_Handler();
 		}
@@ -59,79 +58,10 @@ void CAN_BUS::BSP::Filter_Init(CAN_HandleTypeDef *hcan)
     CAN_Filter_st.FilterBank = 14;
 		CAN_Filter_st.SlaveStartFilterBank = 14;
     CAN_Filter_st.FilterFIFOAssignment = CAN_RX_FIFO0;
-	  if(HAL_CAN_ConfigFilter(hcan, &CAN_Filter_st)!=HAL_OK)        //ÂË²¨Æ÷³õÊ¼»¯
+	  if(HAL_CAN_ConfigFilter(hcan, &CAN_Filter_st)!=HAL_OK)        //æ»¤æ³¢å™¨åˆå§‹åŒ–
 		{
 			Error_Handler();
 		}
 	}
 	
 }
-=======
-#include "bsp_can.h"
-
-/**
- * @brief       CANÍ¨ÐÅ¿ªÆôº¯Êý
- * @param       hcan£ºCANÍ¨ÐÅ¾ä±ú
- * @retval      void
- * @note        ½¨ÒéÏÈ³õÊ¼»¯CANÍ¨ÐÅÂË²¨º¯Êý£¬ÔÙ¿ªÆôCANÍ¨ÐÅ
- */
-void CAN_BUS::BSP::CAN_Start(CAN_HandleTypeDef *hcan)
-{
-	if(HAL_CAN_Start(hcan) != HAL_OK)
-	{
-		Error_Handler();
-	}
-
-	if(HAL_CAN_ActivateNotification(hcan,CAN_IT_RX_FIFO0_MSG_PENDING) != HAL_OK)
-  {
-    Error_Handler();
-	}
-}
-
-/**
- * @brief       CANÍ¨ÐÅÂË²¨º¯Êý
- * @param       hcan£ºCANÍ¨ÐÅ¾ä±ú
- * @retval      void
- * @note        ¿ªÆôCANÍ¨ÐÅ½ÓÊÕÊ±£¬±ØÐë³õÊ¼»¯¸Ãº¯Êý£¬½¨Òé½«¸Ãº¯ÊýÔÚCANÍ¨ÐÅ¿ªÆôÇ°¾Í±»³õÊ¼»¯
- */
-void CAN_BUS::BSP::Filter_Init(CAN_HandleTypeDef *hcan)
-{
-	if(hcan->Instance == CAN1)
-	{
-		CAN_FilterTypeDef CAN_Filter_st;
-    CAN_Filter_st.FilterActivation = ENABLE;
-    CAN_Filter_st.FilterMode = CAN_FILTERMODE_IDMASK;
-    CAN_Filter_st.FilterScale = CAN_FILTERSCALE_32BIT;
-    CAN_Filter_st.FilterIdHigh = 0x0000;
-    CAN_Filter_st.FilterIdLow = 0x0000;
-    CAN_Filter_st.FilterMaskIdHigh = 0x0000;
-    CAN_Filter_st.FilterMaskIdLow = 0x0000;
-    CAN_Filter_st.FilterBank = 0;
-    CAN_Filter_st.FilterFIFOAssignment = CAN_RX_FIFO0;
-	  if(HAL_CAN_ConfigFilter(hcan, &CAN_Filter_st)!=HAL_OK)       //ÂË²¨Æ÷³õÊ¼»¯
-		{
-			Error_Handler();
-		}
-	}
-	
-	else if(hcan->Instance == CAN2)
-	{
-		CAN_FilterTypeDef CAN_Filter_st;
-    CAN_Filter_st.FilterActivation = ENABLE;
-    CAN_Filter_st.FilterMode = CAN_FILTERMODE_IDMASK;
-    CAN_Filter_st.FilterScale = CAN_FILTERSCALE_32BIT;
-    CAN_Filter_st.FilterIdHigh = 0x0000;
-    CAN_Filter_st.FilterIdLow = 0x0000;
-    CAN_Filter_st.FilterMaskIdHigh = 0x0000;
-    CAN_Filter_st.FilterMaskIdLow = 0x0000;
-    CAN_Filter_st.FilterBank = 14;
-		CAN_Filter_st.SlaveStartFilterBank = 14;
-    CAN_Filter_st.FilterFIFOAssignment = CAN_RX_FIFO0;
-	  if(HAL_CAN_ConfigFilter(hcan, &CAN_Filter_st)!=HAL_OK)        //ÂË²¨Æ÷³õÊ¼»¯
-		{
-			Error_Handler();
-		}
-	}
-	
-}
->>>>>>> 00ac74e (9.6)

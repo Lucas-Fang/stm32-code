@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#include "./SYSTEM/sys/sys.h"
+ï»¿#include "./SYSTEM/sys/sys.h"
 #include "./SYSTEM/usart/usart.h"
 #include "./SYSTEM/delay/delay.h"
 #include "./BSP/LED/led.h"
@@ -7,35 +6,14 @@
 
 int main(void)
 {
-    HAL_Init();                              /* ³õÊ¼»¯HAL¿â */
-    SystemClock_Config();                    /* ÉèÖÃÊ±ÖÓ, 72Mhz */
-    delay_init(72);                          /* ÑÓÊ±³õÊ¼»¯ */
-    led_init();                              /* LED³õÊ¼»¯ */
-    bitm_timx_int_init(7000-1,7200-1);       /* £¨×Ô¶¯ÖØ×°ÔØÖµARR,Ô¤·ÖÆµÏµÊýpsc£©*/
+    HAL_Init();                              /* åˆå§‹åŒ–HALåº“ */
+    SystemClock_Config();                    /* è®¾ç½®æ—¶é’Ÿ, 72Mhz */
+    delay_init(72);                          /* å»¶æ—¶åˆå§‹åŒ– */
+    led_init();                              /* LEDåˆå§‹åŒ– */
+    bitm_timx_int_init(7000-1,7200-1);       /* ï¼ˆè‡ªåŠ¨é‡è£…è½½å€¼ARR,é¢„åˆ†é¢‘ç³»æ•°pscï¼‰*/
     
     while(1)
     { 
 
     }
 }
-=======
-#include "./SYSTEM/sys/sys.h"
-#include "./SYSTEM/usart/usart.h"
-#include "./SYSTEM/delay/delay.h"
-#include "./BSP/LED/led.h"
-#include "./BSP/BTIM/btim.h"
-
-int main(void)
-{
-    HAL_Init();                              /* ³õÊ¼»¯HAL¿â */
-    SystemClock_Config();                    /* ÉèÖÃÊ±ÖÓ, 72Mhz */
-    delay_init(72);                          /* ÑÓÊ±³õÊ¼»¯ */
-    led_init();                              /* LED³õÊ¼»¯ */
-    bitm_timx_int_init(7000-1,7200-1);       /* £¨×Ô¶¯ÖØ×°ÔØÖµARR,Ô¤·ÖÆµÏµÊýpsc£©*/
-    
-    while(1)
-    { 
-
-    }
-}
->>>>>>> 00ac74e (9.6)

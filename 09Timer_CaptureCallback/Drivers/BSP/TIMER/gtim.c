@@ -1,26 +1,25 @@
-<<<<<<< HEAD
-#include "./BSP/TIMER/gtim.h"
+ï»¿#include "./BSP/TIMER/gtim.h"
 
 
 TIM_HandleTypeDef g_timx_cap_chy_handle;
 
 
-/*Í¨ÓÃ¶¨Ê±Æ÷ÊäÈë²¶»ñ³õÊ¼»¯º¯Êý*/
+/*é€šç”¨å®šæ—¶å™¨è¾“å…¥æ•èŽ·åˆå§‹åŒ–å‡½æ•°*/
 void gtim_timx_pwm_chy_init(uint16_t arr,uint16_t psc)
 {
     TIM_IC_InitTypeDef timx_ic_cap_chy = {0};
     
-    g_timx_cap_chy_handle.Instance =TIM3;                                       /*¼Ä´æÆ÷»ùµØÖ·*/
-    g_timx_cap_chy_handle.Init.Prescaler =psc;                                  /*Ô¤·ÖÆµÏµÊý*/
-    g_timx_cap_chy_handle.Init.Period = arr;                                    /*×Ô¶¯ÖØ×°ÔØÖµ*/
-    g_timx_cap_chy_handle.Init.CounterMode=TIM_COUNTERMODE_UP;                  /*µÝÔö¼ÆÊýÄ£Ê½*/
+    g_timx_cap_chy_handle.Instance =TIM3;                                       /*å¯„å­˜å™¨åŸºåœ°å€*/
+    g_timx_cap_chy_handle.Init.Prescaler =psc;                                  /*é¢„åˆ†é¢‘ç³»æ•°*/
+    g_timx_cap_chy_handle.Init.Period = arr;                                    /*è‡ªåŠ¨é‡è£…è½½å€¼*/
+    g_timx_cap_chy_handle.Init.CounterMode=TIM_COUNTERMODE_UP;                  /*é€’å¢žè®¡æ•°æ¨¡å¼*/
     g_timx_cap_chy_handle.Init.ClockDivision=TIM_CLOCKDIVISION_DIV1;
     HAL_TIM_IC_Init(&g_timx_cap_chy_handle);
     
-    timx_ic_cap_chy.ICPolarity =TIM_ICPOLARITY_RISING;                          /*ÉÏÉýÑØ²¶»ñ*/
-    timx_ic_cap_chy.ICSelection = TIM_ICSELECTION_DIRECTTI;                     /*Ó³Éäµ½TI1ÉÏ*/
-    timx_ic_cap_chy.ICPrescaler =TIM_ICPSC_DIV1;                                /*ÅäÖÃÊäÈë·ÖÆµÏµÊý£¨ÕâÀïÊÇ²»·ÖÆµ£©*/
-    timx_ic_cap_chy.ICFilter = 0;                                               /*ÅäÖÃÊäÈëÂË²¨Æ÷£¨ÕâÀïÊÇ²»ÂË²¨£©*/
+    timx_ic_cap_chy.ICPolarity =TIM_ICPOLARITY_RISING;                          /*ä¸Šå‡æ²¿æ•èŽ·*/
+    timx_ic_cap_chy.ICSelection = TIM_ICSELECTION_DIRECTTI;                     /*æ˜ å°„åˆ°TI1ä¸Š*/
+    timx_ic_cap_chy.ICPrescaler =TIM_ICPSC_DIV1;                                /*é…ç½®è¾“å…¥åˆ†é¢‘ç³»æ•°ï¼ˆè¿™é‡Œæ˜¯ä¸åˆ†é¢‘ï¼‰*/
+    timx_ic_cap_chy.ICFilter = 0;                                               /*é…ç½®è¾“å…¥æ»¤æ³¢å™¨ï¼ˆè¿™é‡Œæ˜¯ä¸æ»¤æ³¢ï¼‰*/
     HAL_TIM_IC_ConfigChannel(&g_timx_cap_chy_handle, &timx_ic_cap_chy,TIM_CHANNEL_1);
     
     __HAL_TIM_ENABLE_IT(&g_timx_cap_chy_handle,TIM_IT_UPDATE);
@@ -28,7 +27,7 @@ void gtim_timx_pwm_chy_init(uint16_t arr,uint16_t psc)
 }
 
 
-/*¶¨Ê±Æ÷ÊäÈë²¶»ñ MSP³õÊ¼»¯º¯Êý*/
+/*å®šæ—¶å™¨è¾“å…¥æ•èŽ· MSPåˆå§‹åŒ–å‡½æ•°*/
 void HAL_TIM_IC_MspInit(TIM_HandleTypeDef *htim)
 {
   if(htim ->Instance == TIM3)
@@ -39,80 +38,80 @@ void HAL_TIM_IC_MspInit(TIM_HandleTypeDef *htim)
     __HAL_RCC_GPIOA_CLK_ENABLE();
     
     gpio_init_struct.Pin=GPIO_PIN_6;
-    gpio_init_struct.Mode=GPIO_MODE_AF_PP;                                      /*ÍÆÍìÊä³ö£¨Ò²¿ÉÒÔ¶ÁÈ¡ÊäÈëÐÅºÅ£©*/
+    gpio_init_struct.Mode=GPIO_MODE_AF_PP;                                      /*æŽ¨æŒ½è¾“å‡ºï¼ˆä¹Ÿå¯ä»¥è¯»å–è¾“å…¥ä¿¡å·ï¼‰*/
     gpio_init_struct.Pull=GPIO_PULLUP;
     gpio_init_struct.Speed=GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(GPIOA, &gpio_init_struct);
 
-    HAL_NVIC_SetPriority(TIM3_IRQn,0,0);                                       /*ÅäÖÃÖÐ¶ÏÓÅÏÈ¼¶*/
-    HAL_NVIC_EnableIRQ(TIM3_IRQn);                                             /*¿ªÆôITMXÖÐ¶Ï*/
+    HAL_NVIC_SetPriority(TIM3_IRQn,0,0);                                       /*é…ç½®ä¸­æ–­ä¼˜å…ˆçº§*/
+    HAL_NVIC_EnableIRQ(TIM3_IRQn);                                             /*å¼€å¯ITMXä¸­æ–­*/
    }
 }
 
-/*ÊäÈë²¶»ñ×´Ì¬£¨g_timxchp_cap_sta£©£º
- *Î»¡¾7¡¿  £º=0£¨£©Ê±£¬ËµÃ÷Ã»ÓÐ³É¹¦²¶»ñ£»=1£¨£©£¬ËµÃ÷³É¹¦²¶»ñ
- *Î»¡¾6¡¿  £º=0£¬ËµÃ÷Ã»ÓÐ²¶»ñ£»= 1Ê±ËµÃ÷ÒÑ¾­³É¹¦²¶»ñµ½¸ßµçÆ½
- *Î»¡¾0~5¡¿£º²¶»ñ¸ßµçÆ½Ö®ºóÒç³öµÄ´ÎÊý£¬×Ü¹²¿ÉÒÔ¼Ç63´Î
+/*è¾“å…¥æ•èŽ·çŠ¶æ€ï¼ˆg_timxchp_cap_staï¼‰ï¼š
+ *ä½ã€7ã€‘  ï¼š=0ï¼ˆï¼‰æ—¶ï¼Œè¯´æ˜Žæ²¡æœ‰æˆåŠŸæ•èŽ·ï¼›=1ï¼ˆï¼‰ï¼Œè¯´æ˜ŽæˆåŠŸæ•èŽ·
+ *ä½ã€6ã€‘  ï¼š=0ï¼Œè¯´æ˜Žæ²¡æœ‰æ•èŽ·ï¼›= 1æ—¶è¯´æ˜Žå·²ç»æˆåŠŸæ•èŽ·åˆ°é«˜ç”µå¹³
+ *ä½ã€0~5ã€‘ï¼šæ•èŽ·é«˜ç”µå¹³ä¹‹åŽæº¢å‡ºçš„æ¬¡æ•°ï¼Œæ€»å…±å¯ä»¥è®°63æ¬¡
 */
 
 
-uint8_t g_timxchp_cap_sta = 0;                                                  /* ÊäÈë²¶»ñ×´Ì¬ */
-uint16_t g_timxchy_cap_val = 0;                                                 /* ÊäÈë²¶»ñÖµ */
+uint8_t g_timxchp_cap_sta = 0;                                                  /* è¾“å…¥æ•èŽ·çŠ¶æ€ */
+uint16_t g_timxchy_cap_val = 0;                                                 /* è¾“å…¥æ•èŽ·å€¼ */
 
-/*¶¨Ê±Æ÷3ÖÐ¶Ï·þÎñº¯Êý*/
+/*å®šæ—¶å™¨3ä¸­æ–­æœåŠ¡å‡½æ•°*/
 void TIM3_IRQHandler (void)
 {
     HAL_TIM_IRQHandler(&g_timx_cap_chy_handle);
 }
 
-/*¶¨Ê±ÊäÈë²¶»ñÖÐ¶Ï´¦Àí»Øµ÷º¯Êý*/
+/*å®šæ—¶è¾“å…¥æ•èŽ·ä¸­æ–­å¤„ç†å›žè°ƒå‡½æ•°*/
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 { 
     if (htim->Instance == TIM3)
     {
-        if ((g_timxchp_cap_sta & 0X80) == 0)                                    /*´ú±í¼Ä´æÆ÷µÄÎ»¡¾7¡¿ ´ú±í»¹Ã»³É¹¦²¶»ñ*/
+        if ((g_timxchp_cap_sta & 0X80) == 0)                                    /*ä»£è¡¨å¯„å­˜å™¨çš„ä½ã€7ã€‘ ä»£è¡¨è¿˜æ²¡æˆåŠŸæ•èŽ·*/
         {
-            if((g_timxchp_cap_sta & 0X40))                                      /*²¶»ñµ½ÏÂ½µÑØ £¨ÒòÎªÉÏ´Î²¶»ñµ½ÊÇ¸ßµçÆ½ÉÏÉýÑØ£¬ËùÒÔÏÂÒ»´ÎµÄ²¶»ñµ½µÄÊÇÏÂ½µÑØ£©*/
+            if((g_timxchp_cap_sta & 0X40))                                      /*æ•èŽ·åˆ°ä¸‹é™æ²¿ ï¼ˆå› ä¸ºä¸Šæ¬¡æ•èŽ·åˆ°æ˜¯é«˜ç”µå¹³ä¸Šå‡æ²¿ï¼Œæ‰€ä»¥ä¸‹ä¸€æ¬¡çš„æ•èŽ·åˆ°çš„æ˜¯ä¸‹é™æ²¿ï¼‰*/
             {
-                g_timxchp_cap_sta |= 0X80;                                      /*°ÑÎ»¡¾7¡¿ÖÃ1£¬±ê¼Ç³É¹¦²¶»ñµ½Ò»´Î¸ßµçÆ½Âö¿í*/
-                g_timxchy_cap_val = HAL_TIM_ReadCapturedValue(&g_timx_cap_chy_handle,TIM_CHANNEL_1);/*»ñÈ¡µ±Ç°µÄ²¶»ñÖµ*/
-                TIM_RESET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1);/*Ò»¶¨Çå³þÔ­À´µÄÉèÖÃ£¡£¡*/
-                TIM_SET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1,TIM_ICPOLARITY_RISING);/*°Ñ¶¨Ê±Æ÷¶þÍ¨µÀÒ»¸ÄÎªÉÏÉýÑØ²¶»ñ*/
+                g_timxchp_cap_sta |= 0X80;                                      /*æŠŠä½ã€7ã€‘ç½®1ï¼Œæ ‡è®°æˆåŠŸæ•èŽ·åˆ°ä¸€æ¬¡é«˜ç”µå¹³è„‰å®½*/
+                g_timxchy_cap_val = HAL_TIM_ReadCapturedValue(&g_timx_cap_chy_handle,TIM_CHANNEL_1);/*èŽ·å–å½“å‰çš„æ•èŽ·å€¼*/
+                TIM_RESET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1);/*ä¸€å®šæ¸…æ¥šåŽŸæ¥çš„è®¾ç½®ï¼ï¼*/
+                TIM_SET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1,TIM_ICPOLARITY_RISING);/*æŠŠå®šæ—¶å™¨äºŒé€šé“ä¸€æ”¹ä¸ºä¸Šå‡æ²¿æ•èŽ·*/
                 
             }
-            else/*»¹Î´¿ªÊ¼£¬µÚÒ»´Î²¶»ñµ½ÁËÉÏÉýÑØ*/
+            else/*è¿˜æœªå¼€å§‹ï¼Œç¬¬ä¸€æ¬¡æ•èŽ·åˆ°äº†ä¸Šå‡æ²¿*/
             {
                 g_timxchp_cap_sta = 0;
-                g_timxchy_cap_val = 0;                                          /*Çå¿Õ*/
-                g_timxchp_cap_sta |= 0X40;                                      /*±ê¼Ç²¶»ñµ½ÁËÉÏÉýÑØ*/
-                __HAL_TIM_DISABLE(&g_timx_cap_chy_handle);                      /*¹Ø±Õ¶¨Ê±Æ÷2*/
-                __HAL_TIM_SET_COUNTER(&g_timx_cap_chy_handle,0);                /*¶¨Ê±Æ÷2ÇåÁã*/
-                TIM_RESET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1);/*Ò»¶¨Çå³þÔ­À´µÄÉèÖÃ£¡£¡*/
-                TIM_SET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1,TIM_ICPOLARITY_FALLING);/*°Ñ¶¨Ê±Æ÷¶þÍ¨µÀÒ»¸ÄÎªÏÂ½µÑØ²¶»ñ*/
-                __HAL_TIM_ENABLE(&g_timx_cap_chy_handle);                       /*Ê¹ÄÜ¶¨Ê±Æ÷2*/
+                g_timxchy_cap_val = 0;                                          /*æ¸…ç©º*/
+                g_timxchp_cap_sta |= 0X40;                                      /*æ ‡è®°æ•èŽ·åˆ°äº†ä¸Šå‡æ²¿*/
+                __HAL_TIM_DISABLE(&g_timx_cap_chy_handle);                      /*å…³é—­å®šæ—¶å™¨2*/
+                __HAL_TIM_SET_COUNTER(&g_timx_cap_chy_handle,0);                /*å®šæ—¶å™¨2æ¸…é›¶*/
+                TIM_RESET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1);/*ä¸€å®šæ¸…æ¥šåŽŸæ¥çš„è®¾ç½®ï¼ï¼*/
+                TIM_SET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1,TIM_ICPOLARITY_FALLING);/*æŠŠå®šæ—¶å™¨äºŒé€šé“ä¸€æ”¹ä¸ºä¸‹é™æ²¿æ•èŽ·*/
+                __HAL_TIM_ENABLE(&g_timx_cap_chy_handle);                       /*ä½¿èƒ½å®šæ—¶å™¨2*/
             }
         }
     }
         
 }
-/*¶¨Ê±Æ÷¸üÐÂÖÐ¶Ï»Øµ÷º¯Êý*/
+/*å®šæ—¶å™¨æ›´æ–°ä¸­æ–­å›žè°ƒå‡½æ•°*/
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     if (htim ->Instance ==TIM3)
     {
-        if ((g_timxchp_cap_sta & 0X80) == 0)                                    /*»¹Î´³É¹¦²¶»ñ¸ßµçÆ½Âö³å*/
+        if ((g_timxchp_cap_sta & 0X80) == 0)                                    /*è¿˜æœªæˆåŠŸæ•èŽ·é«˜ç”µå¹³è„‰å†²*/
         {
-            if((g_timxchp_cap_sta & 0X40))                                      /*ÒÑ¾­²¶»ñµ½¸ßµçÆ½ÁË*/
+            if((g_timxchp_cap_sta & 0X40))                                      /*å·²ç»æ•èŽ·åˆ°é«˜ç”µå¹³äº†*/
             {
-                if((g_timxchp_cap_sta & 0X3F) == 0X3F )                                  /*²¶»ñµÄ¸ßµçÆ½Ì«³¤ÁË*/
+                if((g_timxchp_cap_sta & 0X3F) == 0X3F )                                  /*æ•èŽ·çš„é«˜ç”µå¹³å¤ªé•¿äº†*/
                 {
-                    TIM_RESET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1);/*Ò»¶¨Çå³þÔ­À´µÄÉèÖÃ£¡£¡*/
-                    TIM_SET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1,TIM_ICPOLARITY_RISING);/*°Ñ¶¨Ê±Æ÷¶þÍ¨µÀÒ»¸ÄÎªÉÏÉýÑØ²¶»ñ*/
+                    TIM_RESET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1);/*ä¸€å®šæ¸…æ¥šåŽŸæ¥çš„è®¾ç½®ï¼ï¼*/
+                    TIM_SET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1,TIM_ICPOLARITY_RISING);/*æŠŠå®šæ—¶å™¨äºŒé€šé“ä¸€æ”¹ä¸ºä¸Šå‡æ²¿æ•èŽ·*/
                     g_timxchp_cap_sta |= 0X80;
                     g_timxchy_cap_val = 0XFFFF;
                 }
             }
-               else/*ÀÛ¼Æ¶¨Ê±Æ÷Òç³ö´ÎÊý*/
+               else/*ç´¯è®¡å®šæ—¶å™¨æº¢å‡ºæ¬¡æ•°*/
                {
                    g_timxchp_cap_sta++;
                }
@@ -126,132 +125,3 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 
 
-=======
-#include "./BSP/TIMER/gtim.h"
-
-
-TIM_HandleTypeDef g_timx_cap_chy_handle;
-
-
-/*Í¨ÓÃ¶¨Ê±Æ÷ÊäÈë²¶»ñ³õÊ¼»¯º¯Êý*/
-void gtim_timx_pwm_chy_init(uint16_t arr,uint16_t psc)
-{
-    TIM_IC_InitTypeDef timx_ic_cap_chy = {0};
-    
-    g_timx_cap_chy_handle.Instance =TIM3;                                       /*¼Ä´æÆ÷»ùµØÖ·*/
-    g_timx_cap_chy_handle.Init.Prescaler =psc;                                  /*Ô¤·ÖÆµÏµÊý*/
-    g_timx_cap_chy_handle.Init.Period = arr;                                    /*×Ô¶¯ÖØ×°ÔØÖµ*/
-    g_timx_cap_chy_handle.Init.CounterMode=TIM_COUNTERMODE_UP;                  /*µÝÔö¼ÆÊýÄ£Ê½*/
-    g_timx_cap_chy_handle.Init.ClockDivision=TIM_CLOCKDIVISION_DIV1;
-    HAL_TIM_IC_Init(&g_timx_cap_chy_handle);
-    
-    timx_ic_cap_chy.ICPolarity =TIM_ICPOLARITY_RISING;                          /*ÉÏÉýÑØ²¶»ñ*/
-    timx_ic_cap_chy.ICSelection = TIM_ICSELECTION_DIRECTTI;                     /*Ó³Éäµ½TI1ÉÏ*/
-    timx_ic_cap_chy.ICPrescaler =TIM_ICPSC_DIV1;                                /*ÅäÖÃÊäÈë·ÖÆµÏµÊý£¨ÕâÀïÊÇ²»·ÖÆµ£©*/
-    timx_ic_cap_chy.ICFilter = 0;                                               /*ÅäÖÃÊäÈëÂË²¨Æ÷£¨ÕâÀïÊÇ²»ÂË²¨£©*/
-    HAL_TIM_IC_ConfigChannel(&g_timx_cap_chy_handle, &timx_ic_cap_chy,TIM_CHANNEL_1);
-    
-    __HAL_TIM_ENABLE_IT(&g_timx_cap_chy_handle,TIM_IT_UPDATE);
-    HAL_TIM_IC_Start_IT(&g_timx_cap_chy_handle, TIM_CHANNEL_1);
-}
-
-
-/*¶¨Ê±Æ÷ÊäÈë²¶»ñ MSP³õÊ¼»¯º¯Êý*/
-void HAL_TIM_IC_MspInit(TIM_HandleTypeDef *htim)
-{
-  if(htim ->Instance == TIM3)
-  {
-    GPIO_InitTypeDef gpio_init_struct = {0};
-    
-    __HAL_RCC_TIM3_CLK_ENABLE();
-    __HAL_RCC_GPIOA_CLK_ENABLE();
-    
-    gpio_init_struct.Pin=GPIO_PIN_6;
-    gpio_init_struct.Mode=GPIO_MODE_AF_PP;                                      /*ÍÆÍìÊä³ö£¨Ò²¿ÉÒÔ¶ÁÈ¡ÊäÈëÐÅºÅ£©*/
-    gpio_init_struct.Pull=GPIO_PULLUP;
-    gpio_init_struct.Speed=GPIO_SPEED_FREQ_LOW;
-    HAL_GPIO_Init(GPIOA, &gpio_init_struct);
-
-    HAL_NVIC_SetPriority(TIM3_IRQn,0,0);                                       /*ÅäÖÃÖÐ¶ÏÓÅÏÈ¼¶*/
-    HAL_NVIC_EnableIRQ(TIM3_IRQn);                                             /*¿ªÆôITMXÖÐ¶Ï*/
-   }
-}
-
-/*ÊäÈë²¶»ñ×´Ì¬£¨g_timxchp_cap_sta£©£º
- *Î»¡¾7¡¿  £º=0£¨£©Ê±£¬ËµÃ÷Ã»ÓÐ³É¹¦²¶»ñ£»=1£¨£©£¬ËµÃ÷³É¹¦²¶»ñ
- *Î»¡¾6¡¿  £º=0£¬ËµÃ÷Ã»ÓÐ²¶»ñ£»= 1Ê±ËµÃ÷ÒÑ¾­³É¹¦²¶»ñµ½¸ßµçÆ½
- *Î»¡¾0~5¡¿£º²¶»ñ¸ßµçÆ½Ö®ºóÒç³öµÄ´ÎÊý£¬×Ü¹²¿ÉÒÔ¼Ç63´Î
-*/
-
-
-uint8_t g_timxchp_cap_sta = 0;                                                  /* ÊäÈë²¶»ñ×´Ì¬ */
-uint16_t g_timxchy_cap_val = 0;                                                 /* ÊäÈë²¶»ñÖµ */
-
-/*¶¨Ê±Æ÷3ÖÐ¶Ï·þÎñº¯Êý*/
-void TIM3_IRQHandler (void)
-{
-    HAL_TIM_IRQHandler(&g_timx_cap_chy_handle);
-}
-
-/*¶¨Ê±ÊäÈë²¶»ñÖÐ¶Ï´¦Àí»Øµ÷º¯Êý*/
-void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
-{ 
-    if (htim->Instance == TIM3)
-    {
-        if ((g_timxchp_cap_sta & 0X80) == 0)                                    /*´ú±í¼Ä´æÆ÷µÄÎ»¡¾7¡¿ ´ú±í»¹Ã»³É¹¦²¶»ñ*/
-        {
-            if((g_timxchp_cap_sta & 0X40))                                      /*²¶»ñµ½ÏÂ½µÑØ £¨ÒòÎªÉÏ´Î²¶»ñµ½ÊÇ¸ßµçÆ½ÉÏÉýÑØ£¬ËùÒÔÏÂÒ»´ÎµÄ²¶»ñµ½µÄÊÇÏÂ½µÑØ£©*/
-            {
-                g_timxchp_cap_sta |= 0X80;                                      /*°ÑÎ»¡¾7¡¿ÖÃ1£¬±ê¼Ç³É¹¦²¶»ñµ½Ò»´Î¸ßµçÆ½Âö¿í*/
-                g_timxchy_cap_val = HAL_TIM_ReadCapturedValue(&g_timx_cap_chy_handle,TIM_CHANNEL_1);/*»ñÈ¡µ±Ç°µÄ²¶»ñÖµ*/
-                TIM_RESET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1);/*Ò»¶¨Çå³þÔ­À´µÄÉèÖÃ£¡£¡*/
-                TIM_SET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1,TIM_ICPOLARITY_RISING);/*°Ñ¶¨Ê±Æ÷¶þÍ¨µÀÒ»¸ÄÎªÉÏÉýÑØ²¶»ñ*/
-                
-            }
-            else/*»¹Î´¿ªÊ¼£¬µÚÒ»´Î²¶»ñµ½ÁËÉÏÉýÑØ*/
-            {
-                g_timxchp_cap_sta = 0;
-                g_timxchy_cap_val = 0;                                          /*Çå¿Õ*/
-                g_timxchp_cap_sta |= 0X40;                                      /*±ê¼Ç²¶»ñµ½ÁËÉÏÉýÑØ*/
-                __HAL_TIM_DISABLE(&g_timx_cap_chy_handle);                      /*¹Ø±Õ¶¨Ê±Æ÷2*/
-                __HAL_TIM_SET_COUNTER(&g_timx_cap_chy_handle,0);                /*¶¨Ê±Æ÷2ÇåÁã*/
-                TIM_RESET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1);/*Ò»¶¨Çå³þÔ­À´µÄÉèÖÃ£¡£¡*/
-                TIM_SET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1,TIM_ICPOLARITY_FALLING);/*°Ñ¶¨Ê±Æ÷¶þÍ¨µÀÒ»¸ÄÎªÏÂ½µÑØ²¶»ñ*/
-                __HAL_TIM_ENABLE(&g_timx_cap_chy_handle);                       /*Ê¹ÄÜ¶¨Ê±Æ÷2*/
-            }
-        }
-    }
-        
-}
-/*¶¨Ê±Æ÷¸üÐÂÖÐ¶Ï»Øµ÷º¯Êý*/
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-    if (htim ->Instance ==TIM3)
-    {
-        if ((g_timxchp_cap_sta & 0X80) == 0)                                    /*»¹Î´³É¹¦²¶»ñ¸ßµçÆ½Âö³å*/
-        {
-            if((g_timxchp_cap_sta & 0X40))                                      /*ÒÑ¾­²¶»ñµ½¸ßµçÆ½ÁË*/
-            {
-                if((g_timxchp_cap_sta & 0X3F) == 0X3F )                                  /*²¶»ñµÄ¸ßµçÆ½Ì«³¤ÁË*/
-                {
-                    TIM_RESET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1);/*Ò»¶¨Çå³þÔ­À´µÄÉèÖÃ£¡£¡*/
-                    TIM_SET_CAPTUREPOLARITY(&g_timx_cap_chy_handle,TIM_CHANNEL_1,TIM_ICPOLARITY_RISING);/*°Ñ¶¨Ê±Æ÷¶þÍ¨µÀÒ»¸ÄÎªÉÏÉýÑØ²¶»ñ*/
-                    g_timxchp_cap_sta |= 0X80;
-                    g_timxchy_cap_val = 0XFFFF;
-                }
-            }
-               else/*ÀÛ¼Æ¶¨Ê±Æ÷Òç³ö´ÎÊý*/
-               {
-                   g_timxchp_cap_sta++;
-               }
-        }
-    }
-}
-
-
-
-
-
-
-
->>>>>>> 00ac74e (9.6)

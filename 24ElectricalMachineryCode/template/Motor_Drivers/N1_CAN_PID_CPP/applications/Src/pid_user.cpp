@@ -1,41 +1,40 @@
-<<<<<<< HEAD
-#include "pid_user.h"
+ï»¿#include "pid_user.h"
 #include "can_receive.h"
 
 
-/*PID¿ØÖÆÆ÷¶ÔÏó*/
+/*PIDæ§åˆ¶å™¨å¯¹è±¡*/
 PID_Controller pid_controller;
 /***************/
 
-//PID²ÎÊı¾ä±ú(½á¹¹Ìå)
+//PIDå‚æ•°å¥æŸ„(ç»“æ„ä½“)
 pid_type_def pid_v_1[8],pid_pos_1[8];
 pid_type_def pid_v_2[8],pid_pos_2[8];
 pid_type_def pid_yaw;
 pid_type_def pid_pos_x;
 pid_type_def pid_pos_y;
 
-//µç»úPIDÈı²Î
-fp32 motor_speed_3508_pid[3] = {15, 0, 1.2};//µ×ÅÌ3508²ÎÊı
+//ç”µæœºPIDä¸‰å‚
+fp32 motor_speed_3508_pid[3] = {15, 0, 1.2};//åº•ç›˜3508å‚æ•°
 fp32 motor_position_3508_pid[3] = {0.2, 0, 1};
-fp32 motor_speed_2006_pid[3] = {10,0,0};//µ×ÅÌ2006²ÎÊı
+fp32 motor_speed_2006_pid[3] = {10,0,0};//åº•ç›˜2006å‚æ•°
 fp32 motor_position_2006_pid[3] = {0.27,0.022,0.3};
 
 
-//¶¨Î»PIDÈı²Î
+//å®šä½PIDä¸‰å‚
 fp32 motor_yaw_pid[3] = {120,0,0.1};
 fp32 motor_pos_x_pid[3] = {6,0,0};
 fp32 motor_pos_y_pid[3] = {6,0,0};
 
 
 /**
- * @brief       PIDÉè±¸³õÊ¼»¯
+ * @brief       PIDè®¾å¤‡åˆå§‹åŒ–
  * @param       void
  * @retval      void
- * @note        ÕâÀï½«ËùÓĞµÄPIDÉè±¸µÄ²ÎÊı½øĞĞ³õÊ¼»¯£¬°üÀ¨Kp,Ki,Kd,I_limit(»ı·ÖÏŞ·ù),O_limit(×ÜÏŞ·ù)¹²Îå¸ö²ÎÊı,½«ÆäÖµ±£´æÖÁpid_type_def¾ä±úÖĞ¡£
+ * @note        è¿™é‡Œå°†æ‰€æœ‰çš„PIDè®¾å¤‡çš„å‚æ•°è¿›è¡Œåˆå§‹åŒ–ï¼ŒåŒ…æ‹¬Kp,Ki,Kd,I_limit(ç§¯åˆ†é™å¹…),O_limit(æ€»é™å¹…)å…±äº”ä¸ªå‚æ•°,å°†å…¶å€¼ä¿å­˜è‡³pid_type_defå¥æŸ„ä¸­ã€‚
  */
 void PID_Controller::All_Device_Init(void)
 {
-	//µ×ÅÌPID
+	//åº•ç›˜PID
 	for(int i=0;i<4;i++)
 	{
     this->core.PID_Init(&pid_v_1[i], PID_POSITION, motor_speed_3508_pid, 10000, 6000);
@@ -44,7 +43,7 @@ void PID_Controller::All_Device_Init(void)
 		this->core.PID_Init(&pid_v_2[i], PID_POSITION, motor_speed_2006_pid, 9000, 6000);
 		this->core.PID_Init(&pid_pos_2[i], PID_POSITION, motor_position_2006_pid, 8000, 2000);
 	}
-	//ÆäËû²¿Î»µç»úPID
+	//å…¶ä»–éƒ¨ä½ç”µæœºPID
 	for(int i=4;i<8;i++)
 	{		
     this->core.PID_Init(&pid_v_1[i], PID_POSITION, motor_speed_3508_pid, 10000, 6000);
@@ -54,18 +53,18 @@ void PID_Controller::All_Device_Init(void)
 		this->core.PID_Init(&pid_pos_2[i], PID_POSITION, motor_position_2006_pid, 2000, 300);
 	}
 	
-  //¶¨Î»PID
+  //å®šä½PID
 	this->core.PID_Init(&pid_yaw,PID_POSITION,motor_yaw_pid,3000,1500);
 	this->core.PID_Init(&pid_pos_x,PID_POSITION,motor_pos_x_pid,1500,1500);
 	this->core.PID_Init(&pid_pos_y,PID_POSITION,motor_pos_y_pid,1500,1500);
 }
 
 /**
- * @brief       CAN1ËÙ¶È»·
- * @param       set_speed£ºËÙ¶Èrpm
- * @param       i£ºÒÔÊı×éÎªĞòºÅµÄ£¬Ò²¾ÍÊÇi=µçµ÷IDºÅ-1
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
+ * @brief       CAN1é€Ÿåº¦ç¯
+ * @param       set_speedï¼šé€Ÿåº¦rpm
+ * @param       iï¼šä»¥æ•°ç»„ä¸ºåºå·çš„ï¼Œä¹Ÿå°±æ˜¯i=ç”µè°ƒIDå·-1
+ * @retval      è¾“å‡ºå€¼
+ * @note        è¾“å‡ºå€¼ç©¶ç«Ÿæ˜¯ä»€ä¹ˆå€¼ï¼Œéœ€è¦çœ‹è¯¥å‡½æ•°çš„è¾“å‡ºå€¼è¢«å½“ä½œäº†ä»€ä¹ˆé‡
  */
 fp32 PID_Controller::CAN_MOTOR::CAN1_Velocity_Realize(fp32 set_speed,int i)
 {
@@ -74,11 +73,11 @@ fp32 PID_Controller::CAN_MOTOR::CAN1_Velocity_Realize(fp32 set_speed,int i)
 }
 
 /**
- * @brief       CAN1Î»ÖÃ»·
- * @param       set_pos£º½Ç¶ÈÖµ£¬ÎªÏà¶Ô½Ç¶ÈÖµ£¬ÇëÏê¿´´ó½®ËµÃ÷Êé
- * @param       i£ºÒÔÊı×éÎªĞòºÅµÄ£¬Ò²¾ÍÊÇi=µçµ÷IDºÅ-1
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
+ * @brief       CAN1ä½ç½®ç¯
+ * @param       set_posï¼šè§’åº¦å€¼ï¼Œä¸ºç›¸å¯¹è§’åº¦å€¼ï¼Œè¯·è¯¦çœ‹å¤§ç–†è¯´æ˜ä¹¦
+ * @param       iï¼šä»¥æ•°ç»„ä¸ºåºå·çš„ï¼Œä¹Ÿå°±æ˜¯i=ç”µè°ƒIDå·-1
+ * @retval      è¾“å‡ºå€¼
+ * @note        è¾“å‡ºå€¼ç©¶ç«Ÿæ˜¯ä»€ä¹ˆå€¼ï¼Œéœ€è¦çœ‹è¯¥å‡½æ•°çš„è¾“å‡ºå€¼è¢«å½“ä½œäº†ä»€ä¹ˆé‡
  */
 fp32 PID_Controller::CAN_MOTOR::CAN1_Position_Realize(fp32 set_pos,int i)
 {
@@ -87,11 +86,11 @@ fp32 PID_Controller::CAN_MOTOR::CAN1_Position_Realize(fp32 set_pos,int i)
 }
 
 /**
- * @brief       CAN1µçÁ÷ËÙ¶ÈË«»·
- * @param       set_pos£º½Ç¶ÈÖµ£¬ÎªÏà¶Ô½Ç¶ÈÖµ£¬ÇëÏê¿´´ó½®ËµÃ÷Êé
- * @param       i£ºÒÔÊı×éÎªĞòºÅµÄ£¬Ò²¾ÍÊÇi=µçµ÷IDºÅ-1
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
+ * @brief       CAN1ç”µæµé€Ÿåº¦åŒç¯
+ * @param       set_posï¼šè§’åº¦å€¼ï¼Œä¸ºç›¸å¯¹è§’åº¦å€¼ï¼Œè¯·è¯¦çœ‹å¤§ç–†è¯´æ˜ä¹¦
+ * @param       iï¼šä»¥æ•°ç»„ä¸ºåºå·çš„ï¼Œä¹Ÿå°±æ˜¯i=ç”µè°ƒIDå·-1
+ * @retval      è¾“å‡ºå€¼
+ * @note        è¾“å‡ºå€¼ç©¶ç«Ÿæ˜¯ä»€ä¹ˆå€¼ï¼Œéœ€è¦çœ‹è¯¥å‡½æ•°çš„è¾“å‡ºå€¼è¢«å½“ä½œäº†ä»€ä¹ˆé‡
  */
 fp32 PID_Controller::CAN_MOTOR::CAN1_VP_Dual_Loop_Realize(fp32 set_pos,int i)
 {
@@ -99,11 +98,11 @@ fp32 PID_Controller::CAN_MOTOR::CAN1_VP_Dual_Loop_Realize(fp32 set_pos,int i)
 }
 
 /**
- * @brief       CAN2ËÙ¶È»·
- * @param       set_speed£ºËÙ¶Èrpm
- * @param       i£ºÒÔÊı×éÎªĞòºÅµÄ£¬Ò²¾ÍÊÇi=µçµ÷IDºÅ-1
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
+ * @brief       CAN2é€Ÿåº¦ç¯
+ * @param       set_speedï¼šé€Ÿåº¦rpm
+ * @param       iï¼šä»¥æ•°ç»„ä¸ºåºå·çš„ï¼Œä¹Ÿå°±æ˜¯i=ç”µè°ƒIDå·-1
+ * @retval      è¾“å‡ºå€¼
+ * @note        è¾“å‡ºå€¼ç©¶ç«Ÿæ˜¯ä»€ä¹ˆå€¼ï¼Œéœ€è¦çœ‹è¯¥å‡½æ•°çš„è¾“å‡ºå€¼è¢«å½“ä½œäº†ä»€ä¹ˆé‡
  */
 fp32 PID_Controller::CAN_MOTOR::CAN2_Velocity_Realize(fp32 set_speed,int i)
 {
@@ -112,11 +111,11 @@ fp32 PID_Controller::CAN_MOTOR::CAN2_Velocity_Realize(fp32 set_speed,int i)
 }
 
 /**
- * @brief       CAN2Î»ÖÃ»·
- * @param       set_pos£º½Ç¶ÈÖµ£¬ÎªÏà¶Ô½Ç¶ÈÖµ£¬ÇëÏê¿´´ó½®ËµÃ÷Êé
- * @param       i£ºÒÔÊı×éÎªĞòºÅµÄ£¬Ò²¾ÍÊÇi=µçµ÷IDºÅ-1
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
+ * @brief       CAN2ä½ç½®ç¯
+ * @param       set_posï¼šè§’åº¦å€¼ï¼Œä¸ºç›¸å¯¹è§’åº¦å€¼ï¼Œè¯·è¯¦çœ‹å¤§ç–†è¯´æ˜ä¹¦
+ * @param       iï¼šä»¥æ•°ç»„ä¸ºåºå·çš„ï¼Œä¹Ÿå°±æ˜¯i=ç”µè°ƒIDå·-1
+ * @retval      è¾“å‡ºå€¼
+ * @note        è¾“å‡ºå€¼ç©¶ç«Ÿæ˜¯ä»€ä¹ˆå€¼ï¼Œéœ€è¦çœ‹è¯¥å‡½æ•°çš„è¾“å‡ºå€¼è¢«å½“ä½œäº†ä»€ä¹ˆé‡
  */
 fp32 PID_Controller::CAN_MOTOR::CAN2_Position_Realize(fp32 set_pos,int i)
 {
@@ -125,11 +124,11 @@ fp32 PID_Controller::CAN_MOTOR::CAN2_Position_Realize(fp32 set_pos,int i)
 }
 
 /**
- * @brief       CAN2µçÁ÷ËÙ¶ÈË«»·
- * @param       set_pos£º½Ç¶ÈÖµ£¬ÎªÏà¶Ô½Ç¶ÈÖµ£¬ÇëÏê¿´´ó½®ËµÃ÷Êé
- * @param       i£ºÒÔÊı×éÎªĞòºÅµÄ£¬Ò²¾ÍÊÇi=µçµ÷IDºÅ-1
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
+ * @brief       CAN2ç”µæµé€Ÿåº¦åŒç¯
+ * @param       set_posï¼šè§’åº¦å€¼ï¼Œä¸ºç›¸å¯¹è§’åº¦å€¼ï¼Œè¯·è¯¦çœ‹å¤§ç–†è¯´æ˜ä¹¦
+ * @param       iï¼šä»¥æ•°ç»„ä¸ºåºå·çš„ï¼Œä¹Ÿå°±æ˜¯i=ç”µè°ƒIDå·-1
+ * @retval      è¾“å‡ºå€¼
+ * @note        è¾“å‡ºå€¼ç©¶ç«Ÿæ˜¯ä»€ä¹ˆå€¼ï¼Œéœ€è¦çœ‹è¯¥å‡½æ•°çš„è¾“å‡ºå€¼è¢«å½“ä½œäº†ä»€ä¹ˆé‡
  */
 fp32 PID_Controller::CAN_MOTOR::CAN2_VP_Dual_Loop_Realize(fp32 set_pos,int i)
 {
@@ -137,10 +136,10 @@ fp32 PID_Controller::CAN_MOTOR::CAN2_VP_Dual_Loop_Realize(fp32 set_pos,int i)
 }
 
 /**
- * @brief       º½Ïò½ÇPID
- * @param       set_yaw£ºÄ¿±êº½Ïò½Ç
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
+ * @brief       èˆªå‘è§’PID
+ * @param       set_yawï¼šç›®æ ‡èˆªå‘è§’
+ * @retval      è¾“å‡ºå€¼
+ * @note        è¾“å‡ºå€¼ç©¶ç«Ÿæ˜¯ä»€ä¹ˆå€¼ï¼Œéœ€è¦çœ‹è¯¥å‡½æ•°çš„è¾“å‡ºå€¼è¢«å½“ä½œäº†ä»€ä¹ˆé‡
  */
 fp32 PID_Controller::SENSORS::Yaw_Realize(fp32 set_yaw)
 {
@@ -151,10 +150,10 @@ fp32 PID_Controller::SENSORS::Yaw_Realize(fp32 set_yaw)
 }
 
 /**
- * @brief       X×ø±êPID
- * @param       set_pos_x£ºÄ¿±êX×ø±êÖµ
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
+ * @brief       Xåæ ‡PID
+ * @param       set_pos_xï¼šç›®æ ‡Xåæ ‡å€¼
+ * @retval      è¾“å‡ºå€¼
+ * @note        è¾“å‡ºå€¼ç©¶ç«Ÿæ˜¯ä»€ä¹ˆå€¼ï¼Œéœ€è¦çœ‹è¯¥å‡½æ•°çš„è¾“å‡ºå€¼è¢«å½“ä½œäº†ä»€ä¹ˆé‡
  */
 fp32 PID_Controller::SENSORS::Pos_X_Realize(fp32 set_pos_x)
 {
@@ -165,10 +164,10 @@ fp32 PID_Controller::SENSORS::Pos_X_Realize(fp32 set_pos_x)
 }
 
 /**
- * @brief       Y×ø±êPID
- * @param       set_pos_y£ºÄ¿±êY×ø±êÖµ
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
+ * @brief       Yåæ ‡PID
+ * @param       set_pos_yï¼šç›®æ ‡Yåæ ‡å€¼
+ * @retval      è¾“å‡ºå€¼
+ * @note        è¾“å‡ºå€¼ç©¶ç«Ÿæ˜¯ä»€ä¹ˆå€¼ï¼Œéœ€è¦çœ‹è¯¥å‡½æ•°çš„è¾“å‡ºå€¼è¢«å½“ä½œäº†ä»€ä¹ˆé‡
  */
 fp32 PID_Controller::SENSORS::Pos_Y_Realize(fp32 set_pos_y)
 {
@@ -178,184 +177,3 @@ fp32 PID_Controller::SENSORS::Pos_Y_Realize(fp32 set_pos_y)
 	return 0;
 }
 
-=======
-#include "pid_user.h"
-#include "can_receive.h"
-
-
-/*PID¿ØÖÆÆ÷¶ÔÏó*/
-PID_Controller pid_controller;
-/***************/
-
-//PID²ÎÊı¾ä±ú(½á¹¹Ìå)
-pid_type_def pid_v_1[8],pid_pos_1[8];
-pid_type_def pid_v_2[8],pid_pos_2[8];
-pid_type_def pid_yaw;
-pid_type_def pid_pos_x;
-pid_type_def pid_pos_y;
-
-//µç»úPIDÈı²Î
-fp32 motor_speed_3508_pid[3] = {15, 0, 1.2};//µ×ÅÌ3508²ÎÊı
-fp32 motor_position_3508_pid[3] = {0.2, 0, 1};
-fp32 motor_speed_2006_pid[3] = {10,0,0};//µ×ÅÌ2006²ÎÊı
-fp32 motor_position_2006_pid[3] = {0.27,0.022,0.3};
-
-
-//¶¨Î»PIDÈı²Î
-fp32 motor_yaw_pid[3] = {120,0,0.1};
-fp32 motor_pos_x_pid[3] = {6,0,0};
-fp32 motor_pos_y_pid[3] = {6,0,0};
-
-
-/**
- * @brief       PIDÉè±¸³õÊ¼»¯
- * @param       void
- * @retval      void
- * @note        ÕâÀï½«ËùÓĞµÄPIDÉè±¸µÄ²ÎÊı½øĞĞ³õÊ¼»¯£¬°üÀ¨Kp,Ki,Kd,I_limit(»ı·ÖÏŞ·ù),O_limit(×ÜÏŞ·ù)¹²Îå¸ö²ÎÊı,½«ÆäÖµ±£´æÖÁpid_type_def¾ä±úÖĞ¡£
- */
-void PID_Controller::All_Device_Init(void)
-{
-	//µ×ÅÌPID
-	for(int i=0;i<4;i++)
-	{
-    this->core.PID_Init(&pid_v_1[i], PID_POSITION, motor_speed_3508_pid, 10000, 6000);
-		this->core.PID_Init(&pid_pos_1[i], PID_POSITION, motor_position_3508_pid, 400, 300);
-		
-		this->core.PID_Init(&pid_v_2[i], PID_POSITION, motor_speed_2006_pid, 9000, 6000);
-		this->core.PID_Init(&pid_pos_2[i], PID_POSITION, motor_position_2006_pid, 8000, 2000);
-	}
-	//ÆäËû²¿Î»µç»úPID
-	for(int i=4;i<8;i++)
-	{		
-    this->core.PID_Init(&pid_v_1[i], PID_POSITION, motor_speed_3508_pid, 10000, 6000);
-		this->core.PID_Init(&pid_pos_1[i], PID_POSITION, motor_position_3508_pid, 400, 300);
-		
-		this->core.PID_Init(&pid_v_2[i], PID_POSITION, motor_speed_2006_pid, 10000, 6000);
-		this->core.PID_Init(&pid_pos_2[i], PID_POSITION, motor_position_2006_pid, 2000, 300);
-	}
-	
-  //¶¨Î»PID
-	this->core.PID_Init(&pid_yaw,PID_POSITION,motor_yaw_pid,3000,1500);
-	this->core.PID_Init(&pid_pos_x,PID_POSITION,motor_pos_x_pid,1500,1500);
-	this->core.PID_Init(&pid_pos_y,PID_POSITION,motor_pos_y_pid,1500,1500);
-}
-
-/**
- * @brief       CAN1ËÙ¶È»·
- * @param       set_speed£ºËÙ¶Èrpm
- * @param       i£ºÒÔÊı×éÎªĞòºÅµÄ£¬Ò²¾ÍÊÇi=µçµ÷IDºÅ-1
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
- */
-fp32 PID_Controller::CAN_MOTOR::CAN1_Velocity_Realize(fp32 set_speed,int i)
-{
-	pid_controller.core.PID_Calc(&pid_v_1[i],can_bus.motor_can1[i].speed_rpm , set_speed);
-	return pid_v_1[i].out;
-}
-
-/**
- * @brief       CAN1Î»ÖÃ»·
- * @param       set_pos£º½Ç¶ÈÖµ£¬ÎªÏà¶Ô½Ç¶ÈÖµ£¬ÇëÏê¿´´ó½®ËµÃ÷Êé
- * @param       i£ºÒÔÊı×éÎªĞòºÅµÄ£¬Ò²¾ÍÊÇi=µçµ÷IDºÅ-1
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
- */
-fp32 PID_Controller::CAN_MOTOR::CAN1_Position_Realize(fp32 set_pos,int i)
-{
-	pid_controller.core.PID_Calc(&pid_pos_1[i],can_bus.motor_can1[i].total_angle , set_pos);
-	return pid_pos_1[i].out;
-}
-
-/**
- * @brief       CAN1µçÁ÷ËÙ¶ÈË«»·
- * @param       set_pos£º½Ç¶ÈÖµ£¬ÎªÏà¶Ô½Ç¶ÈÖµ£¬ÇëÏê¿´´ó½®ËµÃ÷Êé
- * @param       i£ºÒÔÊı×éÎªĞòºÅµÄ£¬Ò²¾ÍÊÇi=µçµ÷IDºÅ-1
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
- */
-fp32 PID_Controller::CAN_MOTOR::CAN1_VP_Dual_Loop_Realize(fp32 set_pos,int i)
-{
-	return CAN1_Velocity_Realize(CAN1_Position_Realize(set_pos,i),i);
-}
-
-/**
- * @brief       CAN2ËÙ¶È»·
- * @param       set_speed£ºËÙ¶Èrpm
- * @param       i£ºÒÔÊı×éÎªĞòºÅµÄ£¬Ò²¾ÍÊÇi=µçµ÷IDºÅ-1
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
- */
-fp32 PID_Controller::CAN_MOTOR::CAN2_Velocity_Realize(fp32 set_speed,int i)
-{
-	pid_controller.core.PID_Calc(&pid_v_2[i],can_bus.motor_can2[i].speed_rpm , set_speed);
-	return pid_v_2[i].out;
-}
-
-/**
- * @brief       CAN2Î»ÖÃ»·
- * @param       set_pos£º½Ç¶ÈÖµ£¬ÎªÏà¶Ô½Ç¶ÈÖµ£¬ÇëÏê¿´´ó½®ËµÃ÷Êé
- * @param       i£ºÒÔÊı×éÎªĞòºÅµÄ£¬Ò²¾ÍÊÇi=µçµ÷IDºÅ-1
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
- */
-fp32 PID_Controller::CAN_MOTOR::CAN2_Position_Realize(fp32 set_pos,int i)
-{
-	pid_controller.core.PID_Calc(&pid_pos_2[i],can_bus.motor_can2[i].total_angle , set_pos);
-	return pid_pos_2[i].out;
-}
-
-/**
- * @brief       CAN2µçÁ÷ËÙ¶ÈË«»·
- * @param       set_pos£º½Ç¶ÈÖµ£¬ÎªÏà¶Ô½Ç¶ÈÖµ£¬ÇëÏê¿´´ó½®ËµÃ÷Êé
- * @param       i£ºÒÔÊı×éÎªĞòºÅµÄ£¬Ò²¾ÍÊÇi=µçµ÷IDºÅ-1
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
- */
-fp32 PID_Controller::CAN_MOTOR::CAN2_VP_Dual_Loop_Realize(fp32 set_pos,int i)
-{
-	return CAN2_Velocity_Realize(CAN2_Position_Realize(set_pos,i),i);
-}
-
-/**
- * @brief       º½Ïò½ÇPID
- * @param       set_yaw£ºÄ¿±êº½Ïò½Ç
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
- */
-fp32 PID_Controller::SENSORS::Yaw_Realize(fp32 set_yaw)
-{
-	//PID_calc(&pid_yaw,absolute_chassis_measure.Euler.yaw_total,set_yaw);
-	//return pid_yaw.out;
-	(void)set_yaw;
-	return 0;
-}
-
-/**
- * @brief       X×ø±êPID
- * @param       set_pos_x£ºÄ¿±êX×ø±êÖµ
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
- */
-fp32 PID_Controller::SENSORS::Pos_X_Realize(fp32 set_pos_x)
-{
-	//PID_calc(&pid_pos_x,absolute_chassis_measure.Position.Pos_X,set_pos_x);
-	//return pid_pos_x.out;
-	(void)set_pos_x;
-	return 0;
-}
-
-/**
- * @brief       Y×ø±êPID
- * @param       set_pos_y£ºÄ¿±êY×ø±êÖµ
- * @retval      Êä³öÖµ
- * @note        Êä³öÖµ¾¿¾¹ÊÇÊ²Ã´Öµ£¬ĞèÒª¿´¸Ãº¯ÊıµÄÊä³öÖµ±»µ±×÷ÁËÊ²Ã´Á¿
- */
-fp32 PID_Controller::SENSORS::Pos_Y_Realize(fp32 set_pos_y)
-{
-	//PID_calc(&pid_pos_y,absolute_chassis_measure.Position.Pos_Y,set_pos_y);
-	//return pid_pos_y.out;
-	(void)set_pos_y;
-	return 0;
-}
-
->>>>>>> 00ac74e (9.6)

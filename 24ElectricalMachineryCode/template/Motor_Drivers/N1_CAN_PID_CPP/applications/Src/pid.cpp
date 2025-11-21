@@ -1,15 +1,14 @@
-<<<<<<< HEAD
-#include "pid.h"
+ï»¿#include "pid.h"
 
 /**
- * @brief       PIDºËÐÄ³õÊ¼»¯
- * @param       pid£ºPID²ÎÊý¼°Êý¾Ý´æ·ÅµÄ¾ä±ú
- * @param       mode£ºPIDÄ£Ê½£¬ÎªÃ¶¾Ù@PID_MODE
- * @param       PID[3]£ºKpidÈý¸ö²ÎÊýµÄÊý×é£¬¿ÉÖ±½ÓÌîÆäÊ×µØÖ·
- * @param       max_out£º×ÜÊä³öÏÞ·ù
- * @param       max_iout£º»ý·ÖÏÞ·ù
+ * @brief       PIDæ ¸å¿ƒåˆå§‹åŒ–
+ * @param       pidï¼šPIDå‚æ•°åŠæ•°æ®å­˜æ”¾çš„å¥æŸ„
+ * @param       modeï¼šPIDæ¨¡å¼ï¼Œä¸ºæžšä¸¾@PID_MODE
+ * @param       PID[3]ï¼šKpidä¸‰ä¸ªå‚æ•°çš„æ•°ç»„ï¼Œå¯ç›´æŽ¥å¡«å…¶é¦–åœ°å€
+ * @param       max_outï¼šæ€»è¾“å‡ºé™å¹…
+ * @param       max_ioutï¼šç§¯åˆ†é™å¹…
  * @retval      void
- * @note        ÔÚÕâ¸öº¯ÊýÖÐ£¬@pid_type_def¾ä±úÊÇ±»¸³ÓèÁË²ÎÊý£¬°üÀ¨PIDÄ£Ê½µÈ6¸ö²ÎÊý
+ * @note        åœ¨è¿™ä¸ªå‡½æ•°ä¸­ï¼Œ@pid_type_defå¥æŸ„æ˜¯è¢«èµ‹äºˆäº†å‚æ•°ï¼ŒåŒ…æ‹¬PIDæ¨¡å¼ç­‰6ä¸ªå‚æ•°
  */
 void PID_Controller::CORE::PID_Init(pid_type_def *pid, uint8_t mode, const fp32 PID[3], fp32 max_out, fp32 max_iout)
 {
@@ -28,12 +27,12 @@ void PID_Controller::CORE::PID_Init(pid_type_def *pid, uint8_t mode, const fp32 
 }
 
 /**
- * @brief       PIDºËÐÄ¼ÆËãº¯Êý
- * @param       pid£ºPID²ÎÊý¼°Êý¾Ý´æ·ÅµÄ¾ä±ú
- * @param       ref£º·´À¡Öµ
- * @param       set£ºÆÚÍûÖµ(Ä¿±êÖµ)
- * @retval      fp32Êä³öÖµ
- * @note        ¸Ãº¯Êý¼ÆËãµÄÖÐ¼äÖµÓë½á¹û¶¼½«±£´æµ½@pid_type_def¾ä±úÖÐ¡£
+ * @brief       PIDæ ¸å¿ƒè®¡ç®—å‡½æ•°
+ * @param       pidï¼šPIDå‚æ•°åŠæ•°æ®å­˜æ”¾çš„å¥æŸ„
+ * @param       refï¼šåé¦ˆå€¼
+ * @param       setï¼šæœŸæœ›å€¼(ç›®æ ‡å€¼)
+ * @retval      fp32è¾“å‡ºå€¼
+ * @note        è¯¥å‡½æ•°è®¡ç®—çš„ä¸­é—´å€¼ä¸Žç»“æžœéƒ½å°†ä¿å­˜åˆ°@pid_type_defå¥æŸ„ä¸­ã€‚
  */
 fp32 PID_Controller::CORE::PID_Calc(pid_type_def *pid, fp32 ref, fp32 set)
 {
@@ -75,10 +74,10 @@ fp32 PID_Controller::CORE::PID_Calc(pid_type_def *pid, fp32 ref, fp32 set)
 
 
 /**
- * @brief       PIDÇå0º¯Êý
- * @param       pid£ºPID²ÎÊý¼°Êý¾Ý´æ·ÅµÄ¾ä±ú
+ * @brief       PIDæ¸…0å‡½æ•°
+ * @param       pidï¼šPIDå‚æ•°åŠæ•°æ®å­˜æ”¾çš„å¥æŸ„
  * @retval      void
- * @note        ¸Ãº¯ÊýÊÇÊÇ°Ñ@pid_type_def¾ä±úµÄËùÓÐ³ÉÔ±±äÁ¿ÇåÁã¡£
+ * @note        è¯¥å‡½æ•°æ˜¯æ˜¯æŠŠ@pid_type_defå¥æŸ„çš„æ‰€æœ‰æˆå‘˜å˜é‡æ¸…é›¶ã€‚
  */
 void PID_Controller::CORE::PID_Clear(pid_type_def *pid)
 {
@@ -94,100 +93,3 @@ void PID_Controller::CORE::PID_Clear(pid_type_def *pid)
 }
 
 
-=======
-#include "pid.h"
-
-/**
- * @brief       PIDºËÐÄ³õÊ¼»¯
- * @param       pid£ºPID²ÎÊý¼°Êý¾Ý´æ·ÅµÄ¾ä±ú
- * @param       mode£ºPIDÄ£Ê½£¬ÎªÃ¶¾Ù@PID_MODE
- * @param       PID[3]£ºKpidÈý¸ö²ÎÊýµÄÊý×é£¬¿ÉÖ±½ÓÌîÆäÊ×µØÖ·
- * @param       max_out£º×ÜÊä³öÏÞ·ù
- * @param       max_iout£º»ý·ÖÏÞ·ù
- * @retval      void
- * @note        ÔÚÕâ¸öº¯ÊýÖÐ£¬@pid_type_def¾ä±úÊÇ±»¸³ÓèÁË²ÎÊý£¬°üÀ¨PIDÄ£Ê½µÈ6¸ö²ÎÊý
- */
-void PID_Controller::CORE::PID_Init(pid_type_def *pid, uint8_t mode, const fp32 PID[3], fp32 max_out, fp32 max_iout)
-{
-    if (pid == 0 || PID == 0)
-    {
-        return;
-    }
-    pid->mode = mode;
-    pid->Kp = PID[0];
-    pid->Ki = PID[1];
-    pid->Kd = PID[2];
-    pid->max_out = max_out;
-    pid->max_iout = max_iout;
-    pid->Dbuf[0] = pid->Dbuf[1] = pid->Dbuf[2] = 0.0f;
-    pid->error[0] = pid->error[1] = pid->error[2] = pid->Pout = pid->Iout = pid->Dout = pid->out = 0.0f;
-}
-
-/**
- * @brief       PIDºËÐÄ¼ÆËãº¯Êý
- * @param       pid£ºPID²ÎÊý¼°Êý¾Ý´æ·ÅµÄ¾ä±ú
- * @param       ref£º·´À¡Öµ
- * @param       set£ºÆÚÍûÖµ(Ä¿±êÖµ)
- * @retval      fp32Êä³öÖµ
- * @note        ¸Ãº¯Êý¼ÆËãµÄÖÐ¼äÖµÓë½á¹û¶¼½«±£´æµ½@pid_type_def¾ä±úÖÐ¡£
- */
-fp32 PID_Controller::CORE::PID_Calc(pid_type_def *pid, fp32 ref, fp32 set)
-{
-    if (pid == 0)
-    {
-        return 0.0f;
-    }
-
-    pid->error[2] = pid->error[1];
-    pid->error[1] = pid->error[0];
-    pid->set = set;
-    pid->fdb = ref;
-    pid->error[0] = set - ref;
-    if (pid->mode == PID_POSITION)
-    {
-        pid->Pout = pid->Kp * pid->error[0];
-        pid->Iout += pid->Ki * pid->error[0];
-        pid->Dbuf[2] = pid->Dbuf[1];
-        pid->Dbuf[1] = pid->Dbuf[0];
-        pid->Dbuf[0] = (pid->error[0] - pid->error[1]);
-        pid->Dout = pid->Kd * pid->Dbuf[0];
-        LimitMax(pid->Iout, pid->max_iout);
-        pid->out = pid->Pout + pid->Iout + pid->Dout;
-        LimitMax(pid->out, pid->max_out);
-    }
-    else if (pid->mode == PID_DELTA)
-    {
-        pid->Pout = pid->Kp * (pid->error[0] - pid->error[1]);
-        pid->Iout = pid->Ki * pid->error[0];
-        pid->Dbuf[2] = pid->Dbuf[1];
-        pid->Dbuf[1] = pid->Dbuf[0];
-        pid->Dbuf[0] = (pid->error[0] - 2.0f * pid->error[1] + pid->error[2]);
-        pid->Dout = pid->Kd * pid->Dbuf[0];
-        pid->out += pid->Pout + pid->Iout + pid->Dout;
-        LimitMax(pid->out, pid->max_out);
-    }
-    return pid->out;
-}
-
-
-/**
- * @brief       PIDÇå0º¯Êý
- * @param       pid£ºPID²ÎÊý¼°Êý¾Ý´æ·ÅµÄ¾ä±ú
- * @retval      void
- * @note        ¸Ãº¯ÊýÊÇÊÇ°Ñ@pid_type_def¾ä±úµÄËùÓÐ³ÉÔ±±äÁ¿ÇåÁã¡£
- */
-void PID_Controller::CORE::PID_Clear(pid_type_def *pid)
-{
-    if (pid == 0)
-    {
-        return;
-    }
-
-    pid->error[0] = pid->error[1] = pid->error[2] = 0.0f;
-    pid->Dbuf[0] = pid->Dbuf[1] = pid->Dbuf[2] = 0.0f;
-    pid->out = pid->Pout = pid->Iout = pid->Dout = 0.0f;
-    pid->fdb = pid->set = 0.0f;
-}
-
-
->>>>>>> 00ac74e (9.6)

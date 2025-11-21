@@ -1,5 +1,4 @@
-<<<<<<< HEAD
---cpu=Cortex-M4.fp.sp
+﻿--cpu=Cortex-M4.fp.sp
 "motoer\startup_stm32f407xx.o"
 "motoer\main.o"
 "motoer\gpio.o"
@@ -31,38 +30,4 @@
 --strict --scatter "MOTOER\MOTOER.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
-=======
---cpu=Cortex-M4.fp.sp
-"motoer\startup_stm32f407xx.o"
-"motoer\main.o"
-"motoer\gpio.o"
-"motoer\can.o"
-"motoer\stm32f4xx_it.o"
-"motoer\stm32f4xx_hal_msp.o"
-"motoer\stm32f4xx_hal_can.o"
-"motoer\stm32f4xx_hal_rcc.o"
-"motoer\stm32f4xx_hal_rcc_ex.o"
-"motoer\stm32f4xx_hal_flash.o"
-"motoer\stm32f4xx_hal_flash_ex.o"
-"motoer\stm32f4xx_hal_flash_ramfunc.o"
-"motoer\stm32f4xx_hal_gpio.o"
-"motoer\stm32f4xx_hal_dma_ex.o"
-"motoer\stm32f4xx_hal_dma.o"
-"motoer\stm32f4xx_hal_pwr.o"
-"motoer\stm32f4xx_hal_pwr_ex.o"
-"motoer\stm32f4xx_hal_cortex.o"
-"motoer\stm32f4xx_hal.o"
-"motoer\stm32f4xx_hal_exti.o"
-"motoer\stm32f4xx_hal_tim.o"
-"motoer\stm32f4xx_hal_tim_ex.o"
-"motoer\system_stm32f4xx.o"
-"motoer\can_tx.o"
-"motoer\can_rx.o"
-"motoer\pid.o"
-"motoer\pid_user.o"
-"motoer\bsp_can.o"
---strict --scatter "MOTOER\MOTOER.sct"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
---info sizes --info totals --info unused --info veneers
->>>>>>> 00ac74e (9.6)
 --list "MOTOER.map" -o MOTOER\MOTOER.axf

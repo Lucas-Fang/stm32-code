@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#ifndef __PID_H
+ï»¿#ifndef __PID_H
 #define __PID_H
 
 #include "main.h"
@@ -19,13 +18,13 @@ enum PID_MODE
 typedef struct
 {
 	  uint8_t mode;
-    //PID Èý²ÎÊý
+    //PID ä¸‰å‚æ•°
     float Kp;
     float Ki;
     float Kd;
 
-    float max_out;  //×î´óÊä³ö
-    float max_iout; //×î´ó»ý·ÖÊä³ö
+    float max_out;  //æœ€å¤§è¾“å‡º
+    float max_iout; //æœ€å¤§ç§¯åˆ†è¾“å‡º
 
     float set;
     float fdb;
@@ -34,8 +33,8 @@ typedef struct
     float Pout;
     float Iout;
     float Dout;
-    float Dbuf[3];  //Î¢·ÖÏî 0×îÐÂ 1ÉÏÒ»´Î 2ÉÏÉÏ´Î
-    float error[3]; //Îó²îÏî 0×îÐÂ 1ÉÏÒ»´Î 2ÉÏÉÏ´Î
+    float Dbuf[3];  //å¾®åˆ†é¡¹ 0æœ€æ–° 1ä¸Šä¸€æ¬¡ 2ä¸Šä¸Šæ¬¡
+    float error[3]; //è¯¯å·®é¡¹ 0æœ€æ–° 1ä¸Šä¸€æ¬¡ 2ä¸Šä¸Šæ¬¡
 	
 }pid_type_def;
 
@@ -46,52 +45,3 @@ extern void PID_clear(pid_type_def *pid);
 	
 
 #endif
-=======
-#ifndef __PID_H
-#define __PID_H
-
-#include "main.h"
-#include "gpio.h"
-#include "bsp_can.h"
-#include "pid.h"
-#include "pid_user.h"
-#include "can_tx.h"
-#include "can_rx.h"
-
-enum PID_MODE
-{
-	PID_POSITION = 0 ,
-	PID_DELTA 
-};
-
-typedef struct
-{
-	  uint8_t mode;
-    //PID Èý²ÎÊý
-    float Kp;
-    float Ki;
-    float Kd;
-
-    float max_out;  //×î´óÊä³ö
-    float max_iout; //×î´ó»ý·ÖÊä³ö
-
-    float set;
-    float fdb;
-
-    float out;
-    float Pout;
-    float Iout;
-    float Dout;
-    float Dbuf[3];  //Î¢·ÖÏî 0×îÐÂ 1ÉÏÒ»´Î 2ÉÏÉÏ´Î
-    float error[3]; //Îó²îÏî 0×îÐÂ 1ÉÏÒ»´Î 2ÉÏÉÏ´Î
-	
-}pid_type_def;
-
-
-extern void PID_init(pid_type_def *pid, uint8_t mode, const float PID[3], float max_out, float max_iout);
-extern float PID_calc(pid_type_def *pid, float ref, float set);
-extern void PID_clear(pid_type_def *pid);
-	
-
-#endif
->>>>>>> 00ac74e (9.6)

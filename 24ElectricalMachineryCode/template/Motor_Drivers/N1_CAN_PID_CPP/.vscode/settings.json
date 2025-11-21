@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-{
+﻿{
     "files.associations": {
         "startup_main.h": "c"
     }
-=======
-{
-    "files.associations": {
-        "startup_main.h": "c"
-    }
->>>>>>> 00ac74e (9.6)
 }

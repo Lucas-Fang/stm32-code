@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#include "timer_user.h"
+ï»¿#include "timer_user.h"
 #include "chassic.h"
 #include "stm32f103xb.h"
 #include "stm32f1xx_hal_tim.h"
@@ -14,14 +13,14 @@ ROBOT::CHASSIC::Motor motor2;
 
 extern "C"
 /**
- * @brief       »Øµ÷º¯Êý£¬¶¨Ê±Æ÷ÖÐ¶Ï·þÎñº¯Êýµ÷ÓÃ
- * @param       htim£º´¥·¢ÖÐ¶ÏµÄ¶¨Ê±Æ÷¾ä±ú
+ * @brief       å›žè°ƒå‡½æ•°ï¼Œå®šæ—¶å™¨ä¸­æ–­æœåŠ¡å‡½æ•°è°ƒç”¨
+ * @param       htimï¼šè§¦å‘ä¸­æ–­çš„å®šæ—¶å™¨å¥æŸ„
  * @retval      void
- * @note        ¸Ãº¯ÊýÓÉÖÐ¶Ï¹«¹²·þÎñº¯Êýµ÷ÓÃ£¬²»ÓÃÓÃ»§È¥µ÷ÓÃ¡£ÇÒÎªÒ»¸öÈõº¯Êý£¬ËùÒÔÔÚC++ÖÐÒªÔÚ¸Ãº¯ÊýÇ°Ãæ¼ÓÉÏextern "C"£¬»òÖ±½ÓÓÃextern "C"{}À¨ÆðÀ´
+ * @note        è¯¥å‡½æ•°ç”±ä¸­æ–­å…¬å…±æœåŠ¡å‡½æ•°è°ƒç”¨ï¼Œä¸ç”¨ç”¨æˆ·åŽ»è°ƒç”¨ã€‚ä¸”ä¸ºä¸€ä¸ªå¼±å‡½æ•°ï¼Œæ‰€ä»¥åœ¨C++ä¸­è¦åœ¨è¯¥å‡½æ•°å‰é¢åŠ ä¸Šextern "C"ï¼Œæˆ–ç›´æŽ¥ç”¨extern "C"{}æ‹¬èµ·æ¥
  */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	if(htim->Instance == TIM1)  //¶¨Ê±Æ÷Òç³öÖÐ¶ÏÖÜÆÚÎª10ms
+	if(htim->Instance == TIM1)  //å®šæ—¶å™¨æº¢å‡ºä¸­æ–­å‘¨æœŸä¸º10ms
 	{
 		robot.chassic.encoder.Encoder_Obtain();
 		robot.chassic.encoder.Encoder_filtering();
@@ -29,7 +28,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	}
 
 
-//±àÂëÆ÷Òç³öÖÐ¶Ï
+//ç¼–ç å™¨æº¢å‡ºä¸­æ–­
 	if(htim->Instance == TIM2)
 	{
 
@@ -43,13 +42,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 void ROBOT::CHASSIC::ENCODER::Encoder_Obtain()
 {
-   if (__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim2)) /*ÅÐ¶Ï±àÂëÆ÷ÊÇÕý×ª»¹ÊÇ·´×ª*/
+   if (__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim2)) /*åˆ¤æ–­ç¼–ç å™¨æ˜¯æ­£è½¬è¿˜æ˜¯åè½¬*/
    {
-     motor1.Encoder = __HAL_TIM_GetCounter(&htim2) -65535;         /* CR1µÄDIRÎ»ÊÇ1£¬¾ÍÊÇÏòÏÂÒç³ö£¬Ôò·´×ª*/
+     motor1.Encoder = __HAL_TIM_GetCounter(&htim2) -65535;         /* CR1çš„DIRä½æ˜¯1ï¼Œå°±æ˜¯å‘ä¸‹æº¢å‡ºï¼Œåˆ™åè½¬*/
      __HAL_TIM_SetCounter(&htim2, 0);
 
    } 
-   else 																 /*CR1µÄDIRÎ»ÊÇ0£¬¾ÍÊÇÏòÉÏÒç³ö£¬ÔòÕý×ª*/
+   else 																 /*CR1çš„DIRä½æ˜¯0ï¼Œå°±æ˜¯å‘ä¸Šæº¢å‡ºï¼Œåˆ™æ­£è½¬*/
    {
      motor1.Encoder =__HAL_TIM_GetCounter(&htim2);               
      __HAL_TIM_SetCounter(&htim2, 0);
@@ -84,91 +83,4 @@ void ROBOT::CHASSIC::ENCODER::Encoder_filtering()
 	motor2.Encoder=P*motor2.Encoder+(1-P)*motor2.last_speed;
 	motor2.last_speed=motor2.Encoder;
 
-=======
-#include "timer_user.h"
-#include "chassic.h"
-#include "stm32f103xb.h"
-#include "stm32f1xx_hal_tim.h"
-#include "tim.h"
-
-#define P 0.5
-
-ROBOT::CHASSIC::Motor motor1;
-ROBOT::CHASSIC::Motor motor2;
-
-
-
-extern "C"
-/**
- * @brief       »Øµ÷º¯Êý£¬¶¨Ê±Æ÷ÖÐ¶Ï·þÎñº¯Êýµ÷ÓÃ
- * @param       htim£º´¥·¢ÖÐ¶ÏµÄ¶¨Ê±Æ÷¾ä±ú
- * @retval      void
- * @note        ¸Ãº¯ÊýÓÉÖÐ¶Ï¹«¹²·þÎñº¯Êýµ÷ÓÃ£¬²»ÓÃÓÃ»§È¥µ÷ÓÃ¡£ÇÒÎªÒ»¸öÈõº¯Êý£¬ËùÒÔÔÚC++ÖÐÒªÔÚ¸Ãº¯ÊýÇ°Ãæ¼ÓÉÏextern "C"£¬»òÖ±½ÓÓÃextern "C"{}À¨ÆðÀ´
- */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-	if(htim->Instance == TIM1)  //¶¨Ê±Æ÷Òç³öÖÐ¶ÏÖÜÆÚÎª10ms
-	{
-		robot.chassic.encoder.Encoder_Obtain();
-		robot.chassic.encoder.Encoder_filtering();
-		Motor_Move();
-	}
-
-
-//±àÂëÆ÷Òç³öÖÐ¶Ï
-	if(htim->Instance == TIM2)
-	{
-
-	}
-	if(htim->Instance == TIM3)
-	{
-
-	}
-
-}
-
-void ROBOT::CHASSIC::ENCODER::Encoder_Obtain()
-{
-   if (__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim2)) /*ÅÐ¶Ï±àÂëÆ÷ÊÇÕý×ª»¹ÊÇ·´×ª*/
-   {
-     motor1.Encoder = __HAL_TIM_GetCounter(&htim2) -65535;         /* CR1µÄDIRÎ»ÊÇ1£¬¾ÍÊÇÏòÏÂÒç³ö£¬Ôò·´×ª*/
-     __HAL_TIM_SetCounter(&htim2, 0);
-
-   } 
-   else 																 /*CR1µÄDIRÎ»ÊÇ0£¬¾ÍÊÇÏòÉÏÒç³ö£¬ÔòÕý×ª*/
-   {
-     motor1.Encoder =__HAL_TIM_GetCounter(&htim2);               
-     __HAL_TIM_SetCounter(&htim2, 0);
-
-   }
-
-   if(__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim3))
-   {
-     motor2.Encoder = __HAL_TIM_GetCounter(&htim3) - 65535;
-	 __HAL_TIM_SetCounter(&htim3, 0);
-   }
-   else
-   {
-     motor2.Encoder = __HAL_TIM_GetCounter(&htim3);	
-	 __HAL_TIM_SetCounter(&htim3, 0);
-   }
-}
-
-void ROBOT::CHASSIC::ENCODER::Encoder_filtering()
-{
-	if (motor1.Encoder == -65535)
-	{
-		motor1.Encoder=0;
-	}
-	if(motor2.Encoder == -65535)
-	{
-		motor2.Encoder=0;
-	}
-
-	motor1.Encoder=P*motor1.Encoder+(1-P)*motor1.last_speed;
-	motor1.last_speed=motor1.Encoder;
-	motor2.Encoder=P*motor2.Encoder+(1-P)*motor2.last_speed;
-	motor2.last_speed=motor2.Encoder;
-
->>>>>>> 00ac74e (9.6)
 }

@@ -1,18 +1,17 @@
-<<<<<<< HEAD
-#include "can_receive.h"
+ï»¿#include "can_receive.h"
 #include "can.h"
-/*******¶ÔÏó*******/
+/*******å¯¹è±¡*******/
 CAN_BUS can_bus;
 
 
 /**
- * @brief       CAN1·¢ËÍº¯Êı(Ç°4¸öµç»ú)
- * @param       motor1£º¸øÊı×éĞòºÅÎª0£¨µçµ÷IDÎª1£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor2£º¸øÊı×éĞòºÅÎª1£¨µçµ÷IDÎª2£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor3£º¸øÊı×éĞòºÅÎª2£¨µçµ÷IDÎª3£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor4£º¸øÊı×éĞòºÅÎª3£¨µçµ÷IDÎª4£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
+ * @brief       CAN1å‘é€å‡½æ•°(å‰4ä¸ªç”µæœº)
+ * @param       motor1ï¼šç»™æ•°ç»„åºå·ä¸º0ï¼ˆç”µè°ƒIDä¸º1ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
+ * @param       motor2ï¼šç»™æ•°ç»„åºå·ä¸º1ï¼ˆç”µè°ƒIDä¸º2ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
+ * @param       motor3ï¼šç»™æ•°ç»„åºå·ä¸º2ï¼ˆç”µè°ƒIDä¸º3ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
+ * @param       motor4ï¼šç»™æ•°ç»„åºå·ä¸º3ï¼ˆç”µè°ƒIDä¸º4ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
  * @retval      void
- * @note        ÎŞ
+ * @note        æ— 
  */
 void CAN_BUS::CMD::CAN1_Front(int16_t motor1, int16_t motor2, int16_t motor3, int16_t motor4)
 {
@@ -38,13 +37,13 @@ void CAN_BUS::CMD::CAN1_Front(int16_t motor1, int16_t motor2, int16_t motor3, in
 
 
 /**
- * @brief       CAN1·¢ËÍº¯Êı(ºó4¸öµç»ú)
- * @param       motor1£º¸øÊı×éĞòºÅÎª4£¨µçµ÷IDÎª5£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor2£º¸øÊı×éĞòºÅÎª5£¨µçµ÷IDÎª6£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor3£º¸øÊı×éĞòºÅÎª6£¨µçµ÷IDÎª7£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor4£º¸øÊı×éĞòºÅÎª7£¨µçµ÷IDÎª8£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
+ * @brief       CAN1å‘é€å‡½æ•°(å4ä¸ªç”µæœº)
+ * @param       motor1ï¼šç»™æ•°ç»„åºå·ä¸º4ï¼ˆç”µè°ƒIDä¸º5ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
+ * @param       motor2ï¼šç»™æ•°ç»„åºå·ä¸º5ï¼ˆç”µè°ƒIDä¸º6ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
+ * @param       motor3ï¼šç»™æ•°ç»„åºå·ä¸º6ï¼ˆç”µè°ƒIDä¸º7ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
+ * @param       motor4ï¼šç»™æ•°ç»„åºå·ä¸º7ï¼ˆç”µè°ƒIDä¸º8ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
  * @retval      void
- * @note        ÎŞ
+ * @note        æ— 
  */
  void CAN_BUS::CMD::CAN1_Behind(int16_t motor5, int16_t motor6, int16_t motor7, int16_t motor8)
 {
@@ -69,13 +68,13 @@ void CAN_BUS::CMD::CAN1_Front(int16_t motor1, int16_t motor2, int16_t motor3, in
 
 
 /**
- * @brief       CAN2·¢ËÍº¯Êı(Ç°4¸öµç»ú)
- * @param       motor1£º¸øÊı×éĞòºÅÎª0£¨µçµ÷IDÎª1£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor2£º¸øÊı×éĞòºÅÎª1£¨µçµ÷IDÎª2£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor3£º¸øÊı×éĞòºÅÎª2£¨µçµ÷IDÎª3£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor4£º¸øÊı×éĞòºÅÎª3£¨µçµ÷IDÎª4£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
+ * @brief       CAN2å‘é€å‡½æ•°(å‰4ä¸ªç”µæœº)
+ * @param       motor1ï¼šç»™æ•°ç»„åºå·ä¸º0ï¼ˆç”µè°ƒIDä¸º1ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
+ * @param       motor2ï¼šç»™æ•°ç»„åºå·ä¸º1ï¼ˆç”µè°ƒIDä¸º2ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
+ * @param       motor3ï¼šç»™æ•°ç»„åºå·ä¸º2ï¼ˆç”µè°ƒIDä¸º3ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
+ * @param       motor4ï¼šç»™æ•°ç»„åºå·ä¸º3ï¼ˆç”µè°ƒIDä¸º4ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
  * @retval      void
- * @note        ÎŞ
+ * @note        æ— 
  */
  void CAN_BUS::CMD::CAN2_Front(int16_t motor1, int16_t motor2, int16_t motor3, int16_t motor4)
 {
@@ -99,13 +98,13 @@ void CAN_BUS::CMD::CAN1_Front(int16_t motor1, int16_t motor2, int16_t motor3, in
 }
 
 /**
- * @brief       CAN1·¢ËÍº¯Êı(ºó4¸öµç»ú)
- * @param       motor1£º¸øÊı×éĞòºÅÎª4£¨µçµ÷IDÎª5£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor2£º¸øÊı×éĞòºÅÎª5£¨µçµ÷IDÎª6£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor3£º¸øÊı×éĞòºÅÎª6£¨µçµ÷IDÎª7£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor4£º¸øÊı×éĞòºÅÎª7£¨µçµ÷IDÎª8£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
+ * @brief       CAN1å‘é€å‡½æ•°(å4ä¸ªç”µæœº)
+ * @param       motor1ï¼šç»™æ•°ç»„åºå·ä¸º4ï¼ˆç”µè°ƒIDä¸º5ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
+ * @param       motor2ï¼šç»™æ•°ç»„åºå·ä¸º5ï¼ˆç”µè°ƒIDä¸º6ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
+ * @param       motor3ï¼šç»™æ•°ç»„åºå·ä¸º6ï¼ˆç”µè°ƒIDä¸º7ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
+ * @param       motor4ï¼šç»™æ•°ç»„åºå·ä¸º7ï¼ˆç”µè°ƒIDä¸º8ï¼‰çš„ç”µæœºå‘é€ç›¸å¯¹ç”µæµå€¼
  * @retval      void
- * @note        ÎŞ
+ * @note        æ— 
  */
  void CAN_BUS::CMD::CAN2_Behind(int16_t motor5, int16_t motor6, int16_t motor7, int16_t motor8)
 {
@@ -130,10 +129,10 @@ void CAN_BUS::CMD::CAN1_Front(int16_t motor1, int16_t motor2, int16_t motor3, in
 
 extern "C"
 /**
- * @brief       »Øµ÷º¯Êı£¬¶¨Ê±Æ÷ÖĞ¶Ï·şÎñº¯Êıµ÷ÓÃ
- * @param       hcan£º´¥·¢ÖĞ¶ÏµÄCANÍ¨ĞÅ¾ä±ú
+ * @brief       å›è°ƒå‡½æ•°ï¼Œå®šæ—¶å™¨ä¸­æ–­æœåŠ¡å‡½æ•°è°ƒç”¨
+ * @param       hcanï¼šè§¦å‘ä¸­æ–­çš„CANé€šä¿¡å¥æŸ„
  * @retval      void
- * @note        ¸Ãº¯ÊıÓÉÖĞ¶Ï¹«¹²·şÎñº¯Êıµ÷ÓÃ£¬²»ÓÃÓÃ»§È¥µ÷ÓÃ¡£ÇÒÎªÒ»¸öÈõº¯Êı£¬ËùÒÔÔÚC++ÖĞÒªÔÚ¸Ãº¯ÊıÇ°Ãæ¼ÓÉÏextern "C"£¬»òÖ±½ÓÓÃextern "C"{}À¨ÆğÀ´
+ * @note        è¯¥å‡½æ•°ç”±ä¸­æ–­å…¬å…±æœåŠ¡å‡½æ•°è°ƒç”¨ï¼Œä¸ç”¨ç”¨æˆ·å»è°ƒç”¨ã€‚ä¸”ä¸ºä¸€ä¸ªå¼±å‡½æ•°ï¼Œæ‰€ä»¥åœ¨C++ä¸­è¦åœ¨è¯¥å‡½æ•°å‰é¢åŠ ä¸Šextern "C"ï¼Œæˆ–ç›´æ¥ç”¨extern "C"{}æ‹¬èµ·æ¥
  */
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
@@ -200,11 +199,11 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 }
 
 /**
- * @brief       ´¦Àí±àÂëÆ÷Êı¾İ»ñÈ¡µç»úĞÅÏ¢º¯Êı
- * @param       ptr£º@motor_measure_tÀàĞÍ¾ä±ú£¬´¢´æ´¦ÀíºóµÄµç»ú×´Ì¬ĞÅÏ¢
- * @param       data£ºCANÍ¨ĞÅ½ÓÊÕµ½µç»ú·¢À´µÄÔ­Êı¾İ
+ * @brief       å¤„ç†ç¼–ç å™¨æ•°æ®è·å–ç”µæœºä¿¡æ¯å‡½æ•°
+ * @param       ptrï¼š@motor_measure_tç±»å‹å¥æŸ„ï¼Œå‚¨å­˜å¤„ç†åçš„ç”µæœºçŠ¶æ€ä¿¡æ¯
+ * @param       dataï¼šCANé€šä¿¡æ¥æ”¶åˆ°ç”µæœºå‘æ¥çš„åŸæ•°æ®
  * @retval      void
- * @note        ÎŞ
+ * @note        æ— 
  */
 void CAN_BUS::DJI_ENCODER::get_motor_measure(motor_measure_t *ptr,uint8_t data[])                                                     
 {   
@@ -223,11 +222,11 @@ void CAN_BUS::DJI_ENCODER::get_motor_measure(motor_measure_t *ptr,uint8_t data[]
 }
 
 /**
- * @brief       ´¦Àí±àÂëÆ÷Êı¾İ»ñÈ¡µç»ú¸Õ¿ªÊ¼µÄ½Ç¶È³õÊ¼Öµº¯Êı
- * @param       ptr£º@motor_measure_tÀàĞÍ¾ä±ú£¬´¢´æ´¦ÀíºóµÄµç»ú×´Ì¬ĞÅÏ¢
- * @param       data£ºCANÍ¨ĞÅ½ÓÊÕµ½µç»ú·¢À´µÄÔ­Êı¾İ
+ * @brief       å¤„ç†ç¼–ç å™¨æ•°æ®è·å–ç”µæœºåˆšå¼€å§‹çš„è§’åº¦åˆå§‹å€¼å‡½æ•°
+ * @param       ptrï¼š@motor_measure_tç±»å‹å¥æŸ„ï¼Œå‚¨å­˜å¤„ç†åçš„ç”µæœºçŠ¶æ€ä¿¡æ¯
+ * @param       dataï¼šCANé€šä¿¡æ¥æ”¶åˆ°ç”µæœºå‘æ¥çš„åŸæ•°æ®
  * @retval      void
- * @note        ¸Ãº¯ÊıÊÇ½«¾ø¶Ô±àÂëÆ÷×ª»¯ÎªÔöÁ¿±àÂëÆ÷µÄ¹Ø¼ü£¬»ñÈ¡ÁËµç»úÍ¨µçÊ±µÄ½Ç¶ÈÖµ
+ * @note        è¯¥å‡½æ•°æ˜¯å°†ç»å¯¹ç¼–ç å™¨è½¬åŒ–ä¸ºå¢é‡ç¼–ç å™¨çš„å…³é”®ï¼Œè·å–äº†ç”µæœºé€šç”µæ—¶çš„è§’åº¦å€¼
  */
 void CAN_BUS::DJI_ENCODER::get_moto_offset(motor_measure_t *ptr, uint8_t data[])
 {
@@ -240,23 +239,23 @@ void CAN_BUS::DJI_ENCODER::get_moto_offset(motor_measure_t *ptr, uint8_t data[])
 
 
 /**
- * @brief       ´¦Àíµç»ú½Ç¶ÈÖµ
- * @param       p£º@motor_measure_tÀàĞÍ¾ä±ú£¬´¢´æ´¦ÀíºóµÄµç»ú×´Ì¬ĞÅÏ¢
+ * @brief       å¤„ç†ç”µæœºè§’åº¦å€¼
+ * @param       pï¼š@motor_measure_tç±»å‹å¥æŸ„ï¼Œå‚¨å­˜å¤„ç†åçš„ç”µæœºçŠ¶æ€ä¿¡æ¯
  * @retval      void
- * @note        ¸Ãº¯ÊıÃ»ÓĞ±»µ÷ÓÃ£¬ÔİÊ±Ã»ÓÃ
+ * @note        è¯¥å‡½æ•°æ²¡æœ‰è¢«è°ƒç”¨ï¼Œæš‚æ—¶æ²¡ç”¨
  */
 void CAN_BUS::DJI_ENCODER::get_total_angle(motor_measure_t *p)
 {
 	
 	int res1, res2, delta;
-	if(p->angle < p->last_angle){			//¿ÉÄÜµÄÇé¿ö
-		res1 = p->angle + 8192 - p->last_angle;	//Õı×ª£¬delta=+
-		res2 = p->angle - p->last_angle;				//·´×ª	delta=-
+	if(p->angle < p->last_angle){			//å¯èƒ½çš„æƒ…å†µ
+		res1 = p->angle + 8192 - p->last_angle;	//æ­£è½¬ï¼Œdelta=+
+		res2 = p->angle - p->last_angle;				//åè½¬	delta=-
 	}else{	//angle > last
-		res1 = p->angle - 8192 - p->last_angle ;//·´×ª	delta -
-		res2 = p->angle - p->last_angle;				//Õı×ª	delta +
+		res1 = p->angle - 8192 - p->last_angle ;//åè½¬	delta -
+		res2 = p->angle - p->last_angle;				//æ­£è½¬	delta +
 	}
-	//²»¹ÜÕı·´×ª£¬¿Ï¶¨ÊÇ×ªµÄ½Ç¶ÈĞ¡µÄÄÇ¸öÊÇÕæµÄ
+	//ä¸ç®¡æ­£åè½¬ï¼Œè‚¯å®šæ˜¯è½¬çš„è§’åº¦å°çš„é‚£ä¸ªæ˜¯çœŸçš„
 	if(ABS(res1)<ABS(res2))
 		delta = res1;
 	else
@@ -267,273 +266,3 @@ void CAN_BUS::DJI_ENCODER::get_total_angle(motor_measure_t *p)
 }
 
 
-=======
-#include "can_receive.h"
-#include "can.h"
-/*******¶ÔÏó*******/
-CAN_BUS can_bus;
-
-
-/**
- * @brief       CAN1·¢ËÍº¯Êı(Ç°4¸öµç»ú)
- * @param       motor1£º¸øÊı×éĞòºÅÎª0£¨µçµ÷IDÎª1£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor2£º¸øÊı×éĞòºÅÎª1£¨µçµ÷IDÎª2£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor3£º¸øÊı×éĞòºÅÎª2£¨µçµ÷IDÎª3£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor4£º¸øÊı×éĞòºÅÎª3£¨µçµ÷IDÎª4£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @retval      void
- * @note        ÎŞ
- */
-void CAN_BUS::CMD::CAN1_Front(int16_t motor1, int16_t motor2, int16_t motor3, int16_t motor4)
-{
- CAN_TxHeaderTypeDef can_tx_message;
- uint8_t	can_send_data[8];
- uint32_t send_mail_box;
-	
- can_tx_message.StdId = 0x200;
- can_tx_message.IDE = CAN_ID_STD;
- can_tx_message.RTR = CAN_RTR_DATA;
- can_tx_message.DLC = 0x08;
- can_send_data[0] = motor1 >> 8;
- can_send_data[1] = motor1;
- can_send_data[2] = motor2 >> 8;
- can_send_data[3] = motor2;
- can_send_data[4] = motor3 >> 8;
- can_send_data[5] = motor3;
- can_send_data[6] = motor4 >> 8;
- can_send_data[7] = motor4;
- HAL_CAN_AddTxMessage(&hcan1, &can_tx_message, can_send_data, &send_mail_box);
-}
-
-
-
-/**
- * @brief       CAN1·¢ËÍº¯Êı(ºó4¸öµç»ú)
- * @param       motor1£º¸øÊı×éĞòºÅÎª4£¨µçµ÷IDÎª5£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor2£º¸øÊı×éĞòºÅÎª5£¨µçµ÷IDÎª6£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor3£º¸øÊı×éĞòºÅÎª6£¨µçµ÷IDÎª7£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor4£º¸øÊı×éĞòºÅÎª7£¨µçµ÷IDÎª8£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @retval      void
- * @note        ÎŞ
- */
- void CAN_BUS::CMD::CAN1_Behind(int16_t motor5, int16_t motor6, int16_t motor7, int16_t motor8)
-{
- uint8_t	can_send_data[8];
- uint32_t send_mail_box;
- CAN_TxHeaderTypeDef can_tx_message;
-	
- can_tx_message.StdId = 0x1FF;
- can_tx_message.IDE = CAN_ID_STD;
- can_tx_message.RTR = CAN_RTR_DATA;
- can_tx_message.DLC = 0x08;
- can_send_data[0] = motor5 >> 8;
- can_send_data[1] = motor5;
- can_send_data[2] = motor6 >> 8;
- can_send_data[3] = motor6;
- can_send_data[4] = motor7 >> 8;
- can_send_data[5] = motor7;
- can_send_data[6] = motor8 >> 8;
- can_send_data[7] = motor8;
- HAL_CAN_AddTxMessage(&hcan1, &can_tx_message, can_send_data, &send_mail_box);
-}
-
-
-/**
- * @brief       CAN2·¢ËÍº¯Êı(Ç°4¸öµç»ú)
- * @param       motor1£º¸øÊı×éĞòºÅÎª0£¨µçµ÷IDÎª1£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor2£º¸øÊı×éĞòºÅÎª1£¨µçµ÷IDÎª2£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor3£º¸øÊı×éĞòºÅÎª2£¨µçµ÷IDÎª3£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor4£º¸øÊı×éĞòºÅÎª3£¨µçµ÷IDÎª4£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @retval      void
- * @note        ÎŞ
- */
- void CAN_BUS::CMD::CAN2_Front(int16_t motor1, int16_t motor2, int16_t motor3, int16_t motor4)
-{
- CAN_TxHeaderTypeDef can_tx_message;
- uint8_t	can_send_data[8];
- uint32_t send_mail_box;
-	
- can_tx_message.StdId = 0x200;
- can_tx_message.IDE = CAN_ID_STD;
- can_tx_message.RTR = CAN_RTR_DATA;
- can_tx_message.DLC = 0x08;
- can_send_data[0] = motor1 >> 8;
- can_send_data[1] = motor1;
- can_send_data[2] = motor2 >> 8;
- can_send_data[3] = motor2;
- can_send_data[4] = motor3 >> 8;
- can_send_data[5] = motor3;
- can_send_data[6] = motor4 >> 8;
- can_send_data[7] = motor4;
- HAL_CAN_AddTxMessage(&hcan2, &can_tx_message, can_send_data, &send_mail_box);
-}
-
-/**
- * @brief       CAN1·¢ËÍº¯Êı(ºó4¸öµç»ú)
- * @param       motor1£º¸øÊı×éĞòºÅÎª4£¨µçµ÷IDÎª5£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor2£º¸øÊı×éĞòºÅÎª5£¨µçµ÷IDÎª6£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor3£º¸øÊı×éĞòºÅÎª6£¨µçµ÷IDÎª7£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @param       motor4£º¸øÊı×éĞòºÅÎª7£¨µçµ÷IDÎª8£©µÄµç»ú·¢ËÍÏà¶ÔµçÁ÷Öµ
- * @retval      void
- * @note        ÎŞ
- */
- void CAN_BUS::CMD::CAN2_Behind(int16_t motor5, int16_t motor6, int16_t motor7, int16_t motor8)
-{
- CAN_TxHeaderTypeDef can_tx_message;
- uint8_t	can_send_data[8];
- uint32_t send_mail_box;
-
- can_tx_message.StdId = 0x1FF;
- can_tx_message.IDE = CAN_ID_STD;
- can_tx_message.RTR = CAN_RTR_DATA;
- can_tx_message.DLC = 0x08;
- can_send_data[0] = motor5 >> 8;
- can_send_data[1] = motor5;
- can_send_data[2] = motor6 >> 8;
- can_send_data[3] = motor6;
- can_send_data[4] = motor7 >> 8;
- can_send_data[5] = motor7;
- can_send_data[6] = motor8 >> 8;
- can_send_data[7] = motor8;
- HAL_CAN_AddTxMessage(&hcan2, &can_tx_message, can_send_data, &send_mail_box);
-}
-
-extern "C"
-/**
- * @brief       »Øµ÷º¯Êı£¬¶¨Ê±Æ÷ÖĞ¶Ï·şÎñº¯Êıµ÷ÓÃ
- * @param       hcan£º´¥·¢ÖĞ¶ÏµÄCANÍ¨ĞÅ¾ä±ú
- * @retval      void
- * @note        ¸Ãº¯ÊıÓÉÖĞ¶Ï¹«¹²·şÎñº¯Êıµ÷ÓÃ£¬²»ÓÃÓÃ»§È¥µ÷ÓÃ¡£ÇÒÎªÒ»¸öÈõº¯Êı£¬ËùÒÔÔÚC++ÖĞÒªÔÚ¸Ãº¯ÊıÇ°Ãæ¼ÓÉÏextern "C"£¬»òÖ±½ÓÓÃextern "C"{}À¨ÆğÀ´
- */
-void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
-{
-		CAN_RxHeaderTypeDef rx_header;
-		uint8_t rx_data_1[8];
-		uint8_t rx_data_2[8];
-	
-	if(hcan->Instance==CAN1)
-	{
-		HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rx_header, rx_data_1);
-
-		switch (rx_header.StdId)
-		{
-			case CAN_3508_M1_ID:
-			case CAN_3508_M2_ID:
-			case CAN_3508_M3_ID:
-			case CAN_3508_M4_ID:
-			case CAN_3508_M5_ID:
-			case CAN_3508_M6_ID:
-			case CAN_3508_M7_ID:
-			{
-				static uint8_t i = 0;
-				//get motor id
-				i = rx_header.StdId - CAN_3508_M1_ID;
-				can_bus.motor_can1[i].msg_cnt++ <= 50	?	can_bus.dji_encoder.get_moto_offset(&can_bus.motor_can1[i], rx_data_1) : can_bus.dji_encoder.get_motor_measure(&can_bus.motor_can1[i], rx_data_1);
-				can_bus.dji_encoder.get_motor_measure(&can_bus.motor_can1[i], rx_data_1);
-				break;
-			}
-			default:
-			{
-			break;
-			}	
-		}
-	}
-		
-	if(hcan->Instance==CAN2)
-	{
-		HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rx_header, rx_data_2);
-
-		switch (rx_header.StdId)
-		{
-			case CAN_3508_M1_ID:
-			case CAN_3508_M2_ID:
-			case CAN_3508_M3_ID:
-			case CAN_3508_M4_ID:
-			case CAN_3508_M5_ID:
-			case CAN_3508_M6_ID:
-			case CAN_3508_M7_ID:
-//			case CAN_3508_ALL_ID:
-			{
-				static uint8_t i = 0;
-				//get motor id
-				i = rx_header.StdId - CAN_3508_M1_ID;
-				can_bus.motor_can2[i].msg_cnt++ <= 50	?	can_bus.dji_encoder.get_moto_offset(&can_bus.motor_can2[i], rx_data_2) : can_bus.dji_encoder.get_motor_measure(&can_bus.motor_can2[i], rx_data_2);
-				can_bus.dji_encoder.get_motor_measure(&can_bus.motor_can2[i], rx_data_2);
-				break;
-			}
-			default:
-			{
-			break;
-			}	
-		}
- }
-}
-
-/**
- * @brief       ´¦Àí±àÂëÆ÷Êı¾İ»ñÈ¡µç»úĞÅÏ¢º¯Êı
- * @param       ptr£º@motor_measure_tÀàĞÍ¾ä±ú£¬´¢´æ´¦ÀíºóµÄµç»ú×´Ì¬ĞÅÏ¢
- * @param       data£ºCANÍ¨ĞÅ½ÓÊÕµ½µç»ú·¢À´µÄÔ­Êı¾İ
- * @retval      void
- * @note        ÎŞ
- */
-void CAN_BUS::DJI_ENCODER::get_motor_measure(motor_measure_t *ptr,uint8_t data[])                                                     
-{   
-        (ptr)->last_angle = (ptr)->angle;                                                          
-        (ptr)->angle = data[0] << 8 | data[1];           
-        (ptr)->speed_rpm = data[2] << 8 | data[3];     
-        (ptr)->given_current = data[4] << 8 | data[5]; 
-        (ptr)->temperate = data[6];                                              
-//				((ptr)->angle) = (int32_t)(((ptr)->ecd) - ((ptr)->last_ecd));
-
-					if(ptr->angle - ptr->last_angle > 4096)
-						ptr->round_cnt --;
-					else if (ptr->angle - ptr->last_angle < -4096)
-						ptr->round_cnt ++;
-					ptr->total_angle = ptr->round_cnt * 8192 + ptr->angle - ptr->offset_angle;
-}
-
-/**
- * @brief       ´¦Àí±àÂëÆ÷Êı¾İ»ñÈ¡µç»ú¸Õ¿ªÊ¼µÄ½Ç¶È³õÊ¼Öµº¯Êı
- * @param       ptr£º@motor_measure_tÀàĞÍ¾ä±ú£¬´¢´æ´¦ÀíºóµÄµç»ú×´Ì¬ĞÅÏ¢
- * @param       data£ºCANÍ¨ĞÅ½ÓÊÕµ½µç»ú·¢À´µÄÔ­Êı¾İ
- * @retval      void
- * @note        ¸Ãº¯ÊıÊÇ½«¾ø¶Ô±àÂëÆ÷×ª»¯ÎªÔöÁ¿±àÂëÆ÷µÄ¹Ø¼ü£¬»ñÈ¡ÁËµç»úÍ¨µçÊ±µÄ½Ç¶ÈÖµ
- */
-void CAN_BUS::DJI_ENCODER::get_moto_offset(motor_measure_t *ptr, uint8_t data[])
-{
-	ptr->angle = data[0]<<8 |data[1] ;
-	ptr->offset_angle = ptr->angle;
-}
-
-
-
-
-
-/**
- * @brief       ´¦Àíµç»ú½Ç¶ÈÖµ
- * @param       p£º@motor_measure_tÀàĞÍ¾ä±ú£¬´¢´æ´¦ÀíºóµÄµç»ú×´Ì¬ĞÅÏ¢
- * @retval      void
- * @note        ¸Ãº¯ÊıÃ»ÓĞ±»µ÷ÓÃ£¬ÔİÊ±Ã»ÓÃ
- */
-void CAN_BUS::DJI_ENCODER::get_total_angle(motor_measure_t *p)
-{
-	
-	int res1, res2, delta;
-	if(p->angle < p->last_angle){			//¿ÉÄÜµÄÇé¿ö
-		res1 = p->angle + 8192 - p->last_angle;	//Õı×ª£¬delta=+
-		res2 = p->angle - p->last_angle;				//·´×ª	delta=-
-	}else{	//angle > last
-		res1 = p->angle - 8192 - p->last_angle ;//·´×ª	delta -
-		res2 = p->angle - p->last_angle;				//Õı×ª	delta +
-	}
-	//²»¹ÜÕı·´×ª£¬¿Ï¶¨ÊÇ×ªµÄ½Ç¶ÈĞ¡µÄÄÇ¸öÊÇÕæµÄ
-	if(ABS(res1)<ABS(res2))
-		delta = res1;
-	else
-		delta = res2;
-
-	p->total_angle += delta;
-	p->last_angle = p->angle;
-}
-
-
->>>>>>> 00ac74e (9.6)

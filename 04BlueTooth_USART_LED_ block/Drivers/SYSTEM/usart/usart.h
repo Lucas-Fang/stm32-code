@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#ifndef __USART_H
+ï»¿#ifndef __USART_H
 #define __USART_H
 
 #include "stdio.h"
@@ -8,34 +7,13 @@
 
 
 
-extern UART_HandleTypeDef g_uart1_handle;       /* HAL UART¾ä±ú */
-extern uint8_t g_rx_buffer[1];                  /*HAL¿âÊ¹ÓÃµÄ´®¿Ú½ÓÊÕÊý¾Ý»º³åÇø*/
+extern UART_HandleTypeDef g_uart1_handle;       /* HAL UARTå¥æŸ„ */
+extern uint8_t g_rx_buffer[1];                  /*HALåº“ä½¿ç”¨çš„ä¸²å£æŽ¥æ”¶æ•°æ®ç¼“å†²åŒº*/
 
 
 
-void usart_init(uint32_t baudrate);                /* ´®¿Ú³õÊ¼»¯º¯Êý */
-
-#endif
-
-
-=======
-#ifndef __USART_H
-#define __USART_H
-
-#include "stdio.h"
-#include "./SYSTEM/sys/sys.h"
-
-
-
-
-extern UART_HandleTypeDef g_uart1_handle;       /* HAL UART¾ä±ú */
-extern uint8_t g_rx_buffer[1];                  /*HAL¿âÊ¹ÓÃµÄ´®¿Ú½ÓÊÕÊý¾Ý»º³åÇø*/
-
-
-
-void usart_init(uint32_t baudrate);                /* ´®¿Ú³õÊ¼»¯º¯Êý */
+void usart_init(uint32_t baudrate);                /* ä¸²å£åˆå§‹åŒ–å‡½æ•° */
 
 #endif
 
 
->>>>>>> 00ac74e (9.6)

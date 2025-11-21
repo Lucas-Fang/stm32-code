@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#ifndef __STARTUP_MAIN_H_
+ï»¿#ifndef __STARTUP_MAIN_H_
 #define __STARTUP_MAIN_H_
 
 #ifdef __cplusplus
@@ -11,10 +10,10 @@ extern "C"
 #include "struct_typedef.h"
 
 /******************define_config********************/
-//ÊÇ·ñÎªÂã»ú¿ª·¢:
-//Èç¹ûÊÇÂã»ú¿ª·¢£¬ÔòÌî0¡£
-//Èç¹ûÊÇFreeRTOS¿ª·¢£¬ÔòÌî1¡£
-//Èç¹ûÊÇUOS¿ª·¢£¬ÔòÌîxxxx¡£(´ý¿ª·¢Ïà¹Ø´úÂë)
+//æ˜¯å¦ä¸ºè£¸æœºå¼€å‘:
+//å¦‚æžœæ˜¯è£¸æœºå¼€å‘ï¼Œåˆ™å¡«0ã€‚
+//å¦‚æžœæ˜¯FreeRTOSå¼€å‘ï¼Œåˆ™å¡«1ã€‚
+//å¦‚æžœæ˜¯UOSå¼€å‘ï¼Œåˆ™å¡«xxxxã€‚(å¾…å¼€å‘ç›¸å…³ä»£ç )
 #define isRTOS 0
 	
 
@@ -27,33 +26,3 @@ void startup_main(void);
 #endif
 	
 #endif
-=======
-#ifndef __STARTUP_MAIN_H_
-#define __STARTUP_MAIN_H_
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
-#include "main.h"
-#include "struct_typedef.h"
-
-/******************define_config********************/
-//ÊÇ·ñÎªÂã»ú¿ª·¢:
-//Èç¹ûÊÇÂã»ú¿ª·¢£¬ÔòÌî0¡£
-//Èç¹ûÊÇFreeRTOS¿ª·¢£¬ÔòÌî1¡£
-//Èç¹ûÊÇUOS¿ª·¢£¬ÔòÌîxxxx¡£(´ý¿ª·¢Ïà¹Ø´úÂë)
-#define isRTOS 0
-	
-
-void startup_main(void);
-	
-	
-
-#ifdef __cplusplus
-}
-#endif
-	
-#endif
->>>>>>> 00ac74e (9.6)

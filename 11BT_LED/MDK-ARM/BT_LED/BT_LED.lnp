@@ -1,5 +1,4 @@
-<<<<<<< HEAD
---cpu Cortex-M3
+﻿--cpu Cortex-M3
 "bt_led\startup_stm32f103xb.o"
 "bt_led\startup_main.o"
 "bt_led\main.o"
@@ -27,34 +26,4 @@
 --strict --scatter "BT_LED\BT_LED.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
-=======
---cpu Cortex-M3
-"bt_led\startup_stm32f103xb.o"
-"bt_led\startup_main.o"
-"bt_led\main.o"
-"bt_led\gpio.o"
-"bt_led\usart.o"
-"bt_led\stm32f1xx_it.o"
-"bt_led\stm32f1xx_hal_msp.o"
-"bt_led\stm32f1xx_hal_gpio_ex.o"
-"bt_led\stm32f1xx_hal_tim.o"
-"bt_led\stm32f1xx_hal_tim_ex.o"
-"bt_led\stm32f1xx_hal_uart.o"
-"bt_led\stm32f1xx_hal.o"
-"bt_led\stm32f1xx_hal_rcc.o"
-"bt_led\stm32f1xx_hal_rcc_ex.o"
-"bt_led\stm32f1xx_hal_gpio.o"
-"bt_led\stm32f1xx_hal_dma.o"
-"bt_led\stm32f1xx_hal_cortex.o"
-"bt_led\stm32f1xx_hal_pwr.o"
-"bt_led\stm32f1xx_hal_flash.o"
-"bt_led\stm32f1xx_hal_flash_ex.o"
-"bt_led\stm32f1xx_hal_exti.o"
-"bt_led\system_stm32f1xx.o"
-"bt_led\bluetooth.o"
-"bt_led\bsp_delay.o"
---strict --scatter "BT_LED\BT_LED.sct"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
---info sizes --info totals --info unused --info veneers
->>>>>>> 00ac74e (9.6)
 --list "BT_LED.map" -o BT_LED\BT_LED.axf

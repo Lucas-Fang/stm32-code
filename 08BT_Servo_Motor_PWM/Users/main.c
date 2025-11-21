@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#include "./SYSTEM/sys/sys.h"
+ï»¿#include "./SYSTEM/sys/sys.h"
 #include "./SYSTEM/usart/usart.h"
 #include "./SYSTEM/delay/delay.h"
 #include "./BSP/LED/led.h"
@@ -12,12 +11,12 @@
 
 int main(void)
 {
-    HAL_Init();                              /* ³õÊ¼»¯HAL¿â */
-    SystemClock_Config();                    /* ÉèÖÃÊ±ÖÓ, 72Mhz */
-    delay_init(72);                          /* ÑÓÊ±³õÊ¼»¯ */
-    led_init();                              /* LED³õÊ¼»¯ */
+    HAL_Init();                              /* åˆå§‹åŒ–HALåº“ */
+    SystemClock_Config();                    /* è®¾ç½®æ—¶é’Ÿ, 72Mhz */
+    delay_init(72);                          /* å»¶æ—¶åˆå§‹åŒ– */
+    led_init();                              /* LEDåˆå§‹åŒ– */
 
-    gtim_timx_pwm_chy_init(200-1,7200-1);      /*³õÊ¼»¯¶¨Ê±Æ÷*/
+    gtim_timx_pwm_chy_init(200-1,7200-1);      /*åˆå§‹åŒ–å®šæ—¶å™¨*/
     usart_init(9600);
     
      while(1)
@@ -29,35 +28,3 @@ int main(void)
 
 
 }
-=======
-#include "./SYSTEM/sys/sys.h"
-#include "./SYSTEM/usart/usart.h"
-#include "./SYSTEM/delay/delay.h"
-#include "./BSP/LED/led.h"
-#include "./BSP/TIMER/gtim.h"
-
-
-
-
-
-
-int main(void)
-{
-    HAL_Init();                              /* ³õÊ¼»¯HAL¿â */
-    SystemClock_Config();                    /* ÉèÖÃÊ±ÖÓ, 72Mhz */
-    delay_init(72);                          /* ÑÓÊ±³õÊ¼»¯ */
-    led_init();                              /* LED³õÊ¼»¯ */
-
-    gtim_timx_pwm_chy_init(200-1,7200-1);      /*³õÊ¼»¯¶¨Ê±Æ÷*/
-    usart_init(9600);
-    
-     while(1)
-    { 
-        
-        
-        
-    }
-
-
-}
->>>>>>> 00ac74e (9.6)

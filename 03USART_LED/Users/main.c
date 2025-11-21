@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#include "./SYSTEM/sys/sys.h"
+ï»¿#include "./SYSTEM/sys/sys.h"
 #include "./SYSTEM/usart/usart.h"
 #include "./SYSTEM/delay/delay.h"
 #include "./BSP/LED/led.h"
@@ -7,10 +6,10 @@
 
 int main(void)
 {
-    HAL_Init();                               /* ³õÊ¼»¯HAL¿â */
-    SystemClock_Config();                     /* ÉèÖÃÊ±ÖÓ, 72Mhz */
-    delay_init(72);                           /* ÑÓÊ±³õÊ¼»¯ */
-    usart_init(9600);                         /*²¨ÌØÂÊ*/
+    HAL_Init();                               /* åˆå§‹åŒ–HALåº“ */
+    SystemClock_Config();                     /* è®¾ç½®æ—¶é’Ÿ, 72Mhz */
+    delay_init(72);                           /* å»¶æ—¶åˆå§‹åŒ– */
+    usart_init(9600);                         /*æ³¢ç‰¹çŽ‡*/
 
     while(1)
     {
@@ -18,24 +17,3 @@ int main(void)
     }
 }
 
-=======
-#include "./SYSTEM/sys/sys.h"
-#include "./SYSTEM/usart/usart.h"
-#include "./SYSTEM/delay/delay.h"
-#include "./BSP/LED/led.h"
-
-
-int main(void)
-{
-    HAL_Init();                               /* ³õÊ¼»¯HAL¿â */
-    SystemClock_Config();                     /* ÉèÖÃÊ±ÖÓ, 72Mhz */
-    delay_init(72);                           /* ÑÓÊ±³õÊ¼»¯ */
-    usart_init(9600);                         /*²¨ÌØÂÊ*/
-
-    while(1)
-    {
-
-    }
-}
-
->>>>>>> 00ac74e (9.6)

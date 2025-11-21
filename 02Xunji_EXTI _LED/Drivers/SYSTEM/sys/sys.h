@@ -1,24 +1,23 @@
-<<<<<<< HEAD
-/**
+ï»¿/**
  ****************************************************************************************************
  * @file        sys.h
- * @author      ÕýµãÔ­×ÓÍÅ¶Ó(ALIENTEK)
+ * @author      æ­£ç‚¹åŽŸå­å›¢é˜Ÿ(ALIENTEK)
  * @version     V1.0
  * @date        2020-04-20
- * @brief       ÏµÍ³³õÊ¼»¯´úÂë(°üÀ¨Ê±ÖÓÅäÖÃ/ÖÐ¶Ï¹ÜÀí/GPIOÉèÖÃµÈ)
- * @license     Copyright (c) 2020-2032, ¹ãÖÝÊÐÐÇÒíµç×Ó¿Æ¼¼ÓÐÏÞ¹«Ë¾
+ * @brief       ç³»ç»Ÿåˆå§‹åŒ–ä»£ç (åŒ…æ‹¬æ—¶é’Ÿé…ç½®/ä¸­æ–­ç®¡ç†/GPIOè®¾ç½®ç­‰)
+ * @license     Copyright (c) 2020-2032, å¹¿å·žå¸‚æ˜Ÿç¿¼ç”µå­ç§‘æŠ€æœ‰é™å…¬å¸
  ****************************************************************************************************
  * @attention
  *
- * ÊµÑéÆ½Ì¨:ÕýµãÔ­×Ó STM32F103¿ª·¢°å
- * ÔÚÏßÊÓÆµ:www.yuanzige.com
- * ¼¼ÊõÂÛÌ³:www.openedv.com
- * ¹«Ë¾ÍøÖ·:www.alientek.com
- * ¹ºÂòµØÖ·:openedv.taobao.com
+ * å®žéªŒå¹³å°:æ­£ç‚¹åŽŸå­ STM32F103å¼€å‘æ¿
+ * åœ¨çº¿è§†é¢‘:www.yuanzige.com
+ * æŠ€æœ¯è®ºå›:www.openedv.com
+ * å…¬å¸ç½‘å€:www.alientek.com
+ * è´­ä¹°åœ°å€:openedv.taobao.com
  *
- * ÐÞ¸ÄËµÃ÷
+ * ä¿®æ”¹è¯´æ˜Ž
  * V1.0 20211103
- * µÚÒ»´Î·¢²¼
+ * ç¬¬ä¸€æ¬¡å‘å¸ƒ
  *
  ****************************************************************************************************
  */
@@ -30,26 +29,26 @@
 
 
 /**
- * SYS_SUPPORT_OSÓÃÓÚ¶¨ÒåÏµÍ³ÎÄ¼þ¼ÐÊÇ·ñÖ§³ÖOS
- * 0,²»Ö§³ÖOS
- * 1,Ö§³ÖOS
+ * SYS_SUPPORT_OSç”¨äºŽå®šä¹‰ç³»ç»Ÿæ–‡ä»¶å¤¹æ˜¯å¦æ”¯æŒOS
+ * 0,ä¸æ”¯æŒOS
+ * 1,æ”¯æŒOS
  */
 #define SYS_SUPPORT_OS          0
 
 
-/*º¯ÊýÉêÃ÷*******************************************************************************************/
+/*å‡½æ•°ç”³æ˜Ž*******************************************************************************************/
 
-void sys_nvic_set_vector_table(uint32_t baseaddr, uint32_t offset);             /* ÉèÖÃÖÐ¶ÏÆ«ÒÆÁ¿ */
-void sys_standby(void);                                                         /* ½øÈë´ý»úÄ£Ê½ */
-void sys_soft_reset(void);                                                      /* ÏµÍ³Èí¸´Î» */
-uint8_t sys_clock_set(uint32_t plln);                                           /* Ê±ÖÓÉèÖÃº¯Êý */
-void sys_stm32_clock_init(uint32_t plln);                                       /* ÏµÍ³Ê±ÖÓ³õÊ¼»¯º¯Êý */
+void sys_nvic_set_vector_table(uint32_t baseaddr, uint32_t offset);             /* è®¾ç½®ä¸­æ–­åç§»é‡ */
+void sys_standby(void);                                                         /* è¿›å…¥å¾…æœºæ¨¡å¼ */
+void sys_soft_reset(void);                                                      /* ç³»ç»Ÿè½¯å¤ä½ */
+uint8_t sys_clock_set(uint32_t plln);                                           /* æ—¶é’Ÿè®¾ç½®å‡½æ•° */
+void sys_stm32_clock_init(uint32_t plln);                                       /* ç³»ç»Ÿæ—¶é’Ÿåˆå§‹åŒ–å‡½æ•° */
 
-/* ÒÔÏÂÎª»ã±àº¯Êý */
-void sys_wfi_set(void);                                                         /* Ö´ÐÐWFIÖ¸Áî */
-void sys_intx_disable(void);                                                    /* ¹Ø±ÕËùÓÐÖÐ¶Ï */
-void sys_intx_enable(void);                                                     /* ¿ªÆôËùÓÐÖÐ¶Ï */
-void sys_msr_msp(uint32_t addr);                                                /* ÉèÖÃÕ»¶¥µØÖ· */
+/* ä»¥ä¸‹ä¸ºæ±‡ç¼–å‡½æ•° */
+void sys_wfi_set(void);                                                         /* æ‰§è¡ŒWFIæŒ‡ä»¤ */
+void sys_intx_disable(void);                                                    /* å…³é—­æ‰€æœ‰ä¸­æ–­ */
+void sys_intx_enable(void);                                                     /* å¼€å¯æ‰€æœ‰ä¸­æ–­ */
+void sys_msr_msp(uint32_t addr);                                                /* è®¾ç½®æ ˆé¡¶åœ°å€ */
 
 #endif
 
@@ -63,69 +62,3 @@ void sys_msr_msp(uint32_t addr);                                                
 
 
 
-=======
-/**
- ****************************************************************************************************
- * @file        sys.h
- * @author      ÕýµãÔ­×ÓÍÅ¶Ó(ALIENTEK)
- * @version     V1.0
- * @date        2020-04-20
- * @brief       ÏµÍ³³õÊ¼»¯´úÂë(°üÀ¨Ê±ÖÓÅäÖÃ/ÖÐ¶Ï¹ÜÀí/GPIOÉèÖÃµÈ)
- * @license     Copyright (c) 2020-2032, ¹ãÖÝÊÐÐÇÒíµç×Ó¿Æ¼¼ÓÐÏÞ¹«Ë¾
- ****************************************************************************************************
- * @attention
- *
- * ÊµÑéÆ½Ì¨:ÕýµãÔ­×Ó STM32F103¿ª·¢°å
- * ÔÚÏßÊÓÆµ:www.yuanzige.com
- * ¼¼ÊõÂÛÌ³:www.openedv.com
- * ¹«Ë¾ÍøÖ·:www.alientek.com
- * ¹ºÂòµØÖ·:openedv.taobao.com
- *
- * ÐÞ¸ÄËµÃ÷
- * V1.0 20211103
- * µÚÒ»´Î·¢²¼
- *
- ****************************************************************************************************
- */
-
-#ifndef __SYS_H
-#define __SYS_H
-
-#include "stm32f1xx.h"
-
-
-/**
- * SYS_SUPPORT_OSÓÃÓÚ¶¨ÒåÏµÍ³ÎÄ¼þ¼ÐÊÇ·ñÖ§³ÖOS
- * 0,²»Ö§³ÖOS
- * 1,Ö§³ÖOS
- */
-#define SYS_SUPPORT_OS          0
-
-
-/*º¯ÊýÉêÃ÷*******************************************************************************************/
-
-void sys_nvic_set_vector_table(uint32_t baseaddr, uint32_t offset);             /* ÉèÖÃÖÐ¶ÏÆ«ÒÆÁ¿ */
-void sys_standby(void);                                                         /* ½øÈë´ý»úÄ£Ê½ */
-void sys_soft_reset(void);                                                      /* ÏµÍ³Èí¸´Î» */
-uint8_t sys_clock_set(uint32_t plln);                                           /* Ê±ÖÓÉèÖÃº¯Êý */
-void sys_stm32_clock_init(uint32_t plln);                                       /* ÏµÍ³Ê±ÖÓ³õÊ¼»¯º¯Êý */
-
-/* ÒÔÏÂÎª»ã±àº¯Êý */
-void sys_wfi_set(void);                                                         /* Ö´ÐÐWFIÖ¸Áî */
-void sys_intx_disable(void);                                                    /* ¹Ø±ÕËùÓÐÖÐ¶Ï */
-void sys_intx_enable(void);                                                     /* ¿ªÆôËùÓÐÖÐ¶Ï */
-void sys_msr_msp(uint32_t addr);                                                /* ÉèÖÃÕ»¶¥µØÖ· */
-
-#endif
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 00ac74e (9.6)

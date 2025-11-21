@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-#include "./BSP/EXTI/exti.h"
+ï»¿#include "./BSP/EXTI/exti.h"
 #include "./SYSTEM/delay/delay.h"
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 void led_init (void)
 {
             //LED
@@ -28,41 +27,41 @@ void exti_init (void)
 
     
     
-        //Ñ­¼£Ä£¿éÒý½Å
+        //å¾ªè¿¹æ¨¡å—å¼•è„š
     GPIO_InitTypeDef gpio_init_struct_2={0};
     
     __HAL_RCC_GPIOB_CLK_ENABLE();
     
     gpio_init_struct_2.Pin=GPIO_PIN_1;
-    gpio_init_struct_2.Mode=GPIO_MODE_IT_RISING_FALLING;       //Íâ²¿ÖÐ¶ÏÉÏÉý/ÏÂ½µÑØ´¥·¢
+    gpio_init_struct_2.Mode=GPIO_MODE_IT_RISING_FALLING;       //å¤–éƒ¨ä¸­æ–­ä¸Šå‡/ä¸‹é™æ²¿è§¦å‘
     gpio_init_struct_2.Speed=GPIO_SPEED_FREQ_LOW;
     gpio_init_struct_2.Pull=GPIO_PULLUP;
     
     HAL_GPIO_Init(GPIOB, &gpio_init_struct_2);
     
     
-    HAL_NVIC_SetPriority(EXTI1_IRQn,0,0);               //ÉèÖÃÖÐ¶ÏÓÅÏÈ¼¶£¨ÇÀÕ¼ÓÅÏÈ¼¶£¬ÏìÓ¦ÓÅÏÈ¼¶£©Êý×ÖÔ½Ð¡ÓÅÏÈ¼¶Ô½¸ß
-    HAL_NVIC_EnableIRQ(EXTI1_IRQn);                     //Ê¹ÄÜÖÐ¶Ï
+    HAL_NVIC_SetPriority(EXTI1_IRQn,0,0);               //è®¾ç½®ä¸­æ–­ä¼˜å…ˆçº§ï¼ˆæŠ¢å ä¼˜å…ˆçº§ï¼Œå“åº”ä¼˜å…ˆçº§ï¼‰æ•°å­—è¶Šå°ä¼˜å…ˆçº§è¶Šé«˜
+    HAL_NVIC_EnableIRQ(EXTI1_IRQn);                     //ä½¿èƒ½ä¸­æ–­
     
 
 }
 
-void EXTI1_IRQHandler(void)                             //ÖÐ¶Ï·þÎñº¯Êý£¨ÔÚstartupÎÄ¼þÀïÃæ±»ºê¶¨Òå£©
+void EXTI1_IRQHandler(void)                             //ä¸­æ–­æœåŠ¡å‡½æ•°ï¼ˆåœ¨startupæ–‡ä»¶é‡Œé¢è¢«å®å®šä¹‰ï¼‰
 {
-    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);               //ÖÐ¶Ï¹«¹²·þÎñº¯Êý   µ÷ÓÃ»Øµ÷º¯Êý£¨Callbackº¯Êý£¨ÏÂÃæµÄÄÇ¸ö£©
-    __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_1);               //HALÄ¬ÈÏÏÈÇåÀíÖÐ¶ÏÔÚ´¦Àí»Øµ÷£¬ÍË³öÊ±ÔÙÇåÀíÒ»´ÎÖÐ¶Ï£¬±ÜÃâ°´¼ü¶¶¶¯Îó´¥·¢
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);               //ä¸­æ–­å…¬å…±æœåŠ¡å‡½æ•°   è°ƒç”¨å›žè°ƒå‡½æ•°ï¼ˆCallbackå‡½æ•°ï¼ˆä¸‹é¢çš„é‚£ä¸ªï¼‰
+    __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_1);               //HALé»˜è®¤å…ˆæ¸…ç†ä¸­æ–­åœ¨å¤„ç†å›žè°ƒï¼Œé€€å‡ºæ—¶å†æ¸…ç†ä¸€æ¬¡ä¸­æ–­ï¼Œé¿å…æŒ‰é”®æŠ–åŠ¨è¯¯è§¦å‘
 }
 
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)          //»Øµ÷º¯Êý£¨ÐèÒªÓÃ»§×Ô¼ºÐ´   ²úÉúÖÐ¶ÏÊ±Ö´ÐÐÊ²Ã´ÃüÁî£©
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)          //å›žè°ƒå‡½æ•°ï¼ˆéœ€è¦ç”¨æˆ·è‡ªå·±å†™   äº§ç”Ÿä¸­æ–­æ—¶æ‰§è¡Œä»€ä¹ˆå‘½ä»¤ï¼‰
 {
-    delay_ms(20);                                       /*Ïû¶¶*/
-    if(GPIO_Pin == GPIO_PIN_1)                          //ÅÐ¶ÏÊÇ0-15ÄÄÒ»¸öÖÐ¶ÏÏß²úÉúµÄÖÐ¶Ï È·ÈÏÊÇ·ñÊÇÕâ¸öÒý½Å²úÉúµÄÖÐ¶Ï
+    delay_ms(20);                                       /*æ¶ˆæŠ–*/
+    if(GPIO_Pin == GPIO_PIN_1)                          //åˆ¤æ–­æ˜¯0-15å“ªä¸€ä¸ªä¸­æ–­çº¿äº§ç”Ÿçš„ä¸­æ–­ ç¡®è®¤æ˜¯å¦æ˜¯è¿™ä¸ªå¼•è„šäº§ç”Ÿçš„ä¸­æ–­
     {
-        if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_1)==0)       //ÅÐ¶ÏÊÇ²»ÊÇÓÐÐÅºÅ´ÓÑ­¼£Ä£¿é´«À´ÁË
+        if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_1)==0)       //åˆ¤æ–­æ˜¯ä¸æ˜¯æœ‰ä¿¡å·ä»Žå¾ªè¿¹æ¨¡å—ä¼ æ¥äº†
         {
             HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-            //HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);//·´×ªº¯Êý  Ê¹¸ßµÍµçÆ½·­×ª
+            //HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);//åè½¬å‡½æ•°  ä½¿é«˜ä½Žç”µå¹³ç¿»è½¬
         }
         else 
         {
@@ -74,80 +73,3 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)          //»Øµ÷º¯Êý£¨ÐèÒªÓÃ»§×Ô¼º
 
 
 
-=======
-#include "./BSP/EXTI/exti.h"
-#include "./SYSTEM/delay/delay.h"
-
-//³õÊ¼»¯
-void led_init (void)
-{
-            //LED
-    GPIO_InitTypeDef gpio_init_struct={0};
-    
-    __HAL_RCC_GPIOC_CLK_ENABLE();
-    
-    gpio_init_struct.Pin=GPIO_PIN_13;
-    gpio_init_struct.Mode=GPIO_MODE_OUTPUT_PP;
-    gpio_init_struct.Speed=GPIO_SPEED_FREQ_LOW;
-    gpio_init_struct.Pull=GPIO_PULLUP;
-    
-    HAL_GPIO_Init(GPIOC, &gpio_init_struct);
-
-
-    HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_SET);
-}
-
-
-
-void exti_init (void)
-{
-
-    
-    
-        //Ñ­¼£Ä£¿éÒý½Å
-    GPIO_InitTypeDef gpio_init_struct_2={0};
-    
-    __HAL_RCC_GPIOB_CLK_ENABLE();
-    
-    gpio_init_struct_2.Pin=GPIO_PIN_1;
-    gpio_init_struct_2.Mode=GPIO_MODE_IT_RISING_FALLING;       //Íâ²¿ÖÐ¶ÏÉÏÉý/ÏÂ½µÑØ´¥·¢
-    gpio_init_struct_2.Speed=GPIO_SPEED_FREQ_LOW;
-    gpio_init_struct_2.Pull=GPIO_PULLUP;
-    
-    HAL_GPIO_Init(GPIOB, &gpio_init_struct_2);
-    
-    
-    HAL_NVIC_SetPriority(EXTI1_IRQn,0,0);               //ÉèÖÃÖÐ¶ÏÓÅÏÈ¼¶£¨ÇÀÕ¼ÓÅÏÈ¼¶£¬ÏìÓ¦ÓÅÏÈ¼¶£©Êý×ÖÔ½Ð¡ÓÅÏÈ¼¶Ô½¸ß
-    HAL_NVIC_EnableIRQ(EXTI1_IRQn);                     //Ê¹ÄÜÖÐ¶Ï
-    
-
-}
-
-void EXTI1_IRQHandler(void)                             //ÖÐ¶Ï·þÎñº¯Êý£¨ÔÚstartupÎÄ¼þÀïÃæ±»ºê¶¨Òå£©
-{
-    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);               //ÖÐ¶Ï¹«¹²·þÎñº¯Êý   µ÷ÓÃ»Øµ÷º¯Êý£¨Callbackº¯Êý£¨ÏÂÃæµÄÄÇ¸ö£©
-    __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_1);               //HALÄ¬ÈÏÏÈÇåÀíÖÐ¶ÏÔÚ´¦Àí»Øµ÷£¬ÍË³öÊ±ÔÙÇåÀíÒ»´ÎÖÐ¶Ï£¬±ÜÃâ°´¼ü¶¶¶¯Îó´¥·¢
-}
-
-
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)          //»Øµ÷º¯Êý£¨ÐèÒªÓÃ»§×Ô¼ºÐ´   ²úÉúÖÐ¶ÏÊ±Ö´ÐÐÊ²Ã´ÃüÁî£©
-{
-    delay_ms(20);                                       /*Ïû¶¶*/
-    if(GPIO_Pin == GPIO_PIN_1)                          //ÅÐ¶ÏÊÇ0-15ÄÄÒ»¸öÖÐ¶ÏÏß²úÉúµÄÖÐ¶Ï È·ÈÏÊÇ·ñÊÇÕâ¸öÒý½Å²úÉúµÄÖÐ¶Ï
-    {
-        if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_1)==0)       //ÅÐ¶ÏÊÇ²»ÊÇÓÐÐÅºÅ´ÓÑ­¼£Ä£¿é´«À´ÁË
-        {
-            HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-            //HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);//·´×ªº¯Êý  Ê¹¸ßµÍµçÆ½·­×ª
-        }
-        else 
-        {
-            HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-        }
-    }
-}
-
-
-
-
->>>>>>> 00ac74e (9.6)

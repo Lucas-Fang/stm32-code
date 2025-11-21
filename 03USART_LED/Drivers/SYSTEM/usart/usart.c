@@ -1,58 +1,57 @@
-<<<<<<< HEAD
-#include "./SYSTEM/sys/sys.h"
+ï»¿#include "./SYSTEM/sys/sys.h"
 #include "./SYSTEM/usart/usart.h"
 #include "./SYSTEM/delay/delay.h"
 
 
 
-UART_HandleTypeDef g_uart1_handle;                                        /*UART¾ä±ú*/
+UART_HandleTypeDef g_uart1_handle;                                        /*UARTå¥æŸ„*/
 
-/* ½ÓÊÕ»º³å, ×î´óUSART_REC_LEN¸ö×Ö½Ú. */
-uint8_t g_rx_buffer[1];                                             /*HAL¿âÊ¹ÓÃµÄ´®¿Ú½ÓÊÕÊý¾Ý»º³åÇø*/
+/* æŽ¥æ”¶ç¼“å†², æœ€å¤§USART_REC_LENä¸ªå­—èŠ‚. */
+uint8_t g_rx_buffer[1];                                             /*HALåº“ä½¿ç”¨çš„ä¸²å£æŽ¥æ”¶æ•°æ®ç¼“å†²åŒº*/
 
  
- //´®¿ÚÒ»³õÊ¼»»º¯Êý
+ //ä¸²å£ä¸€åˆå§‹æ¢å‡½æ•°
 void usart_init(uint32_t baudrate)
 {
-    /*UART ³õÊ¼»¯ÉèÖÃ*/
+    /*UART åˆå§‹åŒ–è®¾ç½®*/
     g_uart1_handle.Instance = USART1;                                     /* USART1 */
-    g_uart1_handle.Init.BaudRate = baudrate;                              /* ²¨ÌØÂÊ */
-    g_uart1_handle.Init.WordLength = UART_WORDLENGTH_8B;                  /* ×Ö³¤Îª8Î»Êý¾Ý¸ñÊ½ */
-    g_uart1_handle.Init.StopBits = UART_STOPBITS_1;                       /* Ò»¸öÍ£Ö¹Î» */
-    g_uart1_handle.Init.Parity = UART_PARITY_NONE;                        /* ÎÞÆæÅ¼Ð£ÑéÎ» */
-    g_uart1_handle.Init.HwFlowCtl = UART_HWCONTROL_NONE;                  /* ÎÞÓ²¼þÁ÷¿Ø */
-    g_uart1_handle.Init.Mode = UART_MODE_TX_RX;                           /* ÊÕ·¢Ä£Ê½ */
-    HAL_UART_Init(&g_uart1_handle);                                       /* ´®¿Ú³õÊ¼»¯º¯Êý   ÐÎ²ÎÎª1 ËùÒÔÊ¹ÄÜUART1´®¿Ú */
+    g_uart1_handle.Init.BaudRate = baudrate;                              /* æ³¢ç‰¹çŽ‡ */
+    g_uart1_handle.Init.WordLength = UART_WORDLENGTH_8B;                  /* å­—é•¿ä¸º8ä½æ•°æ®æ ¼å¼ */
+    g_uart1_handle.Init.StopBits = UART_STOPBITS_1;                       /* ä¸€ä¸ªåœæ­¢ä½ */
+    g_uart1_handle.Init.Parity = UART_PARITY_NONE;                        /* æ— å¥‡å¶æ ¡éªŒä½ */
+    g_uart1_handle.Init.HwFlowCtl = UART_HWCONTROL_NONE;                  /* æ— ç¡¬ä»¶æµæŽ§ */
+    g_uart1_handle.Init.Mode = UART_MODE_TX_RX;                           /* æ”¶å‘æ¨¡å¼ */
+    HAL_UART_Init(&g_uart1_handle);                                       /* ä¸²å£åˆå§‹åŒ–å‡½æ•°   å½¢å‚ä¸º1 æ‰€ä»¥ä½¿èƒ½UART1ä¸²å£ */
 
     HAL_UART_Receive_IT(&g_uart1_handle, g_rx_buffer, 2); 
-/*****¸Ãº¯Êý»á¿ªÆô½ÓÊÕÖÐ¶Ï£º±êÖ¾Î»UART_IT_RXNE£¬²¢ÇÒÉèÖÃ½ÓÊÕ»º³åÒÔ¼°½ÓÊÕ»º³å½ÓÊÕ×î´óÊý¾ÝÁ¿*****/
+/*****è¯¥å‡½æ•°ä¼šå¼€å¯æŽ¥æ”¶ä¸­æ–­ï¼šæ ‡å¿—ä½UART_IT_RXNEï¼Œå¹¶ä¸”è®¾ç½®æŽ¥æ”¶ç¼“å†²ä»¥åŠæŽ¥æ”¶ç¼“å†²æŽ¥æ”¶æœ€å¤§æ•°æ®é‡*****/
 }
 
-//´®¿ÚMSP»Øµ÷º¯Êý     ÓÃÀ´³õÊ¼»¯ÍâÉè      ±»ÍâÉè³õÊ¼»¯º¯Êýµ÷ÓÃ
+//ä¸²å£MSPå›žè°ƒå‡½æ•°     ç”¨æ¥åˆå§‹åŒ–å¤–è®¾      è¢«å¤–è®¾åˆå§‹åŒ–å‡½æ•°è°ƒç”¨
 void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 {
     GPIO_InitTypeDef gpio_init_struct1={0};
 
-    if (huart->Instance == USART1)                            /* Èç¹ûÊÇ´®¿Ú1£¬½øÐÐ´®¿Ú1 MSP³õÊ¼»¯ */
+    if (huart->Instance == USART1)                            /* å¦‚æžœæ˜¯ä¸²å£1ï¼Œè¿›è¡Œä¸²å£1 MSPåˆå§‹åŒ– */
     {
-        __HAL_RCC_USART1_CLK_ENABLE();                          /*Ê¹ÄÜÖÐ¶ÏÊ±ÖÓ*/
-        __HAL_RCC_GPIOA_CLK_ENABLE();                           /*Ê¹ÄÜGPIOÊ±ÖÓ*/
+        __HAL_RCC_USART1_CLK_ENABLE();                          /*ä½¿èƒ½ä¸­æ–­æ—¶é’Ÿ*/
+        __HAL_RCC_GPIOA_CLK_ENABLE();                           /*ä½¿èƒ½GPIOæ—¶é’Ÿ*/
 
-    //³õÊ¼»¯Òý½ÅPA9£¨·¢ËÍTX£©
-        gpio_init_struct1.Pin = GPIO_PIN_9;                      /* ´®¿Ú·¢ËÍÒý½ÅºÅ */
-        gpio_init_struct1.Mode = GPIO_MODE_AF_PP;                /* ¸´ÓÃÍÆÍìÊä³ö £¨Êä³ö¸ßµÍµçÆ½£©*/
-        gpio_init_struct1.Pull = GPIO_PULLUP;                    /* ÉÏÀ­ */
-        gpio_init_struct1.Speed = GPIO_SPEED_FREQ_HIGH;          /* IOËÙ¶ÈÉèÖÃÎª¸ßËÙ */
+    //åˆå§‹åŒ–å¼•è„šPA9ï¼ˆå‘é€TXï¼‰
+        gpio_init_struct1.Pin = GPIO_PIN_9;                      /* ä¸²å£å‘é€å¼•è„šå· */
+        gpio_init_struct1.Mode = GPIO_MODE_AF_PP;                /* å¤ç”¨æŽ¨æŒ½è¾“å‡º ï¼ˆè¾“å‡ºé«˜ä½Žç”µå¹³ï¼‰*/
+        gpio_init_struct1.Pull = GPIO_PULLUP;                    /* ä¸Šæ‹‰ */
+        gpio_init_struct1.Speed = GPIO_SPEED_FREQ_HIGH;          /* IOé€Ÿåº¦è®¾ç½®ä¸ºé«˜é€Ÿ */
         HAL_GPIO_Init(GPIOA, &gpio_init_struct1);
 
-    //³õÊ¼»¯Òý½ÅPA10£¨½ÓÊÕRX£©
-        gpio_init_struct1.Pin = GPIO_PIN_10;                      /* ´®¿Ú½ÓÊÕÒý½ÅºÅ */
-        gpio_init_struct1.Mode = GPIO_MODE_AF_INPUT;              /* ÊäÈë*/
-        gpio_init_struct1.Pull = GPIO_PULLUP;                     /* ÉÏÀ­ */
-        gpio_init_struct1.Speed = GPIO_SPEED_FREQ_HIGH;           /* IOËÙ¶ÈÉèÖÃÎª¸ßËÙ */
+    //åˆå§‹åŒ–å¼•è„šPA10ï¼ˆæŽ¥æ”¶RXï¼‰
+        gpio_init_struct1.Pin = GPIO_PIN_10;                      /* ä¸²å£æŽ¥æ”¶å¼•è„šå· */
+        gpio_init_struct1.Mode = GPIO_MODE_AF_INPUT;              /* è¾“å…¥*/
+        gpio_init_struct1.Pull = GPIO_PULLUP;                     /* ä¸Šæ‹‰ */
+        gpio_init_struct1.Speed = GPIO_SPEED_FREQ_HIGH;           /* IOé€Ÿåº¦è®¾ç½®ä¸ºé«˜é€Ÿ */
         HAL_GPIO_Init(GPIOA, &gpio_init_struct1);
 
-        //³õÊ¼»¯LEDµÆ
+        //åˆå§‹åŒ–LEDç¯
         GPIO_InitTypeDef gpio_init_struct={0};
     
         __HAL_RCC_GPIOC_CLK_ENABLE();
@@ -64,18 +63,18 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
         HAL_GPIO_Init(GPIOC, &gpio_init_struct);
 
 
-        HAL_NVIC_SetPriority(USART1_IRQn,0,0);                      /*ÉèÖÃÓÅÏÈ¼¶*/
-        HAL_NVIC_EnableIRQ(USART1_IRQn);                            /*Ê¹ÄÜÖÐ¶Ï*/
+        HAL_NVIC_SetPriority(USART1_IRQn,0,0);                      /*è®¾ç½®ä¼˜å…ˆçº§*/
+        HAL_NVIC_EnableIRQ(USART1_IRQn);                            /*ä½¿èƒ½ä¸­æ–­*/
     }
 }
-//´®¿ÚÒ»ÖÐ¶Ï·þÎñº¯Êý
+//ä¸²å£ä¸€ä¸­æ–­æœåŠ¡å‡½æ•°
 void USART1_IRQHandler (void)
 {
-    HAL_UART_IRQHandler(&g_uart1_handle);                           /*ÖÐ¶Ï¹«¹²·þÎñº¯Êý    »áÇå³ýÖÐ¶ÏÊ§ÄÜµ÷ÓÃCpltCallbackº¯Êý*/
-    HAL_UART_Receive_IT(&g_uart1_handle, g_rx_buffer, 1);           /*ÒòÎªÉÏÃæµÄº¯ÊýÊ§ÄÜÁË£¬ËùÒÔÖØÐÂµ÷ÓÃÖÐ¶Ï*/
+    HAL_UART_IRQHandler(&g_uart1_handle);                           /*ä¸­æ–­å…¬å…±æœåŠ¡å‡½æ•°    ä¼šæ¸…é™¤ä¸­æ–­å¤±èƒ½è°ƒç”¨CpltCallbackå‡½æ•°*/
+    HAL_UART_Receive_IT(&g_uart1_handle, g_rx_buffer, 1);           /*å› ä¸ºä¸Šé¢çš„å‡½æ•°å¤±èƒ½äº†ï¼Œæ‰€ä»¥é‡æ–°è°ƒç”¨ä¸­æ–­*/
 }
 
-//´®¿ÚÊý¾Ý½ÓÊÕÍê³É»Øµ÷º¯Êý
+//ä¸²å£æ•°æ®æŽ¥æ”¶å®Œæˆå›žè°ƒå‡½æ•°
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
    if (huart->Instance == USART1)
@@ -101,107 +100,3 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 
 
-=======
-#include "./SYSTEM/sys/sys.h"
-#include "./SYSTEM/usart/usart.h"
-#include "./SYSTEM/delay/delay.h"
-
-
-
-UART_HandleTypeDef g_uart1_handle;                                        /*UART¾ä±ú*/
-
-/* ½ÓÊÕ»º³å, ×î´óUSART_REC_LEN¸ö×Ö½Ú. */
-uint8_t g_rx_buffer[1];                                             /*HAL¿âÊ¹ÓÃµÄ´®¿Ú½ÓÊÕÊý¾Ý»º³åÇø*/
-
- 
- //´®¿ÚÒ»³õÊ¼»»º¯Êý
-void usart_init(uint32_t baudrate)
-{
-    /*UART ³õÊ¼»¯ÉèÖÃ*/
-    g_uart1_handle.Instance = USART1;                                     /* USART1 */
-    g_uart1_handle.Init.BaudRate = baudrate;                              /* ²¨ÌØÂÊ */
-    g_uart1_handle.Init.WordLength = UART_WORDLENGTH_8B;                  /* ×Ö³¤Îª8Î»Êý¾Ý¸ñÊ½ */
-    g_uart1_handle.Init.StopBits = UART_STOPBITS_1;                       /* Ò»¸öÍ£Ö¹Î» */
-    g_uart1_handle.Init.Parity = UART_PARITY_NONE;                        /* ÎÞÆæÅ¼Ð£ÑéÎ» */
-    g_uart1_handle.Init.HwFlowCtl = UART_HWCONTROL_NONE;                  /* ÎÞÓ²¼þÁ÷¿Ø */
-    g_uart1_handle.Init.Mode = UART_MODE_TX_RX;                           /* ÊÕ·¢Ä£Ê½ */
-    HAL_UART_Init(&g_uart1_handle);                                       /* ´®¿Ú³õÊ¼»¯º¯Êý   ÐÎ²ÎÎª1 ËùÒÔÊ¹ÄÜUART1´®¿Ú */
-
-    HAL_UART_Receive_IT(&g_uart1_handle, g_rx_buffer, 2); 
-/*****¸Ãº¯Êý»á¿ªÆô½ÓÊÕÖÐ¶Ï£º±êÖ¾Î»UART_IT_RXNE£¬²¢ÇÒÉèÖÃ½ÓÊÕ»º³åÒÔ¼°½ÓÊÕ»º³å½ÓÊÕ×î´óÊý¾ÝÁ¿*****/
-}
-
-//´®¿ÚMSP»Øµ÷º¯Êý     ÓÃÀ´³õÊ¼»¯ÍâÉè      ±»ÍâÉè³õÊ¼»¯º¯Êýµ÷ÓÃ
-void HAL_UART_MspInit(UART_HandleTypeDef *huart)
-{
-    GPIO_InitTypeDef gpio_init_struct1={0};
-
-    if (huart->Instance == USART1)                            /* Èç¹ûÊÇ´®¿Ú1£¬½øÐÐ´®¿Ú1 MSP³õÊ¼»¯ */
-    {
-        __HAL_RCC_USART1_CLK_ENABLE();                          /*Ê¹ÄÜÖÐ¶ÏÊ±ÖÓ*/
-        __HAL_RCC_GPIOA_CLK_ENABLE();                           /*Ê¹ÄÜGPIOÊ±ÖÓ*/
-
-    //³õÊ¼»¯Òý½ÅPA9£¨·¢ËÍTX£©
-        gpio_init_struct1.Pin = GPIO_PIN_9;                      /* ´®¿Ú·¢ËÍÒý½ÅºÅ */
-        gpio_init_struct1.Mode = GPIO_MODE_AF_PP;                /* ¸´ÓÃÍÆÍìÊä³ö £¨Êä³ö¸ßµÍµçÆ½£©*/
-        gpio_init_struct1.Pull = GPIO_PULLUP;                    /* ÉÏÀ­ */
-        gpio_init_struct1.Speed = GPIO_SPEED_FREQ_HIGH;          /* IOËÙ¶ÈÉèÖÃÎª¸ßËÙ */
-        HAL_GPIO_Init(GPIOA, &gpio_init_struct1);
-
-    //³õÊ¼»¯Òý½ÅPA10£¨½ÓÊÕRX£©
-        gpio_init_struct1.Pin = GPIO_PIN_10;                      /* ´®¿Ú½ÓÊÕÒý½ÅºÅ */
-        gpio_init_struct1.Mode = GPIO_MODE_AF_INPUT;              /* ÊäÈë*/
-        gpio_init_struct1.Pull = GPIO_PULLUP;                     /* ÉÏÀ­ */
-        gpio_init_struct1.Speed = GPIO_SPEED_FREQ_HIGH;           /* IOËÙ¶ÈÉèÖÃÎª¸ßËÙ */
-        HAL_GPIO_Init(GPIOA, &gpio_init_struct1);
-
-        //³õÊ¼»¯LEDµÆ
-        GPIO_InitTypeDef gpio_init_struct={0};
-    
-        __HAL_RCC_GPIOC_CLK_ENABLE();
-    
-        gpio_init_struct.Pin=GPIO_PIN_13;
-        gpio_init_struct.Mode=GPIO_MODE_OUTPUT_PP;
-        gpio_init_struct.Speed=GPIO_SPEED_FREQ_LOW;
-        gpio_init_struct.Pull=GPIO_PULLDOWN;
-        HAL_GPIO_Init(GPIOC, &gpio_init_struct);
-
-
-        HAL_NVIC_SetPriority(USART1_IRQn,0,0);                      /*ÉèÖÃÓÅÏÈ¼¶*/
-        HAL_NVIC_EnableIRQ(USART1_IRQn);                            /*Ê¹ÄÜÖÐ¶Ï*/
-    }
-}
-//´®¿ÚÒ»ÖÐ¶Ï·þÎñº¯Êý
-void USART1_IRQHandler (void)
-{
-    HAL_UART_IRQHandler(&g_uart1_handle);                           /*ÖÐ¶Ï¹«¹²·þÎñº¯Êý    »áÇå³ýÖÐ¶ÏÊ§ÄÜµ÷ÓÃCpltCallbackº¯Êý*/
-    HAL_UART_Receive_IT(&g_uart1_handle, g_rx_buffer, 1);           /*ÒòÎªÉÏÃæµÄº¯ÊýÊ§ÄÜÁË£¬ËùÒÔÖØÐÂµ÷ÓÃÖÐ¶Ï*/
-}
-
-//´®¿ÚÊý¾Ý½ÓÊÕÍê³É»Øµ÷º¯Êý
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-   if (huart->Instance == USART1)
-   {
-      switch( g_rx_buffer[0] )
-      {
-        case 1:
-        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);         //liang
-        break;
-
-        case 0:
-        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);        //bu liang 
-        break;
-
-        default:
-        break;
-        
-      }
-   }
-}
-
-
-
-
-
->>>>>>> 00ac74e (9.6)

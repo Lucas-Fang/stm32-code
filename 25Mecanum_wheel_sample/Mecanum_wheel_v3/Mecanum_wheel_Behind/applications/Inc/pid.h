@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#ifndef __PID_H_
+ï»¿#ifndef __PID_H_
 #define __PID_H_
 
 
@@ -32,13 +31,13 @@ typedef enum
 typedef struct
 {
     uint8_t mode;
-    //PID Èý²ÎÊý
+    //PID ä¸‰å‚æ•°
     fp32 Kp;
     fp32 Ki;
     fp32 Kd;
 
-    fp32 max_out;  //×î´óÊä³ö
-    fp32 max_iout; //×î´ó»ý·ÖÊä³ö
+    fp32 max_out;  //æœ€å¤§è¾“å‡º
+    fp32 max_iout; //æœ€å¤§ç§¯åˆ†è¾“å‡º
 
     fp32 set;
     fp32 fdb;
@@ -47,8 +46,8 @@ typedef struct
     fp32 Pout;
     fp32 Iout;
     fp32 Dout;
-    fp32 Dbuf[3];  //Î¢·ÖÏî 0×îÐÂ 1ÉÏÒ»´Î 2ÉÏÉÏ´Î
-    fp32 error[3]; //Îó²îÏî 0×îÐÂ 1ÉÏÒ»´Î 2ÉÏÉÏ´Î
+    fp32 Dbuf[3];  //å¾®åˆ†é¡¹ 0æœ€æ–° 1ä¸Šä¸€æ¬¡ 2ä¸Šä¸Šæ¬¡
+    fp32 error[3]; //è¯¯å·®é¡¹ 0æœ€æ–° 1ä¸Šä¸€æ¬¡ 2ä¸Šä¸Šæ¬¡
 
 } pid_type_def;
 
@@ -92,98 +91,3 @@ extern PID_Controller pid_controller;
 #endif
 
 #endif
-=======
-#ifndef __PID_H_
-#define __PID_H_
-
-
-#ifdef __cplusplus
-extern "C" 
-{
-#endif
-// #include <cstdint>
-#include "startup_main.h"
-
-#define LimitMax(input, max)   \
-{                          		 \
-        if (input > max)       \
-        {                      \
-            input = max;       \
-        }                      \
-        else if (input < -max) \
-        {                      \
-            input = -max;      \
-        }                      \
-}
-
-	
-typedef enum
-{
-    PID_POSITION = 0,
-    PID_DELTA
-}PID_MODE;
-
-typedef struct
-{
-    uint8_t mode;
-    //PID Èý²ÎÊý
-    fp32 Kp;
-    fp32 Ki;
-    fp32 Kd;
-
-    fp32 max_out;  //×î´óÊä³ö
-    fp32 max_iout; //×î´ó»ý·ÖÊä³ö
-
-    fp32 set;
-    fp32 fdb;
-
-    fp32 out;
-    fp32 Pout;
-    fp32 Iout;
-    fp32 Dout;
-    fp32 Dbuf[3];  //Î¢·ÖÏî 0×îÐÂ 1ÉÏÒ»´Î 2ÉÏÉÏ´Î
-    fp32 error[3]; //Îó²îÏî 0×îÐÂ 1ÉÏÒ»´Î 2ÉÏÉÏ´Î
-
-} pid_type_def;
-
-class PID_Controller
-{
-	public:
-
-		void All_Device_Init(void);
-	
-		class CORE
-		{
-			public:
-				void PID_Init(pid_type_def *pid, uint8_t mode, const fp32 PID[3], fp32 max_out, fp32 max_iout);
-				fp32 PID_Calc(pid_type_def *pid, fp32 ref, fp32 set);
-				void PID_Clear(pid_type_def *pid);
-		}core;
-		
-		class BRUSHED_MOTOR
-		{
-			public:
-            fp32 MOTOR_Velocity_Realize_1(int16_t set_speed);
-            fp32 MOTOR_Velocity_Realize_2(int16_t set_speed);
-
-		}brushed_motor;
-		
-		class SENSORS
-		{
-			public:
-				
-				
-                fp32 Yaw_Realize(fp32 set_yaw);
-	         		          
-
-		}sensors;
-};
-	
-extern PID_Controller pid_controller;
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif
->>>>>>> 00ac74e (9.6)

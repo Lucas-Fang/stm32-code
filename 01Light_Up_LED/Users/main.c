@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#include "./SYSTEM/sys/sys.h"
+ï»¿#include "./SYSTEM/sys/sys.h"
 #include "./SYSTEM/usart/usart.h"
 #include "./SYSTEM/delay/delay.h"
 #include "./BSP/LED/led.h"
@@ -7,39 +6,16 @@
 
 int main(void)
 {
-    HAL_Init();                              /* ³õÊ¼»¯HAL¿â */
-    SystemClock_Config();                    /* ÉèÖÃÊ±ÖÓ, 72Mhz */
-    delay_init(72);                          /* ÑÓÊ±³õÊ¼»¯ */
-    led_init();                              /* LED³õÊ¼»¯ */
+    HAL_Init();                              /* åˆå§‹åŒ–HALåº“ */
+    SystemClock_Config();                    /* è®¾ç½®æ—¶é’Ÿ, 72Mhz */
+    delay_init(72);                          /* å»¶æ—¶åˆå§‹åŒ– */
+    led_init();                              /* LEDåˆå§‹åŒ– */
     
     while(1)
     { 
-        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);    /* PC13ÖÃ1 */  
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);    /* PC13ç½®1 */  
         delay_ms(500);
-        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);  /* PC13ÖÃ0 */
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);  /* PC13ç½®0 */
         delay_ms(500); 
     }
 }
-=======
-#include "./SYSTEM/sys/sys.h"
-#include "./SYSTEM/usart/usart.h"
-#include "./SYSTEM/delay/delay.h"
-#include "./BSP/LED/led.h"
-
-
-int main(void)
-{
-    HAL_Init();                              /* ³õÊ¼»¯HAL¿â */
-    SystemClock_Config();                    /* ÉèÖÃÊ±ÖÓ, 72Mhz */
-    delay_init(72);                          /* ÑÓÊ±³õÊ¼»¯ */
-    led_init();                              /* LED³õÊ¼»¯ */
-    
-    while(1)
-    { 
-        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);    /* PC13ÖÃ1 */  
-        delay_ms(500);
-        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);  /* PC13ÖÃ0 */
-        delay_ms(500); 
-    }
-}
->>>>>>> 00ac74e (9.6)

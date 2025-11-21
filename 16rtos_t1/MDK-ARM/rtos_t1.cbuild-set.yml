@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-cbuild-set:
+﻿cbuild-set:
   generated-by: csolution version 2.4.0
   contexts:
     - context: rtos_t1+rtost1
-=======
-cbuild-set:
-  generated-by: csolution version 2.4.0
-  contexts:
-    - context: rtos_t1+rtost1
->>>>>>> 00ac74e (9.6)

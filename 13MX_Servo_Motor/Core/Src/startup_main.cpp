@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#include "startup_main.h"
+ï»¿#include "startup_main.h"
 #include "bsp_delay.h"
 #include "tim.h"
 
@@ -8,12 +7,12 @@ void startup_main(void)
   bsp_delay.f1.Init(72);
 	uint16_t ledrpwmval = 10;
 
-#if isRTOS==0    	//Èç¹ûÊÇÂã»ú¿ª·¢
-	for(;;)  //µÈÍ¬ÓÚwhile(true)
+#if isRTOS==0    	//å¦‚æžœæ˜¯è£¸æœºå¼€å‘
+	for(;;)  //ç­‰åŒäºŽwhile(true)
 	{
 		
 		HAL_Delay(1000);
-           /*ÐÞ¸Ä±È½ÏÖµÕ¼¿Õ±È*/
+           /*ä¿®æ”¹æ¯”è¾ƒå€¼å ç©ºæ¯”*/
         if(ledrpwmval==10)
         {
             ledrpwmval=ledrpwmval+5;
@@ -27,33 +26,3 @@ void startup_main(void)
 	}
 #endif
 }
-=======
-#include "startup_main.h"
-#include "bsp_delay.h"
-#include "tim.h"
-
-void startup_main(void)
-{
-  bsp_delay.f1.Init(72);
-	uint16_t ledrpwmval = 10;
-
-#if isRTOS==0    	//Èç¹ûÊÇÂã»ú¿ª·¢
-	for(;;)  //µÈÍ¬ÓÚwhile(true)
-	{
-		
-		HAL_Delay(1000);
-           /*ÐÞ¸Ä±È½ÏÖµÕ¼¿Õ±È*/
-        if(ledrpwmval==10)
-        {
-            ledrpwmval=ledrpwmval+5;
-            __HAL_TIM_SET_COMPARE( &htim3,TIM_CHANNEL_2,ledrpwmval);
-        }
-        else if (ledrpwmval==15)
-        {
-            ledrpwmval=10;
-            __HAL_TIM_SET_COMPARE( &htim3,TIM_CHANNEL_2,ledrpwmval);
-        }
-	}
-#endif
-}
->>>>>>> 00ac74e (9.6)

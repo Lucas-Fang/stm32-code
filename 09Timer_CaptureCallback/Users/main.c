@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#include "./SYSTEM/sys/sys.h"
+ï»¿#include "./SYSTEM/sys/sys.h"
 #include "./SYSTEM/usart/usart.h"
 #include "./SYSTEM/delay/delay.h"
 #include "./BSP/LED/led.h"
@@ -16,11 +15,11 @@ int main(void)
 {
     uint32_t temp = 0;
     
-    HAL_Init();                                         /* ³õÊ¼»¯HAL¿â */
-    SystemClock_Config();                               /* ÉèÖÃÊ±ÖÓ, 72Mhz */
-    delay_init(72);                                     /* ÑÓÊ±³õÊ¼»¯ */
-    led_init();                                         /* LED³õÊ¼»¯ */
-    gtim_timx_pwm_chy_init(0XFFFF,72-1);                /*ÒÔ1MhzµÄÆµÂÊ¼ÆÊý ½øÐÐ²¶»ñ*/
+    HAL_Init();                                         /* åˆå§‹åŒ–HALåº“ */
+    SystemClock_Config();                               /* è®¾ç½®æ—¶é’Ÿ, 72Mhz */
+    delay_init(72);                                     /* å»¶æ—¶åˆå§‹åŒ– */
+    led_init();                                         /* LEDåˆå§‹åŒ– */
+    gtim_timx_pwm_chy_init(0XFFFF,72-1);                /*ä»¥1Mhzçš„é¢‘çŽ‡è®¡æ•° è¿›è¡Œæ•èŽ·*/
     //usart_init(9600);
     
     
@@ -33,11 +32,11 @@ int main(void)
 
         if (g_timxchp_cap_sta & 0X80)
         {
-            temp =g_timxchp_cap_sta & 0X3F;             /*»ñÈ¡²¶»ñ´ÎÊý*/
+            temp =g_timxchp_cap_sta & 0X3F;             /*èŽ·å–æ•èŽ·æ¬¡æ•°*/
             temp *= 65536;
-            temp +=g_timxchy_cap_val;                   /*µÃµ½×ÜµÃ¸ßµçÆ½Ê±¼ä*/
+            temp +=g_timxchy_cap_val;                   /*å¾—åˆ°æ€»å¾—é«˜ç”µå¹³æ—¶é—´*/
             
-            g_timxchp_cap_sta = 0;                      /*¿ªÆôÏÂÒ»´ÎÊäÈë²¶»ñ*/
+            g_timxchp_cap_sta = 0;                      /*å¼€å¯ä¸‹ä¸€æ¬¡è¾“å…¥æ•èŽ·*/
             
              distance =  temp * (34000/1000000) / 2;
         }
@@ -58,64 +57,3 @@ int main(void)
 
 
 
-=======
-#include "./SYSTEM/sys/sys.h"
-#include "./SYSTEM/usart/usart.h"
-#include "./SYSTEM/delay/delay.h"
-#include "./BSP/LED/led.h"
-#include "./BSP/TIMER/gtim.h"
-
-
-extern uint8_t g_timxchp_cap_sta;
-extern uint16_t g_timxchy_cap_val;
-
-uint16_t distance ;
-
-
-int main(void)
-{
-    uint32_t temp = 0;
-    
-    HAL_Init();                                         /* ³õÊ¼»¯HAL¿â */
-    SystemClock_Config();                               /* ÉèÖÃÊ±ÖÓ, 72Mhz */
-    delay_init(72);                                     /* ÑÓÊ±³õÊ¼»¯ */
-    led_init();                                         /* LED³õÊ¼»¯ */
-    gtim_timx_pwm_chy_init(0XFFFF,72-1);                /*ÒÔ1MhzµÄÆµÂÊ¼ÆÊý ½øÐÐ²¶»ñ*/
-    //usart_init(9600);
-    
-    
-    while(1)
-    { 
-        HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
-        delay_us(10);
-        HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_RESET);
-        //delay_ms(10);
-
-        if (g_timxchp_cap_sta & 0X80)
-        {
-            temp =g_timxchp_cap_sta & 0X3F;             /*»ñÈ¡²¶»ñ´ÎÊý*/
-            temp *= 65536;
-            temp +=g_timxchy_cap_val;                   /*µÃµ½×ÜµÃ¸ßµçÆ½Ê±¼ä*/
-            
-            g_timxchp_cap_sta = 0;                      /*¿ªÆôÏÂÒ»´ÎÊäÈë²¶»ñ*/
-            
-             distance =  temp * (34000/1000000) / 2;
-        }
-        
-       //HAL_UART_Transmit(&g_uart1_handle, (uint8_t *)&distance,2,100);
-
-        delay_ms(200);
-
-    }
-    
-    
-    
-    
-    
-    
-    
-}
-
-
-
->>>>>>> 00ac74e (9.6)

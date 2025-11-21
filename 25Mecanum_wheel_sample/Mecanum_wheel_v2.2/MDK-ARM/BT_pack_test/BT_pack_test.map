@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-Component: ARM Compiler 5.06 update 7 (build 960) Tool: armlink [4d3601]
-
-==============================================================================
-
+﻿
 Section Cross References
 
     startup_stm32f103xb.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
@@ -4130,4 +4126,3 @@ Image component sizes
 
 ==============================================================================
 
->>>>>>> 00ac74e (9.6)

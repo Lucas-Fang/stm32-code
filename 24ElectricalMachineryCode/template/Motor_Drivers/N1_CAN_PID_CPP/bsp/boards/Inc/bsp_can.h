@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#ifndef __BSP_CAN_H_
+ï»¿#ifndef __BSP_CAN_H_
 #define __BSP_CAN_H_
 
 #ifdef __cplusplus
@@ -9,7 +8,7 @@ extern "C"
 
 #include "startup_main.h"
 
-//½«CAN_BUSÀàÒýÈë
+//å°†CAN_BUSç±»å¼•å…¥
 #include "can_receive.h"
 	
 	
@@ -21,27 +20,3 @@ extern "C"
 #endif
 
 #endif
-=======
-#ifndef __BSP_CAN_H_
-#define __BSP_CAN_H_
-
-#ifdef __cplusplus
-extern "C" 
-{
-#endif
-
-#include "startup_main.h"
-
-//½«CAN_BUSÀàÒýÈë
-#include "can_receive.h"
-	
-	
-	
-	
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif
->>>>>>> 00ac74e (9.6)

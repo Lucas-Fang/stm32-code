@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-Component: Arm Compiler for Embedded 6.22 Tool: armlink [5ee90200]
-
-==============================================================================
-
+﻿
 Section Cross References
 
     startup_stm32f103xb.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
@@ -5644,4 +5640,3 @@ Image component sizes
 
 ==============================================================================
 
->>>>>>> 00ac74e (9.6)

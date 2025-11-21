@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#include "bsp_uart.h"
+ï»¿#include "bsp_uart.h"
 
 
 uint8_t rx_buff[1];
@@ -26,56 +25,56 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 				Back_R(-200);
 			break;			
 			
-			case '2'://×óÆ½ÒÆ
+			case '2'://å·¦å¹³ç§»
 				Front_L(-200);
 				Front_R(200);
 				Back_L(200);
 				Back_R(-200);
 			break;
 			
-			case '3'://ÓÒÆ½ÒÆ
+			case '3'://å³å¹³ç§»
 				Front_L(200);
 				Front_R(-200);
 				Back_L(-200);
 				Back_R(200);
 			break;
 			
-			case '4'://ÄæÊ±Õë
+			case '4'://é€†æ—¶é’ˆ
 				Front_L(-200);
 				Front_R(200);
 				Back_L(-200);
 				Back_R(200);
 			break;
 			
-			case '5'://Ë³Ê±Õë
+			case '5'://é¡ºæ—¶é’ˆ
 				Front_L(200);
 				Front_R(-200);
 				Back_L(200);
 				Back_R(-200);
 			break;
 			
-			case '6'://ÓÒÉÏ
+			case '6'://å³ä¸Š
 				Front_L(0);
 				Front_R(200);
 				Back_L(200);
 				Back_R(0);
 			break;
 			
-			case '7'://×óÉÏ
+			case '7'://å·¦ä¸Š
 				Front_L(200);
 				Front_R(0);
 				Back_L(0);
 				Back_R(200);
 			break;
 			
-			case '8'://×ó×ª
+			case '8'://å·¦è½¬
 				Front_L(0);
 				Front_R(0);
 				Back_L(-200);
 				Back_R(200);
 			break;
 			
-			case '9'://ÓÒ×ª
+			case '9'://å³è½¬
 				Front_L(0);
 				Front_R(0);
 				Back_L(200);
@@ -96,102 +95,3 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		
 	}
 }
-=======
-#include "bsp_uart.h"
-
-
-uint8_t rx_buff[1];
-
-extern "C"
-	
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-	if(huart->Instance == USART1)
-	{
-		switch(rx_buff[0])
-		{
-			case '0':
-				Front_L(200);
-				Front_R(200);
-				Back_L(200);
-				Back_R(200);
-			break;
-			
-			case '1':
-				Front_L(-200);
-				Front_R(-200);
-				Back_L(-200);
-				Back_R(-200);
-			break;			
-			
-			case '2'://×óÆ½ÒÆ
-				Front_L(-200);
-				Front_R(200);
-				Back_L(200);
-				Back_R(-200);
-			break;
-			
-			case '3'://ÓÒÆ½ÒÆ
-				Front_L(200);
-				Front_R(-200);
-				Back_L(-200);
-				Back_R(200);
-			break;
-			
-			case '4'://ÄæÊ±Õë
-				Front_L(-200);
-				Front_R(200);
-				Back_L(-200);
-				Back_R(200);
-			break;
-			
-			case '5'://Ë³Ê±Õë
-				Front_L(200);
-				Front_R(-200);
-				Back_L(200);
-				Back_R(-200);
-			break;
-			
-			case '6'://ÓÒÉÏ
-				Front_L(0);
-				Front_R(200);
-				Back_L(200);
-				Back_R(0);
-			break;
-			
-			case '7'://×óÉÏ
-				Front_L(200);
-				Front_R(0);
-				Back_L(0);
-				Back_R(200);
-			break;
-			
-			case '8'://×ó×ª
-				Front_L(0);
-				Front_R(0);
-				Back_L(-200);
-				Back_R(200);
-			break;
-			
-			case '9'://ÓÒ×ª
-				Front_L(0);
-				Front_R(0);
-				Back_L(200);
-				Back_R(-200);
-			break;
-			
-			case 'a':
-				Front_L(0);
-				Front_R(0);
-				Back_L(0);
-				Back_R(0);
-			break;
-			
-			
-		}
-		
-		
-		
-	}
-}
->>>>>>> 00ac74e (9.6)

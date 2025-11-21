@@ -1,25 +1,24 @@
-<<<<<<< HEAD
-/**
+ï»¿/**
  ****************************************************************************************************
  * @file        delay.h
- * @author      ÕýµãÔ­×ÓÍÅ¶Ó(ALIENTEK)
+ * @author      æ­£ç‚¹åŽŸå­å›¢é˜Ÿ(ALIENTEK)
  * @version     V1.0
  * @date        2020-04-17
- * @brief       Ê¹ÓÃSysTickµÄÆÕÍ¨¼ÆÊýÄ£Ê½¶ÔÑÓ³Ù½øÐÐ¹ÜÀí(Ö§³Öucosii)
- *              Ìá¹©delay_init³õÊ¼»¯º¯Êý£¬ delay_usºÍdelay_msµÈÑÓÊ±º¯Êý
- * @license     Copyright (c) 2020-2032, ¹ãÖÝÊÐÐÇÒíµç×Ó¿Æ¼¼ÓÐÏÞ¹«Ë¾
+ * @brief       ä½¿ç”¨SysTickçš„æ™®é€šè®¡æ•°æ¨¡å¼å¯¹å»¶è¿Ÿè¿›è¡Œç®¡ç†(æ”¯æŒucosii)
+ *              æä¾›delay_initåˆå§‹åŒ–å‡½æ•°ï¼Œ delay_uså’Œdelay_msç­‰å»¶æ—¶å‡½æ•°
+ * @license     Copyright (c) 2020-2032, å¹¿å·žå¸‚æ˜Ÿç¿¼ç”µå­ç§‘æŠ€æœ‰é™å…¬å¸
  ****************************************************************************************************
  * @attention
  *
- * ÊµÑéÆ½Ì¨:ÕýµãÔ­×Ó STM32F103¿ª·¢°å
- * ÔÚÏßÊÓÆµ:www.yuanzige.com
- * ¼¼ÊõÂÛÌ³:www.openedv.com
- * ¹«Ë¾ÍøÖ·:www.alientek.com
- * ¹ºÂòµØÖ·:openedv.taobao.com
+ * å®žéªŒå¹³å°:æ­£ç‚¹åŽŸå­ STM32F103å¼€å‘æ¿
+ * åœ¨çº¿è§†é¢‘:www.yuanzige.com
+ * æŠ€æœ¯è®ºå›:www.openedv.com
+ * å…¬å¸ç½‘å€:www.alientek.com
+ * è´­ä¹°åœ°å€:openedv.taobao.com
  *
- * ÐÞ¸ÄËµÃ÷
+ * ä¿®æ”¹è¯´æ˜Ž
  * V1.0 20211103
- * µÚÒ»´Î·¢²¼
+ * ç¬¬ä¸€æ¬¡å‘å¸ƒ
  *
  ****************************************************************************************************
  */
@@ -30,12 +29,12 @@
 #include "./SYSTEM/sys/sys.h"
 
 
-void delay_init(uint16_t sysclk);       /* ³õÊ¼»¯ÑÓ³Ùº¯Êý */
-void delay_ms(uint16_t nms);            /* ÑÓÊ±nms */
-void delay_us(uint32_t nus);            /* ÑÓÊ±nus */
+void delay_init(uint16_t sysclk);       /* åˆå§‹åŒ–å»¶è¿Ÿå‡½æ•° */
+void delay_ms(uint16_t nms);            /* å»¶æ—¶nms */
+void delay_us(uint32_t nus);            /* å»¶æ—¶nus */
 
-#if (!SYS_SUPPORT_OS)                   /* Èç¹û²»Ö§³ÖOS */
-    void HAL_Delay(uint32_t Delay);     /* HAL¿âµÄÑÓÊ±º¯Êý£¬HAL¿âÄÚ²¿ÓÃµ½ */
+#if (!SYS_SUPPORT_OS)                   /* å¦‚æžœä¸æ”¯æŒOS */
+    void HAL_Delay(uint32_t Delay);     /* HALåº“çš„å»¶æ—¶å‡½æ•°ï¼ŒHALåº“å†…éƒ¨ç”¨åˆ° */
 #endif
 
 #endif
@@ -68,74 +67,3 @@ void delay_us(uint32_t nus);            /* ÑÓÊ±nus */
 
 
 
-=======
-/**
- ****************************************************************************************************
- * @file        delay.h
- * @author      ÕýµãÔ­×ÓÍÅ¶Ó(ALIENTEK)
- * @version     V1.0
- * @date        2020-04-17
- * @brief       Ê¹ÓÃSysTickµÄÆÕÍ¨¼ÆÊýÄ£Ê½¶ÔÑÓ³Ù½øÐÐ¹ÜÀí(Ö§³Öucosii)
- *              Ìá¹©delay_init³õÊ¼»¯º¯Êý£¬ delay_usºÍdelay_msµÈÑÓÊ±º¯Êý
- * @license     Copyright (c) 2020-2032, ¹ãÖÝÊÐÐÇÒíµç×Ó¿Æ¼¼ÓÐÏÞ¹«Ë¾
- ****************************************************************************************************
- * @attention
- *
- * ÊµÑéÆ½Ì¨:ÕýµãÔ­×Ó STM32F103¿ª·¢°å
- * ÔÚÏßÊÓÆµ:www.yuanzige.com
- * ¼¼ÊõÂÛÌ³:www.openedv.com
- * ¹«Ë¾ÍøÖ·:www.alientek.com
- * ¹ºÂòµØÖ·:openedv.taobao.com
- *
- * ÐÞ¸ÄËµÃ÷
- * V1.0 20211103
- * µÚÒ»´Î·¢²¼
- *
- ****************************************************************************************************
- */
- 
-#ifndef __DELAY_H
-#define __DELAY_H
-
-#include "./SYSTEM/sys/sys.h"
-
-
-void delay_init(uint16_t sysclk);       /* ³õÊ¼»¯ÑÓ³Ùº¯Êý */
-void delay_ms(uint16_t nms);            /* ÑÓÊ±nms */
-void delay_us(uint32_t nus);            /* ÑÓÊ±nus */
-
-#if (!SYS_SUPPORT_OS)                   /* Èç¹û²»Ö§³ÖOS */
-    void HAL_Delay(uint32_t Delay);     /* HAL¿âµÄÑÓÊ±º¯Êý£¬HAL¿âÄÚ²¿ÓÃµ½ */
-#endif
-
-#endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 00ac74e (9.6)

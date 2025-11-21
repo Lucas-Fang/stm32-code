@@ -1,24 +1,23 @@
-<<<<<<< HEAD
-/**
+ï»¿/**
  ****************************************************************************************************
  * @file        sys.c
- * @author      ÕýµãÔ­×ÓÍÅ¶Ó(ALIENTEK)
+ * @author      æ­£ç‚¹åŽŸå­å›¢é˜Ÿ(ALIENTEK)
  * @version     V1.0
  * @date        2020-04-17
- * @brief       ÏµÍ³³õÊ¼»¯´úÂë(°üÀ¨Ê±ÖÓÅäÖÃ/ÖÐ¶Ï¹ÜÀí/GPIOÉèÖÃµÈ)
- * @license     Copyright (c) 2020-2032, ¹ãÖÝÊÐÐÇÒíµç×Ó¿Æ¼¼ÓÐÏÞ¹«Ë¾
+ * @brief       ç³»ç»Ÿåˆå§‹åŒ–ä»£ç (åŒ…æ‹¬æ—¶é’Ÿé…ç½®/ä¸­æ–­ç®¡ç†/GPIOè®¾ç½®ç­‰)
+ * @license     Copyright (c) 2020-2032, å¹¿å·žå¸‚æ˜Ÿç¿¼ç”µå­ç§‘æŠ€æœ‰é™å…¬å¸
  ****************************************************************************************************
  * @attention
  *
- * ÊµÑéÆ½Ì¨:ÕýµãÔ­×Ó STM32F103¿ª·¢°å
- * ÔÚÏßÊÓÆµ:www.yuanzige.com
- * ¼¼ÊõÂÛÌ³:www.openedv.com
- * ¹«Ë¾ÍøÖ·:www.alientek.com
- * ¹ºÂòµØÖ·:openedv.taobao.com
+ * å®žéªŒå¹³å°:æ­£ç‚¹åŽŸå­ STM32F103å¼€å‘æ¿
+ * åœ¨çº¿è§†é¢‘:www.yuanzige.com
+ * æŠ€æœ¯è®ºå›:www.openedv.com
+ * å…¬å¸ç½‘å€:www.alientek.com
+ * è´­ä¹°åœ°å€:openedv.taobao.com
  *
- * ÐÞ¸ÄËµÃ÷
+ * ä¿®æ”¹è¯´æ˜Ž
  * V1.0 20211103
- * µÚÒ»´Î·¢²¼
+ * ç¬¬ä¸€æ¬¡å‘å¸ƒ
  *
  ****************************************************************************************************
  */
@@ -27,21 +26,21 @@
 
 
 /**
- * @brief       ÉèÖÃÖÐ¶ÏÏòÁ¿±íÆ«ÒÆµØÖ·
- * @param       baseaddr: »ùÖ·
- * @param       offset: Æ«ÒÆÁ¿(±ØÐëÊÇ0, »òÕß0X100µÄ±¶Êý)
- * @retval      ÎÞ
+ * @brief       è®¾ç½®ä¸­æ–­å‘é‡è¡¨åç§»åœ°å€
+ * @param       baseaddr: åŸºå€
+ * @param       offset: åç§»é‡(å¿…é¡»æ˜¯0, æˆ–è€…0X100çš„å€æ•°)
+ * @retval      æ— 
  */
 void sys_nvic_set_vector_table(uint32_t baseaddr, uint32_t offset)
 {
-    /* ÉèÖÃNVICµÄÏòÁ¿±íÆ«ÒÆ¼Ä´æÆ÷,VTORµÍ9Î»±£Áô,¼´[8:0]±£Áô */
+    /* è®¾ç½®NVICçš„å‘é‡è¡¨åç§»å¯„å­˜å™¨,VTORä½Ž9ä½ä¿ç•™,å³[8:0]ä¿ç•™ */
     SCB->VTOR = baseaddr | (offset & (uint32_t)0xFFFFFE00);
 }
 
 /**
- * @brief       Ö´ÐÐ: WFIÖ¸Áî(Ö´ÐÐÍê¸ÃÖ¸Áî½øÈëµÍ¹¦ºÄ×´Ì¬, µÈ´ýÖÐ¶Ï»½ÐÑ)
- * @param       ÎÞ
- * @retval      ÎÞ
+ * @brief       æ‰§è¡Œ: WFIæŒ‡ä»¤(æ‰§è¡Œå®Œè¯¥æŒ‡ä»¤è¿›å…¥ä½ŽåŠŸè€—çŠ¶æ€, ç­‰å¾…ä¸­æ–­å”¤é†’)
+ * @param       æ— 
+ * @retval      æ— 
  */
 void sys_wfi_set(void)
 {
@@ -49,9 +48,9 @@ void sys_wfi_set(void)
 }
 
 /**
- * @brief       ¹Ø±ÕËùÓÐÖÐ¶Ï(µ«ÊÇ²»°üÀ¨faultºÍNMIÖÐ¶Ï)
- * @param       ÎÞ
- * @retval      ÎÞ
+ * @brief       å…³é—­æ‰€æœ‰ä¸­æ–­(ä½†æ˜¯ä¸åŒ…æ‹¬faultå’ŒNMIä¸­æ–­)
+ * @param       æ— 
+ * @retval      æ— 
  */
 void sys_intx_disable(void)
 {
@@ -59,9 +58,9 @@ void sys_intx_disable(void)
 }
 
 /**
- * @brief       ¿ªÆôËùÓÐÖÐ¶Ï
- * @param       ÎÞ
- * @retval      ÎÞ
+ * @brief       å¼€å¯æ‰€æœ‰ä¸­æ–­
+ * @param       æ— 
+ * @retval      æ— 
  */
 void sys_intx_enable(void)
 {
@@ -69,31 +68,31 @@ void sys_intx_enable(void)
 }
 
 /**
- * @brief       ÉèÖÃÕ»¶¥µØÖ·
- * @note        ×ó²àµÄºìX, ÊôÓÚMDKÎó±¨, Êµ¼ÊÊÇÃ»ÎÊÌâµÄ
- * @param       addr: Õ»¶¥µØÖ·
- * @retval      ÎÞ
+ * @brief       è®¾ç½®æ ˆé¡¶åœ°å€
+ * @note        å·¦ä¾§çš„çº¢X, å±žäºŽMDKè¯¯æŠ¥, å®žé™…æ˜¯æ²¡é—®é¢˜çš„
+ * @param       addr: æ ˆé¡¶åœ°å€
+ * @retval      æ— 
  */
 void sys_msr_msp(uint32_t addr)
 {
-    __set_MSP(addr);    /* ÉèÖÃÕ»¶¥µØÖ· */
+    __set_MSP(addr);    /* è®¾ç½®æ ˆé¡¶åœ°å€ */
 }
 
 /**
- * @brief       ½øÈë´ý»úÄ£Ê½
- * @param       ÎÞ
- * @retval      ÎÞ
+ * @brief       è¿›å…¥å¾…æœºæ¨¡å¼
+ * @param       æ— 
+ * @retval      æ— 
  */
 void sys_standby(void)
 {
-    __HAL_RCC_PWR_CLK_ENABLE();    /* Ê¹ÄÜµçÔ´Ê±ÖÓ */
-    SET_BIT(PWR->CR, PWR_CR_PDDS); /* ½øÈë´ý»úÄ£Ê½ */
+    __HAL_RCC_PWR_CLK_ENABLE();    /* ä½¿èƒ½ç”µæºæ—¶é’Ÿ */
+    SET_BIT(PWR->CR, PWR_CR_PDDS); /* è¿›å…¥å¾…æœºæ¨¡å¼ */
 }
 
 /**
- * @brief       ÏµÍ³Èí¸´Î»
- * @param       ÎÞ
- * @retval      ÎÞ
+ * @brief       ç³»ç»Ÿè½¯å¤ä½
+ * @param       æ— 
+ * @retval      æ— 
  */
 void sys_soft_reset(void)
 {
@@ -101,10 +100,10 @@ void sys_soft_reset(void)
 }
 
 /**
- * @brief       ÏµÍ³Ê±ÖÓ³õÊ¼»¯º¯Êý
- * @param       plln: PLL±¶ÆµÏµÊý(PLL±¶Æµ), È¡Öµ·¶Î§: 2~16
-                ÖÐ¶ÏÏòÁ¿±íÎ»ÖÃÔÚÆô¶¯Ê±ÒÑ¾­ÔÚSystemInit()ÖÐ³õÊ¼»¯
- * @retval      ÎÞ
+ * @brief       ç³»ç»Ÿæ—¶é’Ÿåˆå§‹åŒ–å‡½æ•°
+ * @param       plln: PLLå€é¢‘ç³»æ•°(PLLå€é¢‘), å–å€¼èŒƒå›´: 2~16
+                ä¸­æ–­å‘é‡è¡¨ä½ç½®åœ¨å¯åŠ¨æ—¶å·²ç»åœ¨SystemInit()ä¸­åˆå§‹åŒ–
+ * @retval      æ— 
  */
 void sys_stm32_clock_init(uint32_t plln)
 {
@@ -112,174 +111,31 @@ void sys_stm32_clock_init(uint32_t plln)
     RCC_OscInitTypeDef rcc_osc_init = {0};
     RCC_ClkInitTypeDef rcc_clk_init = {0};
 
-    rcc_osc_init.OscillatorType = RCC_OSCILLATORTYPE_HSE;       /* Ñ¡ÔñÒªÅäÖÃHSE */
-    rcc_osc_init.HSEState = RCC_HSE_ON;                         /* ´ò¿ªHSE */
-    rcc_osc_init.HSEPredivValue = RCC_HSE_PREDIV_DIV1;          /* HSEÔ¤·ÖÆµÏµÊý */
-    rcc_osc_init.PLL.PLLState = RCC_PLL_ON;                     /* ´ò¿ªPLL */
-    rcc_osc_init.PLL.PLLSource = RCC_PLLSOURCE_HSE;             /* PLLÊ±ÖÓÔ´Ñ¡ÔñHSE */
-    rcc_osc_init.PLL.PLLMUL = plln;                             /* PLL±¶ÆµÏµÊý */
-    ret = HAL_RCC_OscConfig(&rcc_osc_init);                     /* ³õÊ¼»¯ */
+    rcc_osc_init.OscillatorType = RCC_OSCILLATORTYPE_HSE;       /* é€‰æ‹©è¦é…ç½®HSE */
+    rcc_osc_init.HSEState = RCC_HSE_ON;                         /* æ‰“å¼€HSE */
+    rcc_osc_init.HSEPredivValue = RCC_HSE_PREDIV_DIV1;          /* HSEé¢„åˆ†é¢‘ç³»æ•° */
+    rcc_osc_init.PLL.PLLState = RCC_PLL_ON;                     /* æ‰“å¼€PLL */
+    rcc_osc_init.PLL.PLLSource = RCC_PLLSOURCE_HSE;             /* PLLæ—¶é’Ÿæºé€‰æ‹©HSE */
+    rcc_osc_init.PLL.PLLMUL = plln;                             /* PLLå€é¢‘ç³»æ•° */
+    ret = HAL_RCC_OscConfig(&rcc_osc_init);                     /* åˆå§‹åŒ– */
 
     if (ret != HAL_OK)
     {
-        while (1);                                              /* Ê±ÖÓ³õÊ¼»¯Ê§°Ü£¬Ö®ºóµÄ³ÌÐò½«¿ÉÄÜÎÞ·¨Õý³£Ö´ÐÐ£¬¿ÉÒÔÔÚÕâÀï¼ÓÈë×Ô¼ºµÄ´¦Àí */
+        while (1);                                              /* æ—¶é’Ÿåˆå§‹åŒ–å¤±è´¥ï¼Œä¹‹åŽçš„ç¨‹åºå°†å¯èƒ½æ— æ³•æ­£å¸¸æ‰§è¡Œï¼Œå¯ä»¥åœ¨è¿™é‡ŒåŠ å…¥è‡ªå·±çš„å¤„ç† */
     }
 
-    /* Ñ¡ÖÐPLL×÷ÎªÏµÍ³Ê±ÖÓÔ´²¢ÇÒÅäÖÃHCLK,PCLK1ºÍPCLK2*/
+    /* é€‰ä¸­PLLä½œä¸ºç³»ç»Ÿæ—¶é’Ÿæºå¹¶ä¸”é…ç½®HCLK,PCLK1å’ŒPCLK2*/
     rcc_clk_init.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
-    rcc_clk_init.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;        /* ÉèÖÃÏµÍ³Ê±ÖÓÀ´×ÔPLL */
-    rcc_clk_init.AHBCLKDivider = RCC_SYSCLK_DIV1;               /* AHB·ÖÆµÏµÊýÎª1 */
-    rcc_clk_init.APB1CLKDivider = RCC_HCLK_DIV2;                /* APB1·ÖÆµÏµÊýÎª2 */
-    rcc_clk_init.APB2CLKDivider = RCC_HCLK_DIV1;                /* APB2·ÖÆµÏµÊýÎª1 */
-    ret = HAL_RCC_ClockConfig(&rcc_clk_init, FLASH_LATENCY_2);  /* Í¬Ê±ÉèÖÃFLASHÑÓÊ±ÖÜÆÚÎª2WS£¬Ò²¾ÍÊÇ3¸öCPUÖÜÆÚ¡£ */
+    rcc_clk_init.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;        /* è®¾ç½®ç³»ç»Ÿæ—¶é’Ÿæ¥è‡ªPLL */
+    rcc_clk_init.AHBCLKDivider = RCC_SYSCLK_DIV1;               /* AHBåˆ†é¢‘ç³»æ•°ä¸º1 */
+    rcc_clk_init.APB1CLKDivider = RCC_HCLK_DIV2;                /* APB1åˆ†é¢‘ç³»æ•°ä¸º2 */
+    rcc_clk_init.APB2CLKDivider = RCC_HCLK_DIV1;                /* APB2åˆ†é¢‘ç³»æ•°ä¸º1 */
+    ret = HAL_RCC_ClockConfig(&rcc_clk_init, FLASH_LATENCY_2);  /* åŒæ—¶è®¾ç½®FLASHå»¶æ—¶å‘¨æœŸä¸º2WSï¼Œä¹Ÿå°±æ˜¯3ä¸ªCPUå‘¨æœŸã€‚ */
 
     if (ret != HAL_OK)
     {
-        while (1);                                              /* Ê±ÖÓ³õÊ¼»¯Ê§°Ü£¬Ö®ºóµÄ³ÌÐò½«¿ÉÄÜÎÞ·¨Õý³£Ö´ÐÐ£¬¿ÉÒÔÔÚÕâÀï¼ÓÈë×Ô¼ºµÄ´¦Àí */
+        while (1);                                              /* æ—¶é’Ÿåˆå§‹åŒ–å¤±è´¥ï¼Œä¹‹åŽçš„ç¨‹åºå°†å¯èƒ½æ— æ³•æ­£å¸¸æ‰§è¡Œï¼Œå¯ä»¥åœ¨è¿™é‡ŒåŠ å…¥è‡ªå·±çš„å¤„ç† */
     }
 }
 
 
-=======
-/**
- ****************************************************************************************************
- * @file        sys.c
- * @author      ÕýµãÔ­×ÓÍÅ¶Ó(ALIENTEK)
- * @version     V1.0
- * @date        2020-04-17
- * @brief       ÏµÍ³³õÊ¼»¯´úÂë(°üÀ¨Ê±ÖÓÅäÖÃ/ÖÐ¶Ï¹ÜÀí/GPIOÉèÖÃµÈ)
- * @license     Copyright (c) 2020-2032, ¹ãÖÝÊÐÐÇÒíµç×Ó¿Æ¼¼ÓÐÏÞ¹«Ë¾
- ****************************************************************************************************
- * @attention
- *
- * ÊµÑéÆ½Ì¨:ÕýµãÔ­×Ó STM32F103¿ª·¢°å
- * ÔÚÏßÊÓÆµ:www.yuanzige.com
- * ¼¼ÊõÂÛÌ³:www.openedv.com
- * ¹«Ë¾ÍøÖ·:www.alientek.com
- * ¹ºÂòµØÖ·:openedv.taobao.com
- *
- * ÐÞ¸ÄËµÃ÷
- * V1.0 20211103
- * µÚÒ»´Î·¢²¼
- *
- ****************************************************************************************************
- */
-
-#include "./SYSTEM/sys/sys.h"
-
-
-/**
- * @brief       ÉèÖÃÖÐ¶ÏÏòÁ¿±íÆ«ÒÆµØÖ·
- * @param       baseaddr: »ùÖ·
- * @param       offset: Æ«ÒÆÁ¿(±ØÐëÊÇ0, »òÕß0X100µÄ±¶Êý)
- * @retval      ÎÞ
- */
-void sys_nvic_set_vector_table(uint32_t baseaddr, uint32_t offset)
-{
-    /* ÉèÖÃNVICµÄÏòÁ¿±íÆ«ÒÆ¼Ä´æÆ÷,VTORµÍ9Î»±£Áô,¼´[8:0]±£Áô */
-    SCB->VTOR = baseaddr | (offset & (uint32_t)0xFFFFFE00);
-}
-
-/**
- * @brief       Ö´ÐÐ: WFIÖ¸Áî(Ö´ÐÐÍê¸ÃÖ¸Áî½øÈëµÍ¹¦ºÄ×´Ì¬, µÈ´ýÖÐ¶Ï»½ÐÑ)
- * @param       ÎÞ
- * @retval      ÎÞ
- */
-void sys_wfi_set(void)
-{
-    __ASM volatile("wfi");
-}
-
-/**
- * @brief       ¹Ø±ÕËùÓÐÖÐ¶Ï(µ«ÊÇ²»°üÀ¨faultºÍNMIÖÐ¶Ï)
- * @param       ÎÞ
- * @retval      ÎÞ
- */
-void sys_intx_disable(void)
-{
-    __ASM volatile("cpsid i");
-}
-
-/**
- * @brief       ¿ªÆôËùÓÐÖÐ¶Ï
- * @param       ÎÞ
- * @retval      ÎÞ
- */
-void sys_intx_enable(void)
-{
-    __ASM volatile("cpsie i");
-}
-
-/**
- * @brief       ÉèÖÃÕ»¶¥µØÖ·
- * @note        ×ó²àµÄºìX, ÊôÓÚMDKÎó±¨, Êµ¼ÊÊÇÃ»ÎÊÌâµÄ
- * @param       addr: Õ»¶¥µØÖ·
- * @retval      ÎÞ
- */
-void sys_msr_msp(uint32_t addr)
-{
-    __set_MSP(addr);    /* ÉèÖÃÕ»¶¥µØÖ· */
-}
-
-/**
- * @brief       ½øÈë´ý»úÄ£Ê½
- * @param       ÎÞ
- * @retval      ÎÞ
- */
-void sys_standby(void)
-{
-    __HAL_RCC_PWR_CLK_ENABLE();    /* Ê¹ÄÜµçÔ´Ê±ÖÓ */
-    SET_BIT(PWR->CR, PWR_CR_PDDS); /* ½øÈë´ý»úÄ£Ê½ */
-}
-
-/**
- * @brief       ÏµÍ³Èí¸´Î»
- * @param       ÎÞ
- * @retval      ÎÞ
- */
-void sys_soft_reset(void)
-{
-    NVIC_SystemReset();
-}
-
-/**
- * @brief       ÏµÍ³Ê±ÖÓ³õÊ¼»¯º¯Êý
- * @param       plln: PLL±¶ÆµÏµÊý(PLL±¶Æµ), È¡Öµ·¶Î§: 2~16
-                ÖÐ¶ÏÏòÁ¿±íÎ»ÖÃÔÚÆô¶¯Ê±ÒÑ¾­ÔÚSystemInit()ÖÐ³õÊ¼»¯
- * @retval      ÎÞ
- */
-void sys_stm32_clock_init(uint32_t plln)
-{
-    HAL_StatusTypeDef ret = HAL_ERROR;
-    RCC_OscInitTypeDef rcc_osc_init = {0};
-    RCC_ClkInitTypeDef rcc_clk_init = {0};
-
-    rcc_osc_init.OscillatorType = RCC_OSCILLATORTYPE_HSE;       /* Ñ¡ÔñÒªÅäÖÃHSE */
-    rcc_osc_init.HSEState = RCC_HSE_ON;                         /* ´ò¿ªHSE */
-    rcc_osc_init.HSEPredivValue = RCC_HSE_PREDIV_DIV1;          /* HSEÔ¤·ÖÆµÏµÊý */
-    rcc_osc_init.PLL.PLLState = RCC_PLL_ON;                     /* ´ò¿ªPLL */
-    rcc_osc_init.PLL.PLLSource = RCC_PLLSOURCE_HSE;             /* PLLÊ±ÖÓÔ´Ñ¡ÔñHSE */
-    rcc_osc_init.PLL.PLLMUL = plln;                             /* PLL±¶ÆµÏµÊý */
-    ret = HAL_RCC_OscConfig(&rcc_osc_init);                     /* ³õÊ¼»¯ */
-
-    if (ret != HAL_OK)
-    {
-        while (1);                                              /* Ê±ÖÓ³õÊ¼»¯Ê§°Ü£¬Ö®ºóµÄ³ÌÐò½«¿ÉÄÜÎÞ·¨Õý³£Ö´ÐÐ£¬¿ÉÒÔÔÚÕâÀï¼ÓÈë×Ô¼ºµÄ´¦Àí */
-    }
-
-    /* Ñ¡ÖÐPLL×÷ÎªÏµÍ³Ê±ÖÓÔ´²¢ÇÒÅäÖÃHCLK,PCLK1ºÍPCLK2*/
-    rcc_clk_init.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
-    rcc_clk_init.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;        /* ÉèÖÃÏµÍ³Ê±ÖÓÀ´×ÔPLL */
-    rcc_clk_init.AHBCLKDivider = RCC_SYSCLK_DIV1;               /* AHB·ÖÆµÏµÊýÎª1 */
-    rcc_clk_init.APB1CLKDivider = RCC_HCLK_DIV2;                /* APB1·ÖÆµÏµÊýÎª2 */
-    rcc_clk_init.APB2CLKDivider = RCC_HCLK_DIV1;                /* APB2·ÖÆµÏµÊýÎª1 */
-    ret = HAL_RCC_ClockConfig(&rcc_clk_init, FLASH_LATENCY_2);  /* Í¬Ê±ÉèÖÃFLASHÑÓÊ±ÖÜÆÚÎª2WS£¬Ò²¾ÍÊÇ3¸öCPUÖÜÆÚ¡£ */
-
-    if (ret != HAL_OK)
-    {
-        while (1);                                              /* Ê±ÖÓ³õÊ¼»¯Ê§°Ü£¬Ö®ºóµÄ³ÌÐò½«¿ÉÄÜÎÞ·¨Õý³£Ö´ÐÐ£¬¿ÉÒÔÔÚÕâÀï¼ÓÈë×Ô¼ºµÄ´¦Àí */
-    }
-}
-
-
->>>>>>> 00ac74e (9.6)

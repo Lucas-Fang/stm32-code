@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#include "./SYSTEM/sys/sys.h"
+ï»¿#include "./SYSTEM/sys/sys.h"
 #include "./SYSTEM/usart/usart.h"
 #include "./SYSTEM/delay/delay.h"
 #include "./BSP/EXTI/exti.h"
@@ -7,9 +6,9 @@
 
 int main(void)
 {
-    HAL_Init();                              /* ³õÊ¼»¯HAL¿â */
-    sys_stm32_clock_init(RCC_PLL_MUL9);      /* ÉèÖÃÊ±ÖÓ, 72Mhz */
-    delay_init(72);                          /* ÑÓÊ±³õÊ¼»¯ */
+    HAL_Init();                              /* åˆå§‹åŒ–HALåº“ */
+    sys_stm32_clock_init(RCC_PLL_MUL9);      /* è®¾ç½®æ—¶é’Ÿ, 72Mhz */
+    delay_init(72);                          /* å»¶æ—¶åˆå§‹åŒ– */
     led_init ();
     exti_init();
 
@@ -18,24 +17,3 @@ int main(void)
 
     }
 }
-=======
-#include "./SYSTEM/sys/sys.h"
-#include "./SYSTEM/usart/usart.h"
-#include "./SYSTEM/delay/delay.h"
-#include "./BSP/EXTI/exti.h"
-
-
-int main(void)
-{
-    HAL_Init();                              /* ³õÊ¼»¯HAL¿â */
-    sys_stm32_clock_init(RCC_PLL_MUL9);      /* ÉèÖÃÊ±ÖÓ, 72Mhz */
-    delay_init(72);                          /* ÑÓÊ±³õÊ¼»¯ */
-    led_init ();
-    exti_init();
-
-    while(1)
-    { 
-
-    }
-}
->>>>>>> 00ac74e (9.6)

@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-del *.bak /s
+ï»¿del *.bak /s
 del *.ddk /s
 del *.edk /s
 del *.lst /s
@@ -8,7 +7,7 @@ del *.mpf /s
 del *.mpj /s
 del *.obj /s
 del *.omf /s
-::del *.opt /s  ::²»ÔÊÐíÉ¾³ýJLINKµÄÉèÖÃ
+::del *.opt /s  ::ä¸å…è®¸åˆ é™¤JLINKçš„è®¾ç½®
 del *.plg /s
 del *.rpt /s
 del *.tmp /s
@@ -30,36 +29,3 @@ del *.dbgconf /s
 del *.LINGZHUNING /s
 del *.Administrator /s
 exit
-=======
-del *.bak /s
-del *.ddk /s
-del *.edk /s
-del *.lst /s
-del *.lnp /s
-del *.mpf /s
-del *.mpj /s
-del *.obj /s
-del *.omf /s
-::del *.opt /s  ::²»ÔÊÐíÉ¾³ýJLINKµÄÉèÖÃ
-del *.plg /s
-del *.rpt /s
-del *.tmp /s
-del *.__i /s
-del *.crf /s
-del *.o /s
-del *.d /s
-del *.axf /s
-del *.tra /s
-del *.dep /s           
-del JLinkLog.txt /s
-
-del *.iex /s
-del *.htm /s
-del *.sct /s
-del *.map /s
-
-del *.dbgconf /s
-del *.LINGZHUNING /s
-del *.Administrator /s
-exit
->>>>>>> 00ac74e (9.6)

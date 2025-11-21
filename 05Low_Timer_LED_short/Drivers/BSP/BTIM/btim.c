@@ -1,42 +1,41 @@
-<<<<<<< HEAD
-#include "./BSP/BTIM/btim.h"
+ï»¿#include "./BSP/BTIM/btim.h"
 #include "./SYSTEM/delay/delay.h"
 
 
 TIM_HandleTypeDef g_timx_handle;
-/*¶¨Ê±Æ÷ÖÐ¶Ï³õÊ¼»¯º¯Êý*/
+/*å®šæ—¶å™¨ä¸­æ–­åˆå§‹åŒ–å‡½æ•°*/
 
 void bitm_timx_int_init( uint16_t arr,uint16_t psc)
 {
-    g_timx_handle.Instance = TIM2;                              /*ÍâÉè¼Ä´æÆ÷»ùµØÖ·*/
-    g_timx_handle.Init.Prescaler = psc;                         /*·ÖÆµÏµÊý*/
-    g_timx_handle.Init.Period=arr;                              /*×Ô¶¯ÖØÔØÖµARR*/
+    g_timx_handle.Instance = TIM2;                              /*å¤–è®¾å¯„å­˜å™¨åŸºåœ°å€*/
+    g_timx_handle.Init.Prescaler = psc;                         /*åˆ†é¢‘ç³»æ•°*/
+    g_timx_handle.Init.Period=arr;                              /*è‡ªåŠ¨é‡è½½å€¼ARR*/
     g_timx_handle.Init.CounterMode=TIM_COUNTERMODE_UP;
     HAL_TIM_Base_Init (&g_timx_handle);
     
     __HAL_TIM_CLEAR_FLAG (&g_timx_handle, TIM_SR_UIF);
     
-    HAL_TIM_Base_Start_IT(&g_timx_handle);                      /*Ê¹ÄÜ¸üÐÂÖÐ¶Ï²¢Æô¶¯¶¨Ê±Æ÷*/
+    HAL_TIM_Base_Start_IT(&g_timx_handle);                      /*ä½¿èƒ½æ›´æ–°ä¸­æ–­å¹¶å¯åŠ¨å®šæ—¶å™¨*/
 }
-/*¶¨Ê±Æ÷»ù´¡MSP³õÊ¼»¯º¯Êý*/
+/*å®šæ—¶å™¨åŸºç¡€MSPåˆå§‹åŒ–å‡½æ•°*/
 void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htim)
 {
     if(htim->Instance == TIM2)
     {
-        __HAL_RCC_TIM2_CLK_ENABLE();                            /*Ê±ÖÓÊ¹ÄÜ*/
-        HAL_NVIC_SetPriority(TIM2_IRQn,0,0);                    /*ÖÐ¶ÏÓÅÏÈ¼¶ÉèÖÃ*/
-        HAL_NVIC_EnableIRQ(TIM2_IRQn);                          /*Ê¹ÄÜÖÐ¶Ï*/
+        __HAL_RCC_TIM2_CLK_ENABLE();                            /*æ—¶é’Ÿä½¿èƒ½*/
+        HAL_NVIC_SetPriority(TIM2_IRQn,0,0);                    /*ä¸­æ–­ä¼˜å…ˆçº§è®¾ç½®*/
+        HAL_NVIC_EnableIRQ(TIM2_IRQn);                          /*ä½¿èƒ½ä¸­æ–­*/
         
     }
 }
 
-/*¶¨Ê±Æ÷6ÖÐ¶Ï·þÎñº¯Êý*/
+/*å®šæ—¶å™¨6ä¸­æ–­æœåŠ¡å‡½æ•°*/
 void TIM2_IRQHandler (void)
 {
-    HAL_TIM_IRQHandler(&g_timx_handle);                         /*ÖÐ¶Ï¹«¹²·þÎñº¯Êý*/
+    HAL_TIM_IRQHandler(&g_timx_handle);                         /*ä¸­æ–­å…¬å…±æœåŠ¡å‡½æ•°*/
 }
 
-/*¶¨Ê±Æ÷Òç³öÖÐ¶Ï»Øµ÷º¯Êý*/
+/*å®šæ—¶å™¨æº¢å‡ºä¸­æ–­å›žè°ƒå‡½æ•°*/
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {   if(htim->Instance == TIM2)
     {
@@ -52,58 +51,3 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 
 
-=======
-#include "./BSP/BTIM/btim.h"
-#include "./SYSTEM/delay/delay.h"
-
-
-TIM_HandleTypeDef g_timx_handle;
-/*¶¨Ê±Æ÷ÖÐ¶Ï³õÊ¼»¯º¯Êý*/
-
-void bitm_timx_int_init( uint16_t arr,uint16_t psc)
-{
-    g_timx_handle.Instance = TIM2;                              /*ÍâÉè¼Ä´æÆ÷»ùµØÖ·*/
-    g_timx_handle.Init.Prescaler = psc;                         /*·ÖÆµÏµÊý*/
-    g_timx_handle.Init.Period=arr;                              /*×Ô¶¯ÖØÔØÖµARR*/
-    g_timx_handle.Init.CounterMode=TIM_COUNTERMODE_UP;
-    HAL_TIM_Base_Init (&g_timx_handle);
-    
-    __HAL_TIM_CLEAR_FLAG (&g_timx_handle, TIM_SR_UIF);
-    
-    HAL_TIM_Base_Start_IT(&g_timx_handle);                      /*Ê¹ÄÜ¸üÐÂÖÐ¶Ï²¢Æô¶¯¶¨Ê±Æ÷*/
-}
-/*¶¨Ê±Æ÷»ù´¡MSP³õÊ¼»¯º¯Êý*/
-void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htim)
-{
-    if(htim->Instance == TIM2)
-    {
-        __HAL_RCC_TIM2_CLK_ENABLE();                            /*Ê±ÖÓÊ¹ÄÜ*/
-        HAL_NVIC_SetPriority(TIM2_IRQn,0,0);                    /*ÖÐ¶ÏÓÅÏÈ¼¶ÉèÖÃ*/
-        HAL_NVIC_EnableIRQ(TIM2_IRQn);                          /*Ê¹ÄÜÖÐ¶Ï*/
-        
-    }
-}
-
-/*¶¨Ê±Æ÷6ÖÐ¶Ï·þÎñº¯Êý*/
-void TIM2_IRQHandler (void)
-{
-    HAL_TIM_IRQHandler(&g_timx_handle);                         /*ÖÐ¶Ï¹«¹²·þÎñº¯Êý*/
-}
-
-/*¶¨Ê±Æ÷Òç³öÖÐ¶Ï»Øµ÷º¯Êý*/
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{   if(htim->Instance == TIM2)
-    {
-        HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
-    }
-}
-
-
-
-
-
-
-
-
-
->>>>>>> 00ac74e (9.6)

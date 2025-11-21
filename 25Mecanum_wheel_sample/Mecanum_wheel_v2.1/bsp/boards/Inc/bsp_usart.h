@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#ifndef __BSP_USART_H_
+ï»¿#ifndef __BSP_USART_H_
 #define __BSP_USART_H_
 
 #include "main.h"
@@ -12,11 +11,11 @@
 typedef struct 
 {
 
-	uint8_t ch[4];      //Í¨µÀ£¨0 1×óÊÖÒ£¸ÐX Y , 2 3ÓÒÊÖÒ£¸ÐX Y£©
+	uint8_t ch[4];      //é€šé“ï¼ˆ0 1å·¦æ‰‹é¥æ„ŸX Y , 2 3å³æ‰‹é¥æ„ŸX Yï¼‰
 	
 	
 	
-}remote_data;      //Ò£¿ØÊý¾Ý
+}remote_data;      //é¥æŽ§æ•°æ®
 
 
 
@@ -30,36 +29,3 @@ void Receive_data(uint8_t Bytedata,uint8_t Data_len);
 
 
 #endif
-=======
-#ifndef __BSP_USART_H_
-#define __BSP_USART_H_
-
-#include "main.h"
-#include "usart.h"
-
-#define DATA_LEN   6
-
-
-
-typedef struct 
-{
-
-	uint8_t ch[4];      //Í¨µÀ£¨0 1×óÊÖÒ£¸ÐX Y , 2 3ÓÒÊÖÒ£¸ÐX Y£©
-	
-	
-	
-}remote_data;      //Ò£¿ØÊý¾Ý
-
-
-
-
-
-
-
-void DataAnalysis(uint8_t *Data);
-uint8_t SUMCRC(uint8_t *Message,uint16_t DataLen);
-void Receive_data(uint8_t Bytedata,uint8_t Data_len);
-
-
-#endif
->>>>>>> 00ac74e (9.6)
