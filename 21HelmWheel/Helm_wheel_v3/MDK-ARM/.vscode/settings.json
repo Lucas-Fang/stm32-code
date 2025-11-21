@@ -1,0 +1,19 @@
+{
+    "clangd.arguments": [
+        "--compile-commands-dir=e:\\AA_study_resource\\Cube_MX\\HelmWheel\\Helm_wheel_v3\\MDK-ARM\\out\\Helm_wheel\\Helmwheel"
+    ],
+
+    "clangd.fallbackFlags": [
+        "-Ic:/Users/18160/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.21.0/include"
+    ],
+    "cmsis-csolution.actions": [
+        {
+            "path": "Helm_wheel.csolution.yml",
+            "target": "Helmwheel",
+            "config": {
+                "run": "Flash Device"
+            }
+        }
+    ],
+    "cmake.sourceDirectory": "E:/AA_study_resource/Cube_MX/HelmWheel/Helm_wheel_v2/MDK-ARM/tmp/Helm_wheel/Helmwheel"
+}

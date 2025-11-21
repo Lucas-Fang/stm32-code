@@ -1,0 +1,9 @@
+build-idx:
+  generated-by: csolution version 2.4.0
+  csolution: Helm_wheel.csolution.yml
+  cprojects:
+    - cproject: Helm_wheel.cproject.yml
+  cbuilds:
+    - cbuild: Helm_wheel+Helmwheel.cbuild.yml
+      project: Helm_wheel
+      configuration: +Helmwheel

@@ -1,0 +1,9 @@
+{
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/tmp/Helm_wheel/Helmwheel"
+    ],
+
+    "clangd.fallbackFlags": [
+        "-Ic:/Users/18160/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.21.0/include"
+    ]
+}
